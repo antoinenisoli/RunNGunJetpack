@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
 
     [Header("Fly")]
-    [SerializeField] float flyForce, propulsionForce = 15f;
+    [SerializeField] float flyForce;
     [SerializeField] float consumeSpeed = 3f, reloadSpeed = 1.5f;
     [SerializeField] float maxFallSpeed, maxFlyVelocity;
 
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Slider fuelSlider;
 
     [Header("Sliding")]
+    [SerializeField] [Range(0,1)] float cancelThreshold = 0.3f;
     [SerializeField] [Curve(1,50)] AnimationCurve slidingCurve;
     [SerializeField] float slidingDuration = 3f;
 
@@ -39,7 +40,10 @@ public class PlayerController : MonoBehaviour
     float fuel;
     Rigidbody2D rb;
     bool reloading;
+    Dictionary<ModuleType, PlayerModule> modules = new Dictionary<ModuleType, PlayerModule>();
 
+    public Rigidbody2D Rigidbody { get => rb; set => rb = value; }
+    public float InputDirection { get => inputDirection; set => inputDirection = value; }
     public float Fuel 
     { 
         get => fuel; 
@@ -57,11 +61,33 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        inputDirection = 1f;
+        InputDirection = 1f;
         animator = GetComponentInChildren<PlayerAnimator>();
-        rb = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
         Fuel = fuelCapacity;
+
+        foreach (var item in GetComponents<Propulsion>())
+        {
+            item.Initialize(this);
+            modules.Add(item.myType, item);
+        }
     }
+
+    #region
+    public bool TryGetModule(ModuleType moduleType, out PlayerModule module)
+    {
+        if (modules.TryGetValue(moduleType, out module))
+            return true;
+
+        return false;
+    }
+
+    public void UseModule(ModuleType moduleType)
+    {
+        if (TryGetModule(moduleType, out PlayerModule module))
+            module.Use();
+    }
+    #endregion
 
     public void SetState(PlayerState newState)
     {
@@ -83,15 +109,15 @@ public class PlayerController : MonoBehaviour
 
         Vector2 move = new Vector2();
         move.x = Input.GetAxisRaw("Horizontal") * speed;
-        move.y = rb.velocity.y;
-        rb.velocity = move;
+        move.y = Rigidbody.velocity.y;
+        Rigidbody.velocity = move;
         if (Input.GetAxisRaw("Horizontal") != 0)
-            inputDirection = Input.GetAxisRaw("Horizontal");
+            InputDirection = Input.GetAxisRaw("Horizontal");
 
-        Vector2 clampedVelocity = rb.velocity;
+        Vector2 clampedVelocity = Rigidbody.velocity;
         if (Fuel > 0 && !reloading && Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
+            Rigidbody.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
             Fuel -= consumeSpeed * Time.deltaTime;
             delay = 0;
             clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, maxFallSpeed, maxFlyVelocity);
@@ -99,21 +125,15 @@ public class PlayerController : MonoBehaviour
         else
             clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, maxFallSpeed, Mathf.Infinity);
 
-        rb.velocity = clampedVelocity;
+        Rigidbody.velocity = clampedVelocity;
     }
 
-    void ResetVelocity()
+    public void ResetVelocity()
     {
-        Vector2 newVelocity = rb.velocity;
+        Vector2 newVelocity = Rigidbody.velocity;
         newVelocity.y = 0;
 
-        rb.velocity = newVelocity;
-    }
-
-    void Propulsion()
-    {
-        ResetVelocity();
-        rb.AddForce(Vector2.up * propulsionForce, ForceMode2D.Impulse);
+        Rigidbody.velocity = newVelocity;
     }
 
     void SlowReload()
@@ -128,32 +148,41 @@ public class PlayerController : MonoBehaviour
         if (MainState == PlayerState.IsSliding)
             return;
 
-        if (rb.velocity.x != 0)
+        if (Rigidbody.velocity.x != 0)
             SetState(PlayerState.IsRunning);
         else
             SetState(PlayerState.Idle);
 
-        if (rb.velocity.y < 0)
+        if (Rigidbody.velocity.y < 0)
             SetState(PlayerState.IsFalling);
-        else if (rb.velocity.y > 0)
+        else if (Rigidbody.velocity.y > 0)
             SetState(PlayerState.IsFlying);
     }
 
     IEnumerator Slide()
     {
+        ResetVelocity();
         SetState(PlayerState.IsSliding);
         float timer = 0;
 
         while (timer < slidingDuration)
         {
-            timer += Time.deltaTime;
             yield return null;
-            float f = timer / slidingDuration;
-            float force = slidingCurve.Evaluate(f);
+            timer += Time.deltaTime;
+            float step = timer / slidingDuration;
+            float force = slidingCurve.Evaluate(step);
 
-            Vector2 newVelocity = rb.velocity;
-            newVelocity.x = inputDirection * force;
-            rb.velocity = newVelocity;
+            Vector2 newVelocity = Rigidbody.velocity;
+            newVelocity.x = InputDirection * force;
+            Rigidbody.velocity = newVelocity;
+
+            //print(step);
+            if (step >= cancelThreshold && Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                print("super propulsion");
+                UseModule(ModuleType.Propulsion);
+                break;
+            }
         }
 
         SetState(PlayerState.Idle);
@@ -165,7 +194,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            Propulsion();
+            UseModule(ModuleType.Propulsion);
 
         if (Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(Slide());
