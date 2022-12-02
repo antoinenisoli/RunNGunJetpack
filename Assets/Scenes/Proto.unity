@@ -1414,7 +1414,30 @@ MonoBehaviour:
   reloadDelay: 0.1
   fuelCapacity: 30
   fuelSlider: {fileID: 1227552822}
-  slidingSpeed: 1
+  slidingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 20.3125
+      inSlope: 1.9354839
+      outSlope: 1.9354839
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25833333
+    - serializedVersion: 3
+      time: 0.9291667
+      value: 0
+      inSlope: -40.500004
+      outSlope: -40.500004
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22421522
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   slidingDuration: 1
 --- !u!1 &1227552820
 GameObject:

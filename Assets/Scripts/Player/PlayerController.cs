@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Slider fuelSlider;
 
     [Header("Sliding")]
-    [SerializeField] float slidingSpeed = 5f;
+    [SerializeField] [Curve(1,50)] AnimationCurve slidingCurve;
     [SerializeField] float slidingDuration = 3f;
 
     PlayerAnimator animator;
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        inputDirection = 1f;
         animator = GetComponentInChildren<PlayerAnimator>();
         rb = GetComponent<Rigidbody2D>();
         Fuel = fuelCapacity;
@@ -84,10 +85,8 @@ public class PlayerController : MonoBehaviour
         move.x = Input.GetAxisRaw("Horizontal") * speed;
         move.y = rb.velocity.y;
         rb.velocity = move;
-        if (MainState != PlayerState.IsSliding)
+        if (Input.GetAxisRaw("Horizontal") != 0)
             inputDirection = Input.GetAxisRaw("Horizontal");
-        else
-            inputDirection = 1f;
 
         Vector2 clampedVelocity = rb.velocity;
         if (Fuel > 0 && !reloading && Input.GetKey(KeyCode.UpArrow))
@@ -149,7 +148,12 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             yield return null;
-            rb.AddForce((Vector2.right * inputDirection) * slidingSpeed);
+            float f = timer / slidingDuration;
+            float force = slidingCurve.Evaluate(f);
+
+            Vector2 newVelocity = rb.velocity;
+            newVelocity.x = inputDirection * force;
+            rb.velocity = newVelocity;
         }
 
         SetState(PlayerState.Idle);
