@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class PlayerCapacity : PlayerModule
 {
+    [Header(nameof(PlayerCapacity))]
     [SerializeField] Text cooldownText;
     [SerializeField] protected float cooldown;
     bool locked;

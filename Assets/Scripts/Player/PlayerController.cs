@@ -10,6 +10,7 @@ public enum PlayerState
     IsSliding,
     IsFlying,
     IsFalling,
+    InPropulsion,
 }
 
 public class PlayerController : MonoBehaviour
@@ -18,21 +19,23 @@ public class PlayerController : MonoBehaviour
     public PlayerState MainState;
     [SerializeField] Health Health;
     [SerializeField] float speed;
+    [SerializeField] Vector2 walkLimits, flyLimits;
+
+    [Header("Ground detection")]
+    [SerializeField] Transform feetPoint;
+    [SerializeField] float radius = 0.5f;
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] bool grounded;
 
     [Header("Fly")]
+    [SerializeField] float propulsionDelay = 0.5f;
     [SerializeField] float flyForce;
     [SerializeField] float consumeSpeed = 3f, reloadSpeed = 1.5f;
-    [SerializeField] float maxFallSpeed, maxFlyVelocity;
 
     [Header("Fuel")]
     [SerializeField] float reloadDelay;
     [SerializeField] float fuelCapacity = 50f;
     [SerializeField] Slider fuelSlider;
-
-    [Header("Sliding")]
-    [SerializeField] [Range(0,1)] float cancelThreshold = 0.3f;
-    [SerializeField] [Curve(1,50)] AnimationCurve slidingCurve;
-    [SerializeField] float slidingDuration = 3f;
 
     PlayerAnimator animator;
     float inputDirection;
@@ -41,9 +44,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     bool reloading;
     Dictionary<ModuleType, PlayerModule> modules = new Dictionary<ModuleType, PlayerModule>();
+    Vector2 move;
 
-    public Rigidbody2D Rigidbody { get => rb; set => rb = value; }
-    public float InputDirection { get => inputDirection; set => inputDirection = value; }
+    public Rigidbody2D Rigidbody { get => rb; }
+    public float InputDirection { get => inputDirection; }
     public float Fuel 
     { 
         get => fuel; 
@@ -61,12 +65,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        InputDirection = 1f;
+        inputDirection = 1f;
         animator = GetComponentInChildren<PlayerAnimator>();
-        Rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         Fuel = fuelCapacity;
 
-        foreach (var item in GetComponents<Propulsion>())
+        foreach (var item in GetComponents<PlayerModule>())
         {
             item.Initialize(this);
             modules.Add(item.myType, item);
@@ -82,10 +86,22 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    public void UseModule(ModuleType moduleType)
+    public bool UseModule(ModuleType moduleType)
     {
-        if (TryGetModule(moduleType, out PlayerModule module))
+        bool getModule = TryGetModule(moduleType, out PlayerModule module);
+        if (getModule)
             module.Use();
+        
+        return getModule;
+    }
+
+    public void Propulsion()
+    {
+        if (UseModule(ModuleType.Propulsion))
+        {
+            SetState(PlayerState.InPropulsion);
+            StartCoroutine(SetStateDelayed(PlayerState.Idle, propulsionDelay));
+        }
     }
     #endregion
 
@@ -93,6 +109,12 @@ public class PlayerController : MonoBehaviour
     {
         MainState = newState;
         animator.SetAnimState(newState);
+    }
+
+    public IEnumerator SetStateDelayed(PlayerState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetState(newState);
     }
 
     IEnumerator ReloadFuel()
@@ -107,28 +129,35 @@ public class PlayerController : MonoBehaviour
         if (MainState == PlayerState.IsSliding)
             return;
 
-        Vector2 move = new Vector2();
-        move.x = Input.GetAxisRaw("Horizontal") * speed;
-        move.y = Rigidbody.velocity.y;
-        Rigidbody.velocity = move;
-        if (Input.GetAxisRaw("Horizontal") != 0)
-            InputDirection = Input.GetAxisRaw("Horizontal");
-
-        Vector2 clampedVelocity = Rigidbody.velocity;
-        if (Fuel > 0 && !reloading && Input.GetKey(KeyCode.UpArrow))
+        float xInput = Input.GetAxisRaw("Horizontal");
+        if (xInput != 0)
         {
-            Rigidbody.AddForce(Vector2.up * flyForce, ForceMode2D.Force);
-            Fuel -= consumeSpeed * Time.deltaTime;
-            delay = 0;
-            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, maxFallSpeed, maxFlyVelocity);
+            inputDirection = Input.GetAxisRaw("Horizontal");
+            Vector2 v = Vector2.right * xInput * speed;
+            Rigidbody.AddForce(v);
         }
-        else
-            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, maxFallSpeed, Mathf.Infinity);
-
-        Rigidbody.velocity = clampedVelocity;
     }
 
-    public void ResetVelocity()
+    void ClampVelocity()
+    {
+        move = Rigidbody.velocity;
+        move.y = Mathf.Clamp(move.y, flyLimits.x, Mathf.Infinity);
+
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            if (grounded)
+                move.x = Mathf.Lerp(move.x, 0, 10 * Time.fixedDeltaTime);
+            else
+                move.x = Mathf.Lerp(move.x, 0, 0.5f * Time.fixedDeltaTime);
+        }
+
+        if (MainState != PlayerState.IsSliding)
+            move.x = Mathf.Clamp(move.x, walkLimits.x, walkLimits.y);
+
+        Rigidbody.velocity = move;
+    }
+
+    public void ResetYVelocity()
     {
         Vector2 newVelocity = Rigidbody.velocity;
         newVelocity.y = 0;
@@ -145,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
     void ManageState()
     {
-        if (MainState == PlayerState.IsSliding)
+        if (MainState == PlayerState.IsSliding || MainState == PlayerState.InPropulsion)
             return;
 
         if (Rigidbody.velocity.x != 0)
@@ -159,45 +188,35 @@ public class PlayerController : MonoBehaviour
             SetState(PlayerState.IsFlying);
     }
 
-    IEnumerator Slide()
-    {
-        ResetVelocity();
-        SetState(PlayerState.IsSliding);
-        float timer = 0;
-
-        while (timer < slidingDuration)
-        {
-            yield return null;
-            timer += Time.deltaTime;
-            float step = timer / slidingDuration;
-            float force = slidingCurve.Evaluate(step);
-
-            Vector2 newVelocity = Rigidbody.velocity;
-            newVelocity.x = InputDirection * force;
-            Rigidbody.velocity = newVelocity;
-
-            //print(step);
-            if (step >= cancelThreshold && Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                print("super propulsion");
-                UseModule(ModuleType.Propulsion);
-                break;
-            }
-        }
-
-        SetState(PlayerState.Idle);
-    }
-
     void ManageInputs()
     {
         if (MainState == PlayerState.IsSliding)
             return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            UseModule(ModuleType.Propulsion);
+            Propulsion();
 
         if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(Slide());
+            UseModule(ModuleType.Slide);
+    }
+
+    void Flying()
+    {
+        bool correctState = MainState != PlayerState.IsSliding && MainState != PlayerState.InPropulsion;
+        bool canFly = correctState && Fuel > 0 && !reloading;
+
+        if (Input.GetKey(KeyCode.UpArrow) && canFly)
+        {
+            Fuel -= consumeSpeed * Time.deltaTime;
+            delay = 0;
+            Rigidbody.AddForce(Vector2.up * flyForce);
+            if (Rigidbody.velocity.y > flyLimits.y)
+            {
+                Vector2 clamped = Rigidbody.velocity;
+                clamped.y = flyLimits.y;
+                Rigidbody.velocity = clamped;
+            }
+        }
     }
 
     private void Update()
@@ -217,5 +236,14 @@ public class PlayerController : MonoBehaviour
             float value = Fuel / fuelCapacity;
             fuelSlider.value = value;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (feetPoint)
+            grounded = Physics2D.OverlapCircle(feetPoint.position, radius, groundMask);
+
+        Flying();
+        ClampVelocity();
     }
 }

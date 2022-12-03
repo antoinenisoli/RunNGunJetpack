@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Slide : PlayerCapacity
 {
-    [SerializeField] [Range(0, 1)] float cancelThreshold = 0.3f;
-    [SerializeField] [Curve(1, 50)] AnimationCurve slidingCurve;
-    [SerializeField] float slidingDuration = 3f;
-
     public override ModuleType myType => ModuleType.Slide;
+
+    [Header(nameof(Slide))]
+    [SerializeField] [Range(0, 1)] float cancelThreshold = 0.3f;
+    [SerializeField] float slidingDuration = 3f;
+    [SerializeField] [Curve(1, 50)] AnimationCurve slidingCurve;
 
     public override void Effect()
     {
@@ -17,7 +18,7 @@ public class Slide : PlayerCapacity
 
     IEnumerator Sliding()
     {
-        Player.ResetVelocity();
+        Player.ResetYVelocity();
         Player.SetState(PlayerState.IsSliding);
         float timer = 0;
 
@@ -36,7 +37,7 @@ public class Slide : PlayerCapacity
             if (step >= cancelThreshold && Input.GetKeyDown(KeyCode.LeftShift))
             {
                 print("super propulsion");
-                Player.UseModule(ModuleType.Propulsion);
+                Player.Propulsion();
                 break;
             }
         }
