@@ -1532,9 +1532,12 @@ MonoBehaviour:
     currentHealth: 0
     maxHealth: 50
   speed: 40
+  groundDeceleration: 30
+  airDeceleration: 1
   walkLimits: {x: -10, y: 10}
   flyLimits: {x: -30, y: 13}
   feetPoint: {fileID: 704536857}
+  radius: 0.5
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1559,7 +1562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownText: {fileID: 0}
-  cooldown: 1
+  cooldown: 1.5
   cancelThreshold: 0.3
   slidingDuration: 1
   slidingCurve:
@@ -2327,3 +2330,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1746009157500140819
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1951948905, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: HitFX
+      value: 
+      objectReference: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192116, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746009155548192117, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256305103458472146, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256305103458472146, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256305103458472146, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}

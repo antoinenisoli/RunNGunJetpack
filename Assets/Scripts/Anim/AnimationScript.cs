@@ -3,46 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class CustomAnimation
-{
-    public string name = "Idle";
-    public Sprite[] sprites;
-    public float frameRate = 0.1f;
-    protected float timer;
-    protected int spriteIndex;
-    public bool loop = true;
-    public Sprite mainSprite;
-
-    public void Init()
-    {
-        mainSprite = sprites[0];
-    }
-
-    public void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer > frameRate && loop)
-        {
-            timer = 0;
-            spriteIndex++;
-            mainSprite = sprites[spriteIndex % sprites.Length];
-        }
-    }
-
-    public void Stop()
-    {
-        loop = false;
-        timer = 0;
-        spriteIndex = 0;
-    }
-}
-
 public class AnimationScript : MonoBehaviour
 {
     [SerializeField] string startAnim = "Idle";
+    [SerializeField] bool autoDestroy;
+    [SerializeField] float autoDestroyDelay = 2f;
     [SerializeField] protected SpriteRenderer animRenderer;
-    [SerializeField] protected CustomAnimation[] animations;
+    [SerializeField] protected CustomAnimation[] animations = new CustomAnimation[1] { new CustomAnimation("Idle") };
+
     Dictionary<string, CustomAnimation> customAnimations = new Dictionary<string, CustomAnimation>();
     CustomAnimation currentAnim;
 
@@ -53,6 +21,9 @@ public class AnimationScript : MonoBehaviour
             item.Init();
             customAnimations.Add(item.name, item);
         }
+
+        if (autoDestroy)
+            AutoDestroy();
     }
 
     private void Start()
@@ -60,7 +31,12 @@ public class AnimationScript : MonoBehaviour
         StartAnim(startAnim);
     }
 
-    void StartAnim(string name)
+    public void AutoDestroy()
+    {
+        Destroy(gameObject, autoDestroyDelay);
+    }
+
+    public void StartAnim(string name)
     {
         currentAnim = customAnimations[name];
     }

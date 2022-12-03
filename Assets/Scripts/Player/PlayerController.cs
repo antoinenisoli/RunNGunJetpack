@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState MainState;
     [SerializeField] Health Health;
     [SerializeField] float speed;
+    [SerializeField] float groundDeceleration = 10f, airDeceleration = 1f;
     [SerializeField] Vector2 walkLimits, flyLimits;
 
     [Header("Ground detection")]
@@ -142,13 +143,12 @@ public class PlayerController : MonoBehaviour
     {
         move = Rigidbody.velocity;
         move.y = Mathf.Clamp(move.y, flyLimits.x, Mathf.Infinity);
-
-        if (Input.GetAxisRaw("Horizontal") == 0)
+        if (Input.GetAxisRaw("Horizontal") == 0) //deceleration
         {
             if (grounded)
-                move.x = Mathf.Lerp(move.x, 0, 10 * Time.fixedDeltaTime);
+                move.x = Mathf.Lerp(move.x, 0, groundDeceleration * Time.fixedDeltaTime);
             else
-                move.x = Mathf.Lerp(move.x, 0, 0.5f * Time.fixedDeltaTime);
+                move.x = Mathf.Lerp(move.x, 0, airDeceleration * Time.fixedDeltaTime);
         }
 
         if (MainState != PlayerState.IsSliding)
@@ -177,7 +177,8 @@ public class PlayerController : MonoBehaviour
         if (MainState == PlayerState.IsSliding || MainState == PlayerState.InPropulsion)
             return;
 
-        if (Rigidbody.velocity.x != 0)
+        float walkThreshold = 0.2f;
+        if (Rigidbody.velocity.x > walkThreshold || Rigidbody.velocity.x < -walkThreshold)
             SetState(PlayerState.IsRunning);
         else
             SetState(PlayerState.Idle);
