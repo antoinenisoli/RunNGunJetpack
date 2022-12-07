@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform feetPoint;
     [SerializeField] float radius = 0.5f;
     [SerializeField] LayerMask groundMask;
-    [SerializeField] bool grounded;
 
     [Header("Fly")]
     [SerializeField] float propulsionDelay = 0.5f;
@@ -143,9 +142,9 @@ public class PlayerController : MonoBehaviour
     {
         move = Rigidbody.velocity;
         move.y = Mathf.Clamp(move.y, flyLimits.x, Mathf.Infinity);
-        if (Input.GetAxisRaw("Horizontal") == 0) //deceleration
+        if (MainState != PlayerState.IsSliding && Input.GetAxisRaw("Horizontal") == 0) //deceleration
         {
-            if (grounded)
+            if (OnGround())
                 move.x = Mathf.Lerp(move.x, 0, groundDeceleration * Time.fixedDeltaTime);
             else
                 move.x = Mathf.Lerp(move.x, 0, airDeceleration * Time.fixedDeltaTime);
@@ -206,7 +205,7 @@ public class PlayerController : MonoBehaviour
         bool correctState = MainState != PlayerState.IsSliding && MainState != PlayerState.InPropulsion;
         bool canFly = correctState && Fuel > 0 && !reloading;
 
-        if (Input.GetKey(KeyCode.UpArrow) && canFly)
+        if (Input.GetAxisRaw("Vertical") > 0 && canFly)
         {
             Fuel -= consumeSpeed * Time.deltaTime;
             delay = 0;
@@ -218,6 +217,11 @@ public class PlayerController : MonoBehaviour
                 Rigidbody.velocity = clamped;
             }
         }
+    }
+
+    public bool OnGround()
+    {
+        return Physics2D.OverlapCircle(feetPoint.position, radius, groundMask);
     }
 
     private void Update()
@@ -241,9 +245,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (feetPoint)
-            grounded = Physics2D.OverlapCircle(feetPoint.position, radius, groundMask);
-
         Flying();
         ClampVelocity();
     }

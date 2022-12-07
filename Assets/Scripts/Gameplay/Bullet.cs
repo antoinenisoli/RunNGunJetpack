@@ -18,14 +18,15 @@ public class Bullet : MonoBehaviour
 
     public void Shoot(Vector2 trajectory)
     {
-        trajectory -= (Vector2)transform.position;
         this.trajectory = trajectory.normalized;
         Destroy(gameObject, lifeTime);
     }
 
     void SelfDestroy(float delay = 0)
     {
-        Instantiate(HitFX, transform.position, Quaternion.identity);
+        if (HitFX)
+            Instantiate(HitFX, transform.position, Quaternion.identity);
+
         Destroy(gameObject, delay);
     }
 
