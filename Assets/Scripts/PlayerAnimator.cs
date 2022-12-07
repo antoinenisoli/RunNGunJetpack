@@ -24,10 +24,10 @@ public class PlayerAnimator : MonoBehaviour
 
     public void FlipSprite()
     {
-        if (Input.GetAxisRaw("Horizontal") < 0 && !spriteRenderer.flipX)
-            spriteRenderer.flipX = true;
+        if (Input.GetAxisRaw("Horizontal") < 0 && transform.rotation.eulerAngles == Vector3.zero)
+            transform.rotation = Quaternion.Euler(Vector3.up * 180);
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && spriteRenderer.flipX)
-            spriteRenderer.flipX = false;
+        if (Input.GetAxisRaw("Horizontal") > 0 && transform.rotation.eulerAngles != Vector3.zero)
+            transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 }

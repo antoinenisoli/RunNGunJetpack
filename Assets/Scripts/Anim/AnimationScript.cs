@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class AnimationScript : MonoBehaviour
 {
     [SerializeField] string startAnim = "Idle";
-    [SerializeField] bool autoDestroy;
-    [SerializeField] float autoDestroyDelay = 2f;
+    [SerializeField] bool destroyOnEnd;
     [SerializeField] protected SpriteRenderer animRenderer;
     [SerializeField] protected CustomAnimation[] animations = new CustomAnimation[1] { new CustomAnimation("Idle") };
 
@@ -18,12 +17,9 @@ public class AnimationScript : MonoBehaviour
     {
         foreach (var item in animations)
         {
-            item.Init();
+            item.Init(this);
             customAnimations.Add(item.name, item);
         }
-
-        if (autoDestroy)
-            AutoDestroy();
     }
 
     private void Start()
@@ -31,9 +27,10 @@ public class AnimationScript : MonoBehaviour
         StartAnim(startAnim);
     }
 
-    public void AutoDestroy()
+    public void SelfDestroy()
     {
-        Destroy(gameObject, autoDestroyDelay);
+        if (destroyOnEnd)
+            Destroy(gameObject);
     }
 
     public void StartAnim(string name)

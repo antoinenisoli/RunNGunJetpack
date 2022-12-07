@@ -13,11 +13,10 @@ public enum PlayerState
     InPropulsion,
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     [Header("Player")]
     public PlayerState MainState;
-    [SerializeField] Health Health;
     [SerializeField] float speed;
     [SerializeField] float groundDeceleration = 10f, airDeceleration = 1f;
     [SerializeField] Vector2 walkLimits, flyLimits;
@@ -28,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundMask;
 
     [Header("Fly")]
+    [SerializeField] ParticleSystem fireFX;
     [SerializeField] float propulsionDelay = 0.5f;
     [SerializeField] float flyForce;
     [SerializeField] float consumeSpeed = 3f, reloadSpeed = 1.5f;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         inputDirection = 1f;
         animator = GetComponentInChildren<PlayerAnimator>();
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #region
+    #region Modules
     public bool TryGetModule(ModuleType moduleType, out PlayerModule module)
     {
         if (modules.TryGetValue(moduleType, out module))
@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
         {
             SetState(PlayerState.InPropulsion);
             StartCoroutine(SetStateDelayed(PlayerState.Idle, propulsionDelay));
+            fireFX.Play();
         }
     }
     #endregion
@@ -207,6 +208,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxisRaw("Vertical") > 0 && canFly)
         {
+            fireFX.Play();
             Fuel -= consumeSpeed * Time.deltaTime;
             delay = 0;
             Rigidbody.AddForce(Vector2.up * flyForce);
@@ -217,6 +219,8 @@ public class PlayerController : MonoBehaviour
                 Rigidbody.velocity = clamped;
             }
         }
+        else if (MainState != PlayerState.InPropulsion)
+            fireFX.Stop();
     }
 
     public bool OnGround()

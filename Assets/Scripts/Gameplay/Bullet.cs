@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] GameObject HitFX;
-    [SerializeField] protected float damageAmount = 1f;
+    [SerializeField] protected int damageAmount = 1;
     [SerializeField] protected float speed = 5f, lifeTime = 3f;
     [SerializeField] protected bool lookAtTarget;
     [SerializeField] LayerMask obstacleMask;
@@ -33,14 +33,17 @@ public class Bullet : MonoBehaviour
     public virtual void Collision(Collider2D collision)
     {
         if (GameDevHelper.Contains(obstacleMask, collision.gameObject.layer))
+        {
             SelfDestroy();
+            return;
+        }
 
-        /*Enemy enemy = collision.GetComponentInParent<Enemy>();
+        Enemy enemy = collision.GetComponentInParent<Enemy>();
         if (enemy)
         {
-            enemy.TakeDmg(damageAmount);
+            enemy.TakeDamage(damageAmount);
             SelfDestroy();
-        }*/
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
