@@ -2,21 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity
+public abstract class Enemy : Entity
 {
-    [SerializeField] float speed;
+    [SerializeField] protected float speed;
+    protected Rigidbody2D rb;
 
-    Rigidbody2D rb;
-
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        Vector2 newVelocity = transform.right * speed;
-        newVelocity.y = rb.velocity.y;
-        rb.velocity = newVelocity;
     }
 }

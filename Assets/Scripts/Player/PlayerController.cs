@@ -231,7 +231,6 @@ public class PlayerController : Entity
     private void Update()
     {
         ManageState();
-        Movements();
         SlowReload();
         ManageInputs();
         if (MainState != PlayerState.IsSliding)
@@ -249,6 +248,7 @@ public class PlayerController : Entity
 
     private void FixedUpdate()
     {
+        Movements();
         Flying();
         ClampVelocity();
     }

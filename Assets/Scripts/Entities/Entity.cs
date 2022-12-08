@@ -12,7 +12,7 @@ public abstract class Entity : MonoBehaviour
     Material spriteMaterial;
     Sequence hitSequence;
 
-    public void Awake()
+    public virtual void Awake()
     {
         spriteMaterial = spriteRenderer.material;
         Health.Initialize();
@@ -22,6 +22,9 @@ public abstract class Entity : MonoBehaviour
     {
         Health.CurrentHealth -= amount;
         Hit();
+
+        if (Health.isDead)
+            Destroy(gameObject);
     }
 
     public void Hit()

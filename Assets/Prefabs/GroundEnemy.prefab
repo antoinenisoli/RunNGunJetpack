@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1985107841803325109}
   - component: {fileID: 1985107841803325115}
   - component: {fileID: 1985107841803325108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: lizard-move_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,8 +119,8 @@ GameObject:
   - component: {fileID: 1985107842062929249}
   - component: {fileID: 1985107842062929250}
   - component: {fileID: 1985107842062929251}
-  m_Layer: 0
-  m_Name: Enemy
+  m_Layer: 7
+  m_Name: GroundEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -138,6 +138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1985107841803325109}
+  - {fileID: 8857119907629262220}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,10 +156,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 50
+    maxHealth: 10
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 1985107841803325115}
   speed: 5
+  walkPoint: {fileID: 8857119907629262220}
+  walkRadius: 0.5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!58 &1985107842062929250
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,3 +202,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &2163297546747377683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8857119907629262220}
+  m_Layer: 7
+  m_Name: WalkPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8857119907629262220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163297546747377683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.894, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985107842062929276}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
