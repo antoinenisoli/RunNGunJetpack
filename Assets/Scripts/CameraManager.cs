@@ -6,30 +6,12 @@ using UnityEngine;
 [System.Serializable]
 public class CameraShake
 {
-    [SerializeField] float shakeIntensity = 5f, shakeTiming = 0.5f;
-    CinemachineBasicMultiChannelPerlin noise;
-    CinemachineVirtualCamera cmFreeCam => CameraManager.Instance.CinemachineCamera;
-
-    public void Initialize()
-    {
-        noise = cmFreeCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-    }
+    [SerializeField] float shakeIntensity = 5f;
+    CameraManager cmFreeCam => CameraManager.Instance;
 
     public void Shake()
     {
-        cmFreeCam.StartCoroutine(ProcessShake());
-    }
-
-    IEnumerator ProcessShake()
-    {
-        Noise(shakeIntensity);
-        yield return new WaitForSeconds(shakeTiming);
-        Noise(0);
-    }
-
-    void Noise(float amplitudeGain)
-    {
-        noise.m_AmplitudeGain = amplitudeGain;
+        cmFreeCam.Noise(shakeIntensity);
     }
 }
 
@@ -37,8 +19,9 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
     [SerializeField] CinemachineVirtualCamera cinemachineCamera;
-
-    public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera; 
+    [SerializeField] float endShakeSpeed = 10f;
+    CinemachineBasicMultiChannelPerlin noise;
+    public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera;
 
     private void Awake()
     {
@@ -48,5 +31,16 @@ public class CameraManager : MonoBehaviour
             Destroy(gameObject);
 
         cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        noise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+    }
+
+    public void Noise(float amplitudeGain)
+    {
+        noise.m_AmplitudeGain = amplitudeGain;
+    }
+
+    void LateUpdate()
+    {
+        noise.m_AmplitudeGain = Mathf.Lerp(noise.m_AmplitudeGain, 0, endShakeSpeed * Time.deltaTime);
     }
 }

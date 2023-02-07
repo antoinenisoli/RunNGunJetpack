@@ -212,6 +212,7 @@ public class PlayerController : Entity
             Fuel -= consumeSpeed * Time.deltaTime;
             delay = 0;
             Rigidbody.AddForce(Vector2.up * flyForce);
+
             if (Rigidbody.velocity.y > flyLimits.y)
             {
                 Vector2 clamped = Rigidbody.velocity;
@@ -233,6 +234,7 @@ public class PlayerController : Entity
         ManageState();
         SlowReload();
         ManageInputs();
+
         if (MainState != PlayerState.IsSliding)
             animator.FlipSprite();
 

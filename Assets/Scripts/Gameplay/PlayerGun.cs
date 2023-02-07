@@ -5,10 +5,20 @@ using UnityEngine;
 public class PlayerGun : Shooter
 {
     [SerializeField] Transform gunVisual;
+    AmmoSystem ammoSystem;
+
+    private void Awake()
+    {
+        ammoSystem = GetComponent<AmmoSystem>();
+    }
 
     public override void Shoot()
     {
+        if (!ammoSystem.CanShoot())
+            return;
+
         camShake.Shake();
+        ammoSystem.UseAmmo();
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Bullet b = bulletObj.GetComponent<Bullet>();
         b.Shoot(gunVisual.right);

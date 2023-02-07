@@ -11,11 +11,6 @@ public class Shooter : MonoBehaviour
 
     protected float shootTimer;
 
-    private void Start()
-    {
-        camShake.Initialize();
-    }
-
     public void LookAt(Transform Entity, Vector2 targetPosition)
     {
         float AngleRad = Mathf.Atan2(targetPosition.y - Entity.position.y, targetPosition.x - Entity.position.x);

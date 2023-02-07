@@ -1,0 +1,2028 @@
+fileFormatVersion: 2
+guid: fab3348159f5e1f458536d9cc4c43221
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1173777749615346826
+    second: barHorizontal_blue_left.png
+  - first:
+      213: 111871062959079792
+    second: barHorizontal_blue_mid.png
+  - first:
+      213: 296779718575437105
+    second: barHorizontal_blue_right.png
+  - first:
+      213: -8742755998404283625
+    second: barHorizontal_green_left.png
+  - first:
+      213: -7562522806731202811
+    second: barHorizontal_green_mid.png
+  - first:
+      213: -7524441428801324942
+    second: barHorizontal_green_right.png
+  - first:
+      213: -4200532108704790315
+    second: barHorizontal_red_left.png
+  - first:
+      213: 6668174624536950207
+    second: barHorizontal_red_mid.png
+  - first:
+      213: 1359434391212277905
+    second: barHorizontal_red_right.png
+  - first:
+      213: 8059031996740169545
+    second: barHorizontal_shadow_left.png
+  - first:
+      213: -3667091961374621256
+    second: barHorizontal_shadow_mid.png
+  - first:
+      213: 6682792525666258426
+    second: barHorizontal_shadow_right.png
+  - first:
+      213: 4604591736221689375
+    second: barHorizontal_white_left.png
+  - first:
+      213: -2555743594087142618
+    second: barHorizontal_white_mid.png
+  - first:
+      213: -8901708904659188642
+    second: barHorizontal_white_right.png
+  - first:
+      213: -2444388089016634696
+    second: barHorizontal_yellow_left.png
+  - first:
+      213: 5092465360557244699
+    second: barHorizontal_yellow_mid.png
+  - first:
+      213: 5546714542994890646
+    second: barHorizontal_yellow_right.png
+  - first:
+      213: -1231165879819885299
+    second: barVertical_blue_bottom.png
+  - first:
+      213: 8505523565165282906
+    second: barVertical_blue_mid.png
+  - first:
+      213: -2786940144320110777
+    second: barVertical_blue_top.png
+  - first:
+      213: -6361710692922931304
+    second: barVertical_green_bottom.png
+  - first:
+      213: -7950560917054511258
+    second: barVertical_green_mid.png
+  - first:
+      213: 2298760433951761311
+    second: barVertical_green_top.png
+  - first:
+      213: 3399631169881080742
+    second: barVertical_red_bottom.png
+  - first:
+      213: 2278475390449685438
+    second: barVertical_red_mid.png
+  - first:
+      213: 7213393918727632044
+    second: barVertical_red_top.png
+  - first:
+      213: 2203659116384951957
+    second: barVertical_shadow_bottom.png
+  - first:
+      213: -8698668378345645352
+    second: barVertical_shadow_mid.png
+  - first:
+      213: 6294290300449719256
+    second: barVertical_shadow_top.png
+  - first:
+      213: -2343016684010358554
+    second: barVertical_white_bottom.png
+  - first:
+      213: 837622283548842091
+    second: barVertical_white_mid.png
+  - first:
+      213: -2110935970376558024
+    second: barVertical_white_top.png
+  - first:
+      213: -317025042221229733
+    second: barVertical_yellow_bottom.png
+  - first:
+      213: -8508584659576287513
+    second: barVertical_yellow_mid.png
+  - first:
+      213: 8242783039889091613
+    second: barVertical_yellow_top.png
+  - first:
+      213: 9031528203904607648
+    second: crossair_black.png
+  - first:
+      213: -3609014524367422701
+    second: crossair_blackOutline.png
+  - first:
+      213: 8839785021757591903
+    second: crossair_blue.png
+  - first:
+      213: 2455901844146974628
+    second: crossair_blueOutline.png
+  - first:
+      213: 2263213667354076077
+    second: crossair_red.png
+  - first:
+      213: -2563600992766185230
+    second: crossair_redOutline.png
+  - first:
+      213: -9027934916311100292
+    second: crossair_white.png
+  - first:
+      213: 3828651210535716076
+    second: crossair_whiteOutline.png
+  - first:
+      213: 4112461063775497950
+    second: cursor_hand.png
+  - first:
+      213: 1245852059534350364
+    second: cursor_pointer3D.png
+  - first:
+      213: 319861474039495268
+    second: cursor_pointer3D_shadow.png
+  - first:
+      213: -6096844363901722521
+    second: cursor_pointerFlat.png
+  - first:
+      213: -780014012461125309
+    second: cursor_pointerFlat_shadow.png
+  - first:
+      213: -4404803638571296905
+    second: dotBlue.png
+  - first:
+      213: -3593662490327120354
+    second: dotGreen.png
+  - first:
+      213: 5361608372777384671
+    second: dotRed.png
+  - first:
+      213: -2517705425165746024
+    second: dotWhite.png
+  - first:
+      213: -2507493835613827945
+    second: dotYellow.png
+  - first:
+      213: 5881163453406095975
+    second: dot_shadow.png
+  - first:
+      213: -1904017679909121594
+    second: glassPanel.png
+  - first:
+      213: -1230139837158746565
+    second: glassPanel_cornerBL.png
+  - first:
+      213: 4500954475201429945
+    second: glassPanel_cornerBR.png
+  - first:
+      213: 7655417592934699448
+    second: glassPanel_cornerTL.png
+  - first:
+      213: -7615231383965790757
+    second: glassPanel_cornerTR.png
+  - first:
+      213: 4867763008400622834
+    second: glassPanel_corners.png
+  - first:
+      213: -2297141527437349889
+    second: glassPanel_projection.png
+  - first:
+      213: -8948816499666047750
+    second: glassPanel_tab.png
+  - first:
+      213: -5726981757712580897
+    second: metalPanel.png
+  - first:
+      213: -7761908474631882778
+    second: metalPanel_blue.png
+  - first:
+      213: 2404942513113283656
+    second: metalPanel_blueCorner.png
+  - first:
+      213: 4777267430488319067
+    second: metalPanel_green.png
+  - first:
+      213: 5516373684683610842
+    second: metalPanel_greenCorner.png
+  - first:
+      213: -7253722735017544962
+    second: metalPanel_plate.png
+  - first:
+      213: 7761352504437316996
+    second: metalPanel_red.png
+  - first:
+      213: 4737377883924444036
+    second: metalPanel_redCorner.png
+  - first:
+      213: -6921307854763028173
+    second: metalPanel_yellow.png
+  - first:
+      213: 2537257811352994558
+    second: metalPanel_yellowCorner.png
+  - first:
+      213: 5493862710743486332
+    second: squareBlue.png
+  - first:
+      213: 6961867039335819151
+    second: squareGreen.png
+  - first:
+      213: -2035373506768192178
+    second: squareRed.png
+  - first:
+      213: -4646955241277104841
+    second: squareWhite.png
+  - first:
+      213: 1136788798957480063
+    second: squareYellow.png
+  - first:
+      213: -4121846064622897166
+    second: square_shadow.png
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: barHorizontal_blue_left.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 408
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a848413f4a81a4010800000000000000
+      internalID: 1173777749615346826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_blue_mid.png
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 66
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 071425893227d8100800000000000000
+      internalID: 111871062959079792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_blue_right.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 486
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 135ba36e49f5e1400800000000000000
+      internalID: 296779718575437105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_green_left.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 382
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71372359dbd7ba680800000000000000
+      internalID: -8742755998404283625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_green_mid.png
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 120
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f1ff243958c0790800000000000000
+      internalID: -7562522806731202811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_green_right.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 460
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278701ff260d39790800000000000000
+      internalID: -7524441428801324942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_red_left.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 356
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d847017d46b4b5c0800000000000000
+      internalID: -4200532108704790315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_red_mid.png
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 146
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb57cc3dd7d1a8c50800000000000000
+      internalID: 6668174624536950207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_red_right.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 330
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19048af406eadd210800000000000000
+      internalID: 1359434391212277905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_shadow_left.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 304
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f643707ee67df60800000000000000
+      internalID: 8059031996740169545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_shadow_mid.png
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 172
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b1439b4a4fdb1dc0800000000000000
+      internalID: -3667091961374621256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_shadow_right.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 278
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd09f7256c0ebc50800000000000000
+      internalID: 6682792525666258426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_white_left.png
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 172
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f166135b9cbc6ef30800000000000000
+      internalID: 4604591736221689375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_white_mid.png
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 250
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ba479fdbc288cd0800000000000000
+      internalID: -2555743594087142618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_white_right.png
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 120
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e548bdb1ae6c67480800000000000000
+      internalID: -8901708904659188642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_yellow_left.png
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 434
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2b7f4ebf9c31ed0800000000000000
+      internalID: -2444388089016634696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_yellow_mid.png
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 224
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b110ffea3421ca640800000000000000
+      internalID: 5092465360557244699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barHorizontal_yellow_right.png
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 146
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f14b53d73e9fc40800000000000000
+      internalID: 5546714542994890646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_blue_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0521c1c7250aeee0800000000000000
+      internalID: -1231165879819885299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_blue_mid.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 174
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56046a4e90b90670800000000000000
+      internalID: 8505523565165282906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_blue_top.png
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f168f54bcc259d0800000000000000
+      internalID: -2786940144320110777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_green_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8974680a4d9a6b7a0800000000000000
+      internalID: -6361710692922931304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_green_mid.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 126
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667acd548fee9a190800000000000000
+      internalID: -7950560917054511258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_green_top.png
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93ea617f66d6ef10800000000000000
+      internalID: 2298760433951761311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_red_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a38b18798aed2f20800000000000000
+      internalID: 3399631169881080742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_red_mid.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 110
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb31935bb45ce9f10800000000000000
+      internalID: 2278475390449685438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_red_top.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca439b60d8f1b1460800000000000000
+      internalID: 7213393918727632044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_shadow_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e1d267a48f49e10800000000000000
+      internalID: 2203659116384951957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_shadow_mid.png
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 172
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dad8c9823f184780800000000000000
+      internalID: -8698668378345645352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_shadow_top.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d30e7ffdafc95750800000000000000
+      internalID: 6294290300449719256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_white_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8bfbe5dbeeb7fd0800000000000000
+      internalID: -2343016684010358554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_white_mid.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 142
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6851ea6705df9b00800000000000000
+      internalID: 837622283548842091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_white_top.png
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a5c1e4be274b2e0800000000000000
+      internalID: -2110935970376558024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_yellow_bottom.png
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59108d5763b99bf0800000000000000
+      internalID: -317025042221229733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_yellow_mid.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 158
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee0e90255f6be980800000000000000
+      internalID: -8508584659576287513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barVertical_yellow_top.png
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 6
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c243da08f346270800000000000000
+      internalID: 8242783039889091613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_black.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 12
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5e7a4ec0f665d70800000000000000
+      internalID: 9031528203904607648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_blackOutline.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 76
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31bbad559643aedc0800000000000000
+      internalID: -3609014524367422701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_blue.png
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 44
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f511ea064a93daa70800000000000000
+      internalID: 8839785021757591903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_blueOutline.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 148
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af6b9f17bd151220800000000000000
+      internalID: 2455901844146974628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_red.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 44
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3e275e6dc886f10800000000000000
+      internalID: 2263213667354076077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_redOutline.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 112
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f03558ca724c6cd0800000000000000
+      internalID: -2563600992766185230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_white.png
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 12
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c745ee1960556b280800000000000000
+      internalID: -9027934916311100292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crossair_whiteOutline.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 184
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4c9dcadf9122530800000000000000
+      internalID: 3828651210535716076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursor_hand.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 190
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edea6fa7c85621930800000000000000
+      internalID: 4112461063775497950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursor_pointer3D.png
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 276
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18db3be8d72a4110800000000000000
+      internalID: 1245852059534350364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursor_pointer3D_shadow.png
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 35
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46af471e050607400800000000000000
+      internalID: 319861474039495268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursor_pointerFlat.png
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 11
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760abce7a58a36ba0800000000000000
+      internalID: -6096844363901722521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursor_pointerFlat_shadow.png
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 193
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3417d6b6365dc25f0800000000000000
+      internalID: -780014012461125309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dotBlue.png
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 166
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7771c99ad6efed2c0800000000000000
+      internalID: -4404803638571296905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dotGreen.png
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 62
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16086d410fb02ec0800000000000000
+      internalID: -3593662490327120354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dotRed.png
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 118
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdaf7247862486a40800000000000000
+      internalID: 5361608372777384671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dotWhite.png
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8900ce351405f0dd0800000000000000
+      internalID: -2517705425165746024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dotYellow.png
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c81cb44a7933dd0800000000000000
+      internalID: -2507493835613827945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dot_shadow.png
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76aa74a40071e9150800000000000000
+      internalID: 5881163453406095975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c114fe02029395e0800000000000000
+      internalID: -1904017679909121594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_cornerBL.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36981ee55aadeee0800000000000000
+      internalID: -1230139837158746565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_cornerBR.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b106948f3a967e30800000000000000
+      internalID: 4500954475201429945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_cornerTL.png
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 12
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b1162a9db18d3a60800000000000000
+      internalID: 7655417592934699448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_cornerTR.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 412
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd005c4763415690800000000000000
+      internalID: -7615231383965790757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_corners.png
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 212
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f481866aa4cd8340800000000000000
+      internalID: 4867763008400622834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_projection.png
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 112
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb6c4a93f9ee10e0800000000000000
+      internalID: -2297141527437349889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glassPanel_tab.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 100
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc20417eca6fc380800000000000000
+      internalID: -8948816499666047750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel.png
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 212
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde36682f6ca580b0800000000000000
+      internalID: -5726981757712580897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_blue.png
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 312
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7f87edd59284490800000000000000
+      internalID: -7761908474631882778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_blueCorner.png
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 412
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c3a574972106120800000000000000
+      internalID: 2404942513113283656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_green.png
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 12
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54ac4fba634c4240800000000000000
+      internalID: 4777267430488319067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_greenCorner.png
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 112
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada11e3a3a81e8c40800000000000000
+      internalID: 5516373684683610842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_plate.png
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 220
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2ba18ba99955b90800000000000000
+      internalID: -7253722735017544962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_red.png
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 312
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d139b3bfcd5bb60800000000000000
+      internalID: 7761352504437316996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_redCorner.png
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 412
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 14, z: 13, w: 15}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483bb12f51c8eb140800000000000000
+      internalID: 4737377883924444036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_yellow.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3319abf3d2392ff90800000000000000
+      internalID: -6921307854763028173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metalPanel_yellowCorner.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2c7455986263320800000000000000
+      internalID: 2537257811352994558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squareBlue.png
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 36
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f41a6170f1e3c40800000000000000
+      internalID: 5493862710743486332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squareGreen.png
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 224
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87ac1dcf258d9060800000000000000
+      internalID: 6961867039335819151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squareRed.png
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 92
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d37d75496e0c3e0800000000000000
+      internalID: -2035373506768192178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squareWhite.png
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 10
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73dd98424d2b28fb0800000000000000
+      internalID: -4646955241277104841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squareYellow.png
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 250
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f78e082c36fa6cf00800000000000000
+      internalID: 1136788798957480063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: square_shadow.png
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 198
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f77f4bb7d24cc6c0800000000000000
+      internalID: -4121846064622897166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
