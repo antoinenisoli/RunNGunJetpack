@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum Team
+{
+    Player,
+    Enemy,
+    Neutral,
+}
+
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] Team myTeam;
     [SerializeField] GameObject HitFX;
     [SerializeField] protected int damageAmount = 1;
     [SerializeField] protected float speed = 5f, lifeTime = 3f;
@@ -38,10 +46,28 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Enemy enemy = collision.GetComponentInParent<Enemy>();
-        if (enemy)
+        Entity entity = collision.GetComponentInParent<Entity>();
+        if (entity)
         {
-            enemy.TakeDamage(damageAmount);
+            switch (myTeam)
+            {
+                case Team.Player:
+                    if (entity is PlayerController)
+                        return;
+
+                    break;
+
+                case Team.Enemy:
+                    if (entity is Enemy)
+                        return;
+
+                    break;
+
+                case Team.Neutral:
+                    break;
+            }
+
+            entity.TakeDamage(damageAmount);
             SelfDestroy();
         }
     }

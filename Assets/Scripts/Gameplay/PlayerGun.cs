@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGun : Shooter
+public class PlayerGun : Gun
 {
     [SerializeField] Transform gunVisual;
-    AmmoSystem ammoSystem;
+    [SerializeField] protected CameraShake camShake = new CameraShake();
+    protected AmmoSystem ammoSystem;
 
-    private void Awake()
+    private void Start()
     {
         ammoSystem = GetComponent<AmmoSystem>();
     }

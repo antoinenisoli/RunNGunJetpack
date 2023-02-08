@@ -4,8 +4,31 @@ using UnityEngine;
 
 public abstract class Enemy : Entity
 {
+    [Header(nameof(Enemy))]
     [SerializeField] protected float speed;
+    [SerializeField] protected int contactDamage = 5;
+    [SerializeField] protected float contactPush = 1000f;
     protected Rigidbody2D rb;
+    [SerializeField] protected Entity target;
+
+    public Entity Target { get => target; }
+
+    public void SetTarget(Entity target)
+    {
+        this.target = target;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.GetComponentInChildren<PlayerController>();
+        
+        if (player)
+        {
+            Vector2 dir = player.transform.position - transform.position;
+            player.TakeDamage(contactDamage);
+            player.Push(contactPush, dir.normalized);
+        }
+    }
 
     public override void Awake()
     {

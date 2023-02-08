@@ -20,6 +20,7 @@ public class PlayerController : Entity
     [SerializeField] float speed;
     [SerializeField] float groundDeceleration = 10f, airDeceleration = 1f;
     [SerializeField] Vector2 walkLimits, flyLimits;
+    [SerializeField] CameraShake damageShake;
 
     [Header("Ground detection")]
     [SerializeField] Transform feetPoint;
@@ -139,6 +140,11 @@ public class PlayerController : Entity
         }
     }
 
+    public void Push(float force, Vector2 direction)
+    {
+        rb.AddForce(direction * force);
+    }
+
     void ClampVelocity()
     {
         move = Rigidbody.velocity;
@@ -155,6 +161,12 @@ public class PlayerController : Entity
             move.x = Mathf.Clamp(move.x, walkLimits.x, walkLimits.y);
 
         Rigidbody.velocity = move;
+    }
+
+    public override void TakeDamage(int amount)
+    {
+        damageShake.Shake();
+        base.TakeDamage(amount);
     }
 
     public void ResetYVelocity()

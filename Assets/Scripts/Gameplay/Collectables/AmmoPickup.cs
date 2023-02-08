@@ -9,10 +9,13 @@ public class AmmoPickup : Pickup
     public override void Effect(Collider2D collision)
     {
         AmmoSystem ammoSystem = collision.GetComponentInChildren<AmmoSystem>();
-        if (ammoSystem.IsMaxAmmo())
+        if (!ammoSystem)
             return;
 
-        ammoSystem.AddAmmo(value);
-        Destroy(gameObject);
+        if (!ammoSystem.IsMaxAmmo())
+        {
+            ammoSystem.AddAmmo(value);
+            Destroy(gameObject);
+        }
     }
 }

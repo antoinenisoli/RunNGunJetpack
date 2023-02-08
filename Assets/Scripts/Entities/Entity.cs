@@ -18,7 +18,7 @@ public abstract class Entity : MonoBehaviour
         Health.Initialize();
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         Health.CurrentHealth -= amount;
         Hit();

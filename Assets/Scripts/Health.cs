@@ -8,6 +8,7 @@ public class Health
     [SerializeField] float currentHealth;
     [SerializeField] float maxHealth = 50;
     public bool isDead => CurrentHealth <= 0;
+    public float value => CurrentHealth / MaxHealth;
 
     public float CurrentHealth
     {
