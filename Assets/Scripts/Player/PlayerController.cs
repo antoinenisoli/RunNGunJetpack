@@ -142,6 +142,8 @@ public class PlayerController : Entity
 
     public void Push(float force, Vector2 direction)
     {
+        ResetYVelocity();
+        ResetXVelocity();
         rb.AddForce(direction * force);
     }
 
@@ -174,6 +176,14 @@ public class PlayerController : Entity
     {
         Vector2 newVelocity = Rigidbody.velocity;
         newVelocity.y = 0;
+
+        Rigidbody.velocity = newVelocity;
+    }
+
+    public void ResetXVelocity()
+    {
+        Vector2 newVelocity = Rigidbody.velocity;
+        newVelocity.x = 0;
 
         Rigidbody.velocity = newVelocity;
     }
