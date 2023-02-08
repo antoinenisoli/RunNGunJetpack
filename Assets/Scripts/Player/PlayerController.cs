@@ -166,6 +166,7 @@ public class PlayerController : Entity
     public override void TakeDamage(int amount)
     {
         damageShake.Shake();
+        FeedbackManager.Instance.FreezeFrame(0f, 0.15f);
         base.TakeDamage(amount);
     }
 

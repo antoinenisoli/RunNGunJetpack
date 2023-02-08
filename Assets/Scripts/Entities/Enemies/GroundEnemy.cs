@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class GroundEnemy : Enemy
 {
+    [Header(nameof(GroundEnemy))]
     [SerializeField] Transform walkPoint;
     [SerializeField] float walkRadius = 0.5f;
-    [SerializeField] LayerMask groundMask;
 
     void SnapToGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1000f, groundMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 3f, groundMask);
         if (hit)
             transform.position = hit.point;
-    }
-
-    public override void Awake()
-    {
-        base.Awake();
-        SnapToGround();
     }
 
     bool DetectGround()
@@ -34,6 +28,7 @@ public class GroundEnemy : Enemy
 
     private void FixedUpdate()
     {
+        SnapToGround();
         if (!DetectGround())
             transform.Rotate(Vector3.forward * -90);
     }

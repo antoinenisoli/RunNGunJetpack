@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
 
     public virtual void Shoot()
     {
-        if (!enemy || !enemy.Target)
+        if (!enemy || !enemy.Target || !enemy.CanAttack())
             return;
 
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
@@ -41,9 +41,6 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        if (!enemy || !enemy.Target)
-            return;
-
         ExecuteTimer();
         if (shootTimer > fireRate)
         {

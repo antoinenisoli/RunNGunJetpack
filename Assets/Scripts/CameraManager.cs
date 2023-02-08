@@ -36,6 +36,12 @@ public class CameraManager : MonoBehaviour
 
     public void Noise(float amplitudeGain)
     {
+        StartCoroutine(DelayedNoise(amplitudeGain));
+    }
+
+    IEnumerator DelayedNoise(float amplitudeGain)
+    {
+        yield return new WaitForEndOfFrame();
         noise.m_AmplitudeGain = amplitudeGain;
     }
 

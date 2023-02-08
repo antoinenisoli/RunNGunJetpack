@@ -49,7 +49,7 @@ MonoBehaviour:
   myTeam: 1
   HitFX: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
   damageAmount: 10
-  speed: 10
+  speed: 50
   lifeTime: 3
   lookAtTarget: 1
   obstacleMask:

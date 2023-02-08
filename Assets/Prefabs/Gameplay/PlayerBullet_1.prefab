@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba166b103423cf4aba5b86cb8f01e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTeam: 0
   HitFX: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
   damageAmount: 1
   speed: 40
-  lifeTime: 3
+  lifeTime: 0.4
   lookAtTarget: 1
   obstacleMask:
     serializedVersion: 2

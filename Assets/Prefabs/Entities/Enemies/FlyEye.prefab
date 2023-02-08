@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8251068632571730611}
   - component: {fileID: 8251068632571730610}
   m_Layer: 7
-  m_Name: AirEnemy
+  m_Name: FlyEye
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,10 @@ MonoBehaviour:
   contactDamage: 5
   contactPush: 1500
   target: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  shootDistance: 0
 --- !u!114 &5457220630462920159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b3950d234af14fb632af4c93745ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4.07
+  radius: 15
   detectionMask:
     serializedVersion: 2
     m_Bits: 64

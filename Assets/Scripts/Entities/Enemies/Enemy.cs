@@ -10,12 +10,22 @@ public abstract class Enemy : Entity
     [SerializeField] protected float contactPush = 1000f;
     protected Rigidbody2D rb;
     [SerializeField] protected Entity target;
+    [SerializeField] protected LayerMask groundMask;
 
     public Entity Target { get => target; }
 
     public void SetTarget(Entity target)
     {
         this.target = target;
+    }
+
+    public bool CanAttack()
+    {
+        if (!target)
+            return false;
+
+        bool blocked = Physics2D.Linecast(transform.position, target.transform.position, groundMask);
+        return !blocked;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
