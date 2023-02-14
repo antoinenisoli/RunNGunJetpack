@@ -24,6 +24,7 @@ public class GameDevHelper : MonoBehaviour
         return mask == (mask | (1 << layer));
     }
 
+#if UNITY_EDITOR
     public static void DrawIcon(GameObject gameObject, int idx)
     {
         var largeIcons = GetTextures("sv_label_", string.Empty, 0, 8);
@@ -45,6 +46,7 @@ public class GameDevHelper : MonoBehaviour
 
         return array;
     }
+#endif
 
     public static Color RandomColor()
     {
@@ -60,7 +62,7 @@ public class GameDevHelper : MonoBehaviour
     public static T RandomEnum<T>()
     {
         System.Array array = System.Enum.GetValues(typeof(T));
-        T randomBiome = (T)array.GetValue(Random.Range(0, array.Length));
-        return randomBiome;
+        T randomEnum = (T)array.GetValue(Random.Range(0, array.Length));
+        return randomEnum;
     }
 }

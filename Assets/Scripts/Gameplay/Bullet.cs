@@ -19,11 +19,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] LayerMask obstacleMask;
     protected Vector2 trajectory;
 
-    private void Awake()
-    {
-        //SoundManager.Instance.PlayAudio(soundName);
-    }
-
     public void Shoot(Vector2 trajectory)
     {
         this.trajectory = trajectory.normalized;
@@ -32,10 +27,13 @@ public class Bullet : MonoBehaviour
 
     void SelfDestroy(float delay = 0)
     {
+        Destroy(gameObject, delay);
+    }
+
+    private void OnDestroy()
+    {
         if (HitFX)
             Instantiate(HitFX, transform.position, Quaternion.identity);
-
-        Destroy(gameObject, delay);
     }
 
     public virtual void Collision(Collider2D collision)

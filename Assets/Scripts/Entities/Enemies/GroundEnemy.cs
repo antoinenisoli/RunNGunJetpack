@@ -5,8 +5,14 @@ using UnityEngine;
 public class GroundEnemy : Enemy
 {
     [Header(nameof(GroundEnemy))]
-    [SerializeField] Transform walkPoint;
     [SerializeField] float walkRadius = 0.5f;
+    [SerializeField] Transform groundDetector, wallDetector;
+
+    public override void Awake()
+    {
+        base.Awake();
+        SnapToGround();
+    }
 
     void SnapToGround()
     {
@@ -17,7 +23,14 @@ public class GroundEnemy : Enemy
 
     bool DetectGround()
     {
-        return Physics2D.OverlapCircle(walkPoint.position, walkRadius, groundMask);
+        bool hit = Physics2D.OverlapCircle(groundDetector.position, walkRadius, groundMask);
+        return hit;
+    }
+
+    bool DetectWall()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(wallDetector.position, wallDetector.right, 1f, groundMask);
+        return hit;
     }
 
     private void Update()
@@ -29,7 +42,10 @@ public class GroundEnemy : Enemy
     private void FixedUpdate()
     {
         SnapToGround();
+
         if (!DetectGround())
             transform.Rotate(Vector3.forward * -90);
+        if (DetectWall())
+            transform.Rotate(Vector3.forward * 90);
     }
 }
