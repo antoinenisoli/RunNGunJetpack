@@ -168,6 +168,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   walkRadius: 0.5
+  trail: {fileID: 3860282799892623899, guid: b73c5a64d666bea48a6feafa85a9de3a, type: 3}
+  spawnTrailRate: 0.05
   groundDetector: {fileID: 8857119907629262220}
   wallDetector: {fileID: 9004007605098789688}
 --- !u!58 &1985107842062929250

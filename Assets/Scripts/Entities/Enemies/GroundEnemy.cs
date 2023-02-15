@@ -6,6 +6,9 @@ public class GroundEnemy : Enemy
 {
     [Header(nameof(GroundEnemy))]
     [SerializeField] float walkRadius = 0.5f;
+    [SerializeField] GameObject trail;
+    [SerializeField] float spawnTrailRate = 0.3f;
+    float timer;
     [SerializeField] Transform groundDetector, wallDetector;
 
     public override void Awake()
@@ -37,6 +40,13 @@ public class GroundEnemy : Enemy
     {
         Vector2 newVelocity = transform.right * speed;
         rb.velocity = newVelocity;
+
+        timer += Time.deltaTime;
+        if (timer > spawnTrailRate)
+        {
+            timer = 0;
+            GameObject o = Instantiate(trail, transform.position, transform.rotation);
+        }
     }
 
     private void FixedUpdate()
