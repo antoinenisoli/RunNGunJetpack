@@ -28,6 +28,11 @@ public abstract class Enemy : Entity
         return !blocked;
     }
 
+    private void OnDestroy()
+    {
+        VFXManager.Instance.PlayVFX("ExplodeFX", transform.position);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponentInChildren<PlayerController>();

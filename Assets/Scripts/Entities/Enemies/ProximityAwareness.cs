@@ -1,12 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(FlyEnemy))]
 public class ProximityAwareness : MonoBehaviour
 {
     [SerializeField] float minDistanceWithOthers = 5f;
+    FlyEnemy myEnemy;
     FlyEnemy[] otherEnemies;
     List<FlyEnemy> tooCloseEnemies = new List<FlyEnemy>();
+
+    private void Start()
+    {
+        myEnemy = GetComponent<FlyEnemy>();
+        otherEnemies = FindObjectsOfType<FlyEnemy>();
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, minDistanceWithOthers);
+    }
+#endif
 
     private void ManageRepelling()
     {
@@ -36,10 +53,14 @@ public class ProximityAwareness : MonoBehaviour
                     continue;
 
                 Vector2 v = transform.position - item.transform.position;
-                //rb.AddForce(v.normalized * 10f);
+                myEnemy.AddVelocity(v.normalized * 1f);
+                //myEnemy.AddVelocity(v);
             }
         }
-        /*else
-            rb.velocity = new Vector2();*/
+    }
+
+    private void Update()
+    {
+        ManageRepelling();
     }
 }

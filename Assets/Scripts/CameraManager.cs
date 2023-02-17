@@ -17,11 +17,17 @@ public class CameraShake
 
 public class CameraManager : MonoBehaviour
 {
+    public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera;
     public static CameraManager Instance;
     [SerializeField] CinemachineVirtualCamera cinemachineCamera;
     [SerializeField] float endShakeSpeed = 10f;
+
+    [Header("Offset camera")]
+    [SerializeField] float borderSize = 200f;
+    [SerializeField] float offsetAmount = 3f;
+
     CinemachineBasicMultiChannelPerlin noise;
-    public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera;
+    CinemachineFramingTransposer framingTransposer;
 
     private void Awake()
     {
@@ -32,6 +38,19 @@ public class CameraManager : MonoBehaviour
 
         cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
         noise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        framingTransposer = cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+    }
+
+    private void Start()
+    {
+        GetPlayer();
+    }
+
+    void GetPlayer()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        cinemachineCamera.Follow = player.transform;
+        cinemachineCamera.Follow = player.transform;
     }
 
     public void Noise(float amplitudeGain)
@@ -43,6 +62,31 @@ public class CameraManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         noise.m_AmplitudeGain = amplitudeGain;
+    }
+
+    private void Update()
+    {
+        ManageOffset();
+    }
+
+    void ManageOffset()
+    {
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        bool canOffset = Input.mousePosition.y > screenHeight - borderSize
+            || Input.mousePosition.y < borderSize
+            || Input.mousePosition.x > screenWidth - borderSize
+            || Input.mousePosition.x < borderSize
+            ;
+
+        if (canOffset)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 offset = mousePosition - (Vector2)framingTransposer.FollowTarget.position;
+            framingTransposer.m_TrackedObjectOffset = offset.normalized * offsetAmount;
+        }
+        else
+            framingTransposer.m_TrackedObjectOffset = Vector2.zero;
     }
 
     void LateUpdate()

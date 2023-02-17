@@ -10,6 +10,7 @@ public class HealthHUD : MonoBehaviour
 
     private void Update()
     {
-        healthSlider.value = entity.Health.value;
+        if (healthSlider && entity)
+            healthSlider.value = entity.Health.value;
     }
 }

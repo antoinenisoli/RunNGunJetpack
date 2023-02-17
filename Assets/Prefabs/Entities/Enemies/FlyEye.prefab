@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8251068632571730605}
   - component: {fileID: 8251068632571730608}
+  - component: {fileID: 2910013272212707430}
   - component: {fileID: 5457220630462920159}
   - component: {fileID: 7197554800795354649}
   - component: {fileID: 8251068632571730611}
@@ -84,14 +85,28 @@ MonoBehaviour:
     maxHealth: 10
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 8251068632831433066}
-  speed: 15
+  speed: 1
   contactDamage: 5
   contactPush: 1500
   target: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  shootDistance: 0
+  additionalVelocity: {x: 0, y: 0}
+  shootDistance: 8
+--- !u!114 &2910013272212707430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251068632571730604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569465d3a0014342894dc099ed7d161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceWithOthers: 2
 --- !u!114 &5457220630462920159
 MonoBehaviour:
   m_ObjectHideFlags: 0
