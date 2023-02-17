@@ -65,6 +65,9 @@ public class Bullet : MonoBehaviour
                     break;
             }
 
+            if (entity is Block)
+                (entity as Block).Push(transform.right);
+
             entity.TakeDamage(damageAmount);
             SelfDestroy();
         }

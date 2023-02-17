@@ -214,7 +214,7 @@ MonoBehaviour:
   radius: 0.5
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   fireFX: {fileID: 7677861160230559699}
   propulsionDelay: 0.5
   flyForce: 120
