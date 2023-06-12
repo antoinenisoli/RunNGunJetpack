@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PoisonTrail : Trap
+public class PoisonTrail : DamageTrap
 {
     [SerializeField] float lifeTime = 1f;
 

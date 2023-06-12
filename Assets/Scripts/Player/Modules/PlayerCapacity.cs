@@ -8,7 +8,12 @@ public abstract class PlayerCapacity : PlayerModule
     [Header(nameof(PlayerCapacity))]
     [SerializeField] Text cooldownText;
     [SerializeField] protected float cooldown;
-    bool locked;
+    bool locked = false;
+
+    public virtual bool IsReady()
+    {
+        return !locked;
+    }
 
     IEnumerator Cooldown()
     {

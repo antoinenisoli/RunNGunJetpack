@@ -29,9 +29,12 @@ public class PlayerController : Entity
 
     [Header("Fly")]
     [SerializeField] ParticleSystem fireFX;
-    [SerializeField] float propulsionDelay = 0.5f;
+    [SerializeField] float propulsionDelay = 0.5f, spamDelay = 0.2f;
     [SerializeField] float flyForce;
     [SerializeField] float consumeSpeed = 3f, reloadSpeed = 1.5f;
+    bool flyInputPressed;
+    bool freezeFlying;
+    float flyInputTimer;
 
     [Header("Fuel")]
     [SerializeField] float reloadDelay;
@@ -46,6 +49,7 @@ public class PlayerController : Entity
     bool reloading;
     Dictionary<ModuleType, PlayerModule> modules = new Dictionary<ModuleType, PlayerModule>();
     Vector2 move;
+    Vector2 lastGroundPosition;
 
     public Rigidbody2D Rigidbody { get => rb; }
     public float InputDirection { get => inputDirection; }
@@ -87,6 +91,11 @@ public class PlayerController : Entity
         return false;
     }
 
+    public PlayerCapacity GetCapacity(ModuleType moduleType)
+    {
+        return modules[moduleType] as PlayerCapacity;
+    }
+
     public bool UseModule(ModuleType moduleType)
     {
         bool getModule = TryGetModule(moduleType, out PlayerModule module);
@@ -98,11 +107,12 @@ public class PlayerController : Entity
 
     public void Propulsion()
     {
-        if (UseModule(ModuleType.Propulsion))
+        bool value = GetCapacity(ModuleType.Propulsion).IsReady() && UseModule(ModuleType.Propulsion);
+        if (value)
         {
+            fireFX.Play();
             SetState(PlayerState.InPropulsion);
             StartCoroutine(SetStateDelayed(PlayerState.Idle, propulsionDelay));
-            fireFX.Play();
         }
     }
     #endregion
@@ -126,6 +136,13 @@ public class PlayerController : Entity
         reloading = false;
     }
 
+    public void FakeDeath()
+    {
+        ResetXVelocity();
+        ResetYVelocity();
+        transform.position = lastGroundPosition;
+    }
+
     void Movements()
     {
         if (MainState == PlayerState.IsSliding)
@@ -137,6 +154,8 @@ public class PlayerController : Entity
             inputDirection = Input.GetAxisRaw("Horizontal");
             Vector2 v = Vector2.right * xInput * speed;
             Rigidbody.AddForce(v);
+            if (OnGround())
+                SaveGroundPosition();
         }
     }
 
@@ -154,7 +173,9 @@ public class PlayerController : Entity
         if (MainState != PlayerState.IsSliding && Input.GetAxisRaw("Horizontal") == 0) //deceleration
         {
             if (OnGround())
+            {
                 move.x = Mathf.Lerp(move.x, 0, groundDeceleration * Time.fixedDeltaTime);
+            }
             else
                 move.x = Mathf.Lerp(move.x, 0, airDeceleration * Time.fixedDeltaTime);
         }
@@ -195,10 +216,24 @@ public class PlayerController : Entity
             Fuel += reloadSpeed * Time.deltaTime;
     }
 
+    void SaveGroundPosition()
+    {
+        lastGroundPosition = transform.position;
+        //print(lastGroundPosition);
+    }
+
+    void Landing()
+    {
+        SaveGroundPosition();
+    }
+
     void ManageState()
     {
         if (MainState == PlayerState.IsSliding || MainState == PlayerState.InPropulsion)
             return;
+
+        if ((MainState == PlayerState.IsFalling || MainState == PlayerState.IsFlying) && OnGround())
+            Landing();
 
         float walkThreshold = 0.2f;
         if (Rigidbody.velocity.x > walkThreshold || Rigidbody.velocity.x < -walkThreshold)
@@ -206,10 +241,13 @@ public class PlayerController : Entity
         else
             SetState(PlayerState.Idle);
 
-        if (Rigidbody.velocity.y < 0)
-            SetState(PlayerState.IsFalling);
-        else if (Rigidbody.velocity.y > 0)
-            SetState(PlayerState.IsFlying);
+        if (!OnGround())
+        {
+            if (Rigidbody.velocity.y < 0)
+                SetState(PlayerState.IsFalling);
+            else if (Rigidbody.velocity.y > 0)
+                SetState(PlayerState.IsFlying);
+        }
     }
 
     void ManageInputs()
@@ -227,7 +265,21 @@ public class PlayerController : Entity
     void Flying()
     {
         bool correctState = MainState != PlayerState.IsSliding && MainState != PlayerState.InPropulsion;
-        bool canFly = correctState && Fuel > 0 && !reloading;
+        bool canFly = correctState && Fuel > 0 && !reloading && !freezeFlying;
+
+        if (Input.GetAxisRaw("Vertical") <= 0 && flyInputPressed)
+        {
+            flyInputTimer += Time.deltaTime;
+            freezeFlying = true;
+            if (flyInputTimer > spamDelay)
+            {
+                flyInputTimer = 0;
+                flyInputPressed = false;
+                freezeFlying = false;
+            }
+            else
+                return;
+        }
 
         if (Input.GetAxisRaw("Vertical") > 0 && canFly)
         {
@@ -235,6 +287,7 @@ public class PlayerController : Entity
             Fuel -= consumeSpeed * Time.deltaTime;
             delay = 0;
             Rigidbody.AddForce(Vector2.up * flyForce);
+            flyInputPressed = true;
 
             if (Rigidbody.velocity.y > flyLimits.y)
             {
@@ -245,6 +298,7 @@ public class PlayerController : Entity
         }
         else if (MainState != PlayerState.InPropulsion)
             fireFX.Stop();
+
     }
 
     public bool OnGround()

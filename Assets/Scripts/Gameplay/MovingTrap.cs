@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class MovingTrap : Trap
+public class MovingTrap : DamageTrap
 {
     [Header(nameof(MovingTrap))]
     [SerializeField] float speed = 1f;
