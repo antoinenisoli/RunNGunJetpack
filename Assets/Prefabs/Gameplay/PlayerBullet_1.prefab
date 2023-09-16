@@ -54,7 +54,7 @@ MonoBehaviour:
   lookAtTarget: 1
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
 --- !u!58 &1746009155548192123
 CircleCollider2D:
   m_ObjectHideFlags: 0

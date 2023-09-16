@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7301439342027784071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8747, y: 1.8747, z: 1.8747}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,6 +52,35 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 7301439342027784070}
   force: 100
+  forceLimits: {x: 100, y: 500}
+  collisionRadius: 1
+  impactCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 250
+      inSlope: 500
+      outSlope: 500
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  destroyables:
+    serializedVersion: 2
+    m_Bits: 448
 --- !u!212 &7301439342027784070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,7 +122,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 124
   m_Sprite: {fileID: -2426843357703420916, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
-  m_Color: {r: 0.997499, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

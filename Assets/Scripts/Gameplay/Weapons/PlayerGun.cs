@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGun : Gun
 {
-    [SerializeField] Transform gunVisual;
+    [Header(nameof(PlayerGun))]
     [SerializeField] protected CameraShake camShake = new CameraShake();
     protected AmmoSystem ammoSystem;
 
@@ -22,15 +22,20 @@ public class PlayerGun : Gun
         ammoSystem.UseAmmo();
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Bullet b = bulletObj.GetComponent<Bullet>();
-        b.Shoot(gunVisual.right);
+        b.Shoot(weaponVisual.right);
+    }
+
+    public override void Execute()
+    {
+        base.Execute();
     }
 
     public override void ExecuteTimer()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        LookAt(gunVisual, mousePosition);
+        LookAt(weaponVisual, mousePosition);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetButtonDown("Fire1"))
             shootTimer += Time.deltaTime;
         else
             shootTimer = fireRate;

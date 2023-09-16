@@ -15,6 +15,9 @@ public class AmmoHUD : MonoBehaviour
 
     private void Update()
     {
+        if (!ammoSystem)
+            return;
+
         text.text = ammoSystem.AmmoAmount + "";
     }
 }

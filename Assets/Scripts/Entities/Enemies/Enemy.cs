@@ -39,6 +39,19 @@ public abstract class Enemy : Entity
         
         if (player)
         {
+            print(name + " collided with player!");
+            Vector2 dir = player.transform.position - transform.position;
+            player.TakeDamage(contactDamage);
+            player.Push(contactPush, dir.normalized);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponentInChildren<PlayerController>();
+        if (player)
+        {
+            print(name + " collided with player!");
             Vector2 dir = player.transform.position - transform.position;
             player.TakeDamage(contactDamage);
             player.Push(contactPush, dir.normalized);

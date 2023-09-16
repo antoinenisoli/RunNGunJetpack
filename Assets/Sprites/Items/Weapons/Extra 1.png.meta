@@ -1,0 +1,1578 @@
+fileFormatVersion: 2
+guid: 482e83e08c2cfd449b2c4f22a0f25a0c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9149585655377429423
+    second: Extra 1_0
+  - first:
+      213: 5171790073572144660
+    second: Extra 1_1
+  - first:
+      213: -1978651223058170943
+    second: Extra 1_2
+  - first:
+      213: -8154729754356931983
+    second: Extra 1_3
+  - first:
+      213: 7469334411378469312
+    second: Extra 1_4
+  - first:
+      213: 5371120805923801788
+    second: Extra 1_5
+  - first:
+      213: -6948487304540744834
+    second: Extra 1_6
+  - first:
+      213: 3320109150455219856
+    second: Extra 1_7
+  - first:
+      213: -7732272360626746588
+    second: Extra 1_8
+  - first:
+      213: 7369761959269781774
+    second: Extra 1_9
+  - first:
+      213: -2735987636258259106
+    second: Extra 1_10
+  - first:
+      213: 2495484297586547667
+    second: Extra 1_11
+  - first:
+      213: -3082319956822687393
+    second: Extra 1_12
+  - first:
+      213: 1544115693345196960
+    second: Extra 1_13
+  - first:
+      213: -9071075371646444802
+    second: Extra 1_14
+  - first:
+      213: -7312529717884191062
+    second: Extra 1_15
+  - first:
+      213: -5274953982480214812
+    second: Extra 1_16
+  - first:
+      213: -4667394533360391407
+    second: Extra 1_17
+  - first:
+      213: -3639798773270185435
+    second: Extra 1_18
+  - first:
+      213: 7817764124749299842
+    second: Extra 1_19
+  - first:
+      213: 8472568503706587749
+    second: Extra 1_20
+  - first:
+      213: 5140211490332639666
+    second: Extra 1_21
+  - first:
+      213: 669338937663308206
+    second: Extra 1_22
+  - first:
+      213: -4366653539271416260
+    second: Extra 1_23
+  - first:
+      213: -5454909555077665648
+    second: Extra 1_24
+  - first:
+      213: 3625837510019465145
+    second: Extra 1_25
+  - first:
+      213: -4024150645331471629
+    second: Extra 1_26
+  - first:
+      213: 1933318141283873155
+    second: Extra 1_27
+  - first:
+      213: 8373204155278992283
+    second: Extra 1_28
+  - first:
+      213: 6834650676624245301
+    second: Extra 1_29
+  - first:
+      213: -158250852896203600
+    second: Extra 1_30
+  - first:
+      213: -7457364563266828497
+    second: Extra 1_31
+  - first:
+      213: -9162665443574332306
+    second: Extra 1_32
+  - first:
+      213: -1469999903676550948
+    second: Extra 1_33
+  - first:
+      213: 2225511822824479470
+    second: Extra 1_34
+  - first:
+      213: -7249909367074527666
+    second: Extra 1_35
+  - first:
+      213: -4720066078649979881
+    second: Extra 1_36
+  - first:
+      213: 7424376576425623168
+    second: Extra 1_37
+  - first:
+      213: -5110033992236534162
+    second: Extra 1_38
+  - first:
+      213: 5980167444555192491
+    second: Extra 1_39
+  - first:
+      213: -1401493989746015654
+    second: Extra 1_40
+  - first:
+      213: 6963756436525277031
+    second: Extra 1_41
+  - first:
+      213: -499431162757497062
+    second: Extra 1_42
+  - first:
+      213: 988230409350158893
+    second: Extra 1_43
+  - first:
+      213: 3090611938775148994
+    second: Extra 1_44
+  - first:
+      213: 2732514804713519146
+    second: Extra 1_45
+  - first:
+      213: -872608098246069316
+    second: Extra 1_46
+  - first:
+      213: -3178426875142427018
+    second: Extra 1_47
+  - first:
+      213: -5238535010875587273
+    second: Extra 1_48
+  - first:
+      213: 5957882626176033840
+    second: Extra 1_49
+  - first:
+      213: 2873512899494386071
+    second: Extra 1_50
+  - first:
+      213: 2342583591669526300
+    second: Extra 1_51
+  - first:
+      213: 8622308240304113431
+    second: Extra 1_52
+  - first:
+      213: 9200082423689519577
+    second: Extra 1_53
+  - first:
+      213: 6569761614531920883
+    second: Extra 1_54
+  - first:
+      213: 949464990971554726
+    second: Extra 1_55
+  - first:
+      213: -8153509202202973757
+    second: Extra 1_56
+  - first:
+      213: -310279610459319682
+    second: Extra 1_57
+  - first:
+      213: 5710391136640134145
+    second: Extra 1_58
+  - first:
+      213: -1235077767692408945
+    second: Extra 1_59
+  - first:
+      213: 5462800725471658611
+    second: Extra 1_60
+  - first:
+      213: -3059458489429008786
+    second: Extra 1_61
+  - first:
+      213: -7349908904601466913
+    second: Extra 1_62
+  - first:
+      213: 7371089687868415492
+    second: Extra 1_63
+  - first:
+      213: 7533442523847515831
+    second: Extra 1_64
+  - first:
+      213: 8925532830427499735
+    second: Extra 1_65
+  - first:
+      213: 6156078684069221365
+    second: Extra 1_66
+  - first:
+      213: -2825952576408855923
+    second: Extra 1_67
+  - first:
+      213: -1163238202006785706
+    second: Extra 1_68
+  - first:
+      213: 2868608598514489467
+    second: Extra 1_69
+  - first:
+      213: -7135996177936442657
+    second: Extra 1_70
+  - first:
+      213: 6910048802245249854
+    second: Extra 1_71
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Extra 1_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 111
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15cf731b254260180800000000000000
+      internalID: -9149585655377429423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 111
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416b82caba3e5c740800000000000000
+      internalID: 5171790073572144660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 111
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbb93b223b6a84e0800000000000000
+      internalID: -1978651223058170943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 107
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1722f387e7494de80800000000000000
+      internalID: -8154729754356931983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_4
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 107
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9a0daa21868a760800000000000000
+      internalID: 7469334411378469312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_5
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 107
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba4cc26aed0a8a40800000000000000
+      internalID: 5371120805923801788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 108
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09648608ea5631e20800000000000000
+      internalID: 3320109150455219856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 108
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b854e514371b490800000000000000
+      internalID: -7732272360626746588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_9
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 110
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01567d8477a64660800000000000000
+      internalID: 7369761959269781774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 107
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f37fe9db1d70ad0800000000000000
+      internalID: -2735987636258259106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_11
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 107
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db163c3fbdb1a220800000000000000
+      internalID: 2495484297586547667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_12
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 107
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f518c7184566935d0800000000000000
+      internalID: -3082319956822687393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_13
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 107
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab42f1ca0dcd6510800000000000000
+      internalID: 1544115693345196960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 78
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b247c96651a3fb0800000000000000
+      internalID: -4667394533360391407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 90
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52af359dc46dc7dc0800000000000000
+      internalID: -3639798773270185435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_19
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 86
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28089791d074e7c60800000000000000
+      internalID: 7817764124749299842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_20
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 80
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562189e1a2c949570800000000000000
+      internalID: 8472568503706587749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 78
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b188afcd13b55740800000000000000
+      internalID: 5140211490332639666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_22
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 78
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea142cda738f94900800000000000000
+      internalID: 669338937663308206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_23
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 76
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c366686ddb78663c0800000000000000
+      internalID: -4366653539271416260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_25
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 76
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf3ffd3100915230800000000000000
+      internalID: 3625837510019465145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_27
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 76
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3813b093b9684da10800000000000000
+      internalID: 1933318141283873155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_29
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 78
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5324210349e89de50800000000000000
+      internalID: 6834650676624245301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_30
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 78
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc18bf00b7cdcdf0800000000000000
+      internalID: -158250852896203600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_31
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 96
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2705e5c07e128890800000000000000
+      internalID: -7457364563266828497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_32
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 78
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e644100335ca7d080800000000000000
+      internalID: -9162665443574332306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_36
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 66
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c62b1d8e4fe7eb0800000000000000
+      internalID: -4720066078649979881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_37
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 61
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e7494092fa80760800000000000000
+      internalID: 7424376576425623168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_38
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 57
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66f19e78238519b0800000000000000
+      internalID: -5110033992236534162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_42
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 52
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f341ae00aa119f0800000000000000
+      internalID: -499431162757497062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_44
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 44
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9264dfe2f04ea20800000000000000
+      internalID: 3090611938775148994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_45
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 55
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28f176ccb7dbe520800000000000000
+      internalID: 2732514804713519146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_46
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 30
+        width: 18
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3f9e3de8fd3e3f0800000000000000
+      internalID: -872608098246069316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_47
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 34
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ea49ad895f3e3d0800000000000000
+      internalID: -3178426875142427018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_48
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 47
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735405d992cfc47b0800000000000000
+      internalID: -5238535010875587273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_49
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 42
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034a1baaea6aea250800000000000000
+      internalID: 5957882626176033840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_50
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 44
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7999ddfe1c4c0e720800000000000000
+      internalID: 2873512899494386071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_51
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 48
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fee167d57828020800000000000000
+      internalID: 2342583591669526300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_52
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 47
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717004f59a798a770800000000000000
+      internalID: 8622308240304113431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_53
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 48
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1245068324daf70800000000000000
+      internalID: 9200082423689519577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_54
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 48
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f30c2d516b7c2b50800000000000000
+      internalID: 6569761614531920883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_55
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 45
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab6789f06d2d2d00800000000000000
+      internalID: 949464990971554726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_56
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 53
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c920d9649ae8de80800000000000000
+      internalID: -8153509202202973757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_57
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e729685965aa1bbf0800000000000000
+      internalID: -310279610459319682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_58
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 24
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c69fbdb726f3f40800000000000000
+      internalID: 5710391136640134145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_59
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 34
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8726b2605f1cdee0800000000000000
+      internalID: -1235077767692408945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_60
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 12
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3720c701154cfcb40800000000000000
+      internalID: 5462800725471658611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_61
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 11
+        width: 8
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ed78ca6be9a85d0800000000000000
+      internalID: -3059458489429008786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_62
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 11
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7cfb1fac0eff990800000000000000
+      internalID: -7349908904601466913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_63
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 11
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e11f4740f5b4660800000000000000
+      internalID: 7371089687868415492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_64
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 11
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bed0c1cf0a2c8860800000000000000
+      internalID: 7533442523847515831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_65
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 11
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcc7bcd1dcdddb70800000000000000
+      internalID: 8925532830427499735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_66
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 17
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3dc4562f8ce6550800000000000000
+      internalID: 6156078684069221365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_67
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 9
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8adc03ba1338c8d0800000000000000
+      internalID: -2825952576408855923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_68
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 7
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651b834b4095bdfe0800000000000000
+      internalID: -1163238202006785706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_69
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 7
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78561262585fc720800000000000000
+      internalID: 2868608598514489467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_70
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 5
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda9d87c849d7fc90800000000000000
+      internalID: -7135996177936442657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra 1_71
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 5
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b017e46cc65ef50800000000000000
+      internalID: 6910048802245249854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
