@@ -34,7 +34,6 @@ public class Block : Entity
     int ComputeCollisionDamages(float force)
     {
         var coeff = Mathf.InverseLerp(forceLimits.x, forceLimits.y, force);
-        print(coeff);
         return Mathf.RoundToInt(impactCurve.Evaluate(coeff));
     }
 
@@ -52,7 +51,7 @@ public class Block : Entity
                 if (rb.gravityScale > 0 && rb.velocity.sqrMagnitude > forceLimits.x)
                 {
                     int damages = ComputeCollisionDamages(force);
-                    print(force + " " + damages);
+                    print("collision force = " + force + " computed damages = " + damages);
                     entity.TakeDamage(damages);
                     rb.velocity = new Vector2();
                 }

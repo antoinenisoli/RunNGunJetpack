@@ -12,6 +12,7 @@ public class GravityGun : Weapon
     Rigidbody2D hookedObject;
     LineRenderer lineRenderer;
     Vector2 targetPos;
+    float baseGravity;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class GravityGun : Weapon
     void OnHook(Rigidbody2D other)
     {
         hookedObject = other;
+        baseGravity = hookedObject.gravityScale;
         hookedObject.gravityScale = 0;
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
@@ -70,7 +72,7 @@ public class GravityGun : Weapon
 
     void StopHook()
     {
-        hookedObject.gravityScale = 1;
+        hookedObject.gravityScale = baseGravity;
         hookedObject = null;
         lineRenderer.positionCount = 0;
     }
