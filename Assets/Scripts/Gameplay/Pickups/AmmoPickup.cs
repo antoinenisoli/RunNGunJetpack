@@ -6,9 +6,9 @@ public class AmmoPickup : Pickup
 {
     [SerializeField] int value;
 
-    public override void Effect(Collider2D collision)
+    public override void OnCollisionWithPlayer(PlayerController player, Collider2D collision)
     {
-        AmmoSystem ammoSystem = collision.GetComponentInChildren<AmmoSystem>();
+        AmmoSystem ammoSystem = player.GetComponentInChildren<AmmoSystem>();
         if (!ammoSystem)
             return;
 

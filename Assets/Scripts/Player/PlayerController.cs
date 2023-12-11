@@ -39,7 +39,6 @@ public class PlayerController : Entity
     [Header("Fuel")]
     [SerializeField] float reloadDelay;
     [SerializeField] float fuelCapacity = 50f;
-    [SerializeField] Slider fuelSlider;
 
     PlayerAnimator animator;
     float inputDirection;
@@ -116,7 +115,7 @@ public class PlayerController : Entity
         }
     }
     #endregion
-
+    
     public void SetState(PlayerState newState)
     {
         MainState = newState;
@@ -298,12 +297,16 @@ public class PlayerController : Entity
         }
         else if (MainState != PlayerState.InPropulsion)
             fireFX.Stop();
-
     }
 
     public bool OnGround()
     {
         return Physics2D.OverlapCircle(feetPoint.position, radius, groundMask);
+    }
+
+    public float GetFuelCapacity()
+    {
+        return Fuel / fuelCapacity;
     }
 
     private void Update()
@@ -317,12 +320,6 @@ public class PlayerController : Entity
 
         if (Fuel <= 0 && !reloading)
             StartCoroutine(ReloadFuel());
-
-        if (fuelSlider)
-        {
-            float value = Fuel / fuelCapacity;
-            fuelSlider.value = value;
-        }
     }
 
     private void FixedUpdate()
