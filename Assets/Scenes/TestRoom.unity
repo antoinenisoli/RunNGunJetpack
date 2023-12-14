@@ -8244,9 +8244,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2074905359}
     m_Modifications:
+    - target: {fileID: 7197554800795354649, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
+      propertyPath: camShake.active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730604, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_Name
       value: FlyEye (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251068632571730604, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730605, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_RootOrder

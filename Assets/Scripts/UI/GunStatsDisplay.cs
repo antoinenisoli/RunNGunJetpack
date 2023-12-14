@@ -15,7 +15,7 @@ public class GunStatsDisplay : WeaponStatDisplay
         if (gunData != null)
         {
             magazineSizeTxt.text = gunData.MagazineSize.ToString();
-            fireModeTxt.text = gunData.FireMode.ToString();
+            fireModeTxt.text = gunData.FireMode.ToStringValue();
         }
     }
 }

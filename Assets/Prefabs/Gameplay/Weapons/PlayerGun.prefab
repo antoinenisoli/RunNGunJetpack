@@ -48,12 +48,13 @@ MonoBehaviour:
   weaponVisual: {fileID: 2100175602935399894}
   shootPoint: {fileID: 1076578415745331881}
   bulletPrefab: {fileID: 1746009155548192117, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
-  fireRate: 0.1
+  fireRate: 0.5
+  camShake:
+    active: 1
+    shakeIntensity: 5
   randomGunGenerator:
     mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}
     gunSprite: {fileID: 2100175602935399895}
-  camShake:
-    shakeIntensity: 5
 --- !u!114 &1076578413909794902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82f9b164c63d7042a48cfc8cdabcfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 150
-  maxAmmo: 150
 --- !u!1 &1076578415745331880
 GameObject:
   m_ObjectHideFlags: 0

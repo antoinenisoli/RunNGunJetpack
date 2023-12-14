@@ -120,3 +120,40 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d6bd65ad8bb91d743952fe8f8ba00b9b, type: 3}
   - {fileID: 21300000, guid: caea1ac56fde27144822d45baa2aa0f4, type: 3}
   - {fileID: 21300000, guid: 0efb3d11218bc3240b4a697583aca892, type: 3}
+  WeaponStats:
+  - StatName: Damages
+    Integer: 1
+    RandomValue:
+    - Mode: 0
+      RandomRange: {x: 3, y: 6}
+    - Mode: 1
+      RandomRange: {x: 1, y: 3}
+    - Mode: 2
+      RandomRange: {x: 1, y: 3}
+  - StatName: BulletSpeed
+    Integer: 0
+    RandomValue:
+    - Mode: 0
+      RandomRange: {x: 10, y: 51}
+    - Mode: 1
+      RandomRange: {x: 10, y: 51}
+    - Mode: 2
+      RandomRange: {x: 50, y: 51}
+  - StatName: MagazineSize
+    Integer: 1
+    RandomValue:
+    - Mode: 0
+      RandomRange: {x: 35, y: 101}
+    - Mode: 1
+      RandomRange: {x: 75, y: 151}
+    - Mode: 2
+      RandomRange: {x: 10, y: 30}
+  - StatName: FireRate
+    Integer: 0
+    RandomValue:
+    - Mode: 0
+      RandomRange: {x: 0, y: 0.2}
+    - Mode: 1
+      RandomRange: {x: 0.2, y: 0.5}
+    - Mode: 2
+      RandomRange: {x: 0.5, y: 0.5}

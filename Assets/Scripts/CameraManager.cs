@@ -6,12 +6,14 @@ using UnityEngine;
 [System.Serializable]
 public class CameraShake
 {
+    [SerializeField] bool active = true;
     [SerializeField] float shakeIntensity = 5f;
     CameraManager cmFreeCam => CameraManager.Instance;
 
     public void Shake()
     {
-        cmFreeCam.Noise(shakeIntensity);
+        if (active)
+            cmFreeCam.Noise(shakeIntensity);
     }
 }
 

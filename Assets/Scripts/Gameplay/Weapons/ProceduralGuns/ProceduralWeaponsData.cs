@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProceduralWeaponsData : ScriptableObject
 {
     public Sprite[] bodies, barrels, scopes, stocks;
+    public List<WeaponStatNumber> WeaponStats = new List<WeaponStatNumber>();
 
     public Sprite RandomSprite(Sprite[] sprites)
     {
@@ -13,7 +14,7 @@ public class ProceduralWeaponsData : ScriptableObject
         return sprites[random];
     }
 
-    string GetRandomNames()
+    string RandomName()
     {
         string[] names = new string[] {
             "Single-Shot Photon Shooter",
@@ -28,15 +29,36 @@ public class ProceduralWeaponsData : ScriptableObject
         return names[random];
     }
 
+    FireMode RandomFireMode()
+    {
+        System.Array array = System.Enum.GetValues(typeof(FireMode));
+        int random = Random.Range(0, array.Length);
+        return (FireMode)array.GetValue(random);
+    }
+
+    float GetStatValue(string statName, FireMode mode)
+    {
+        foreach (var item in WeaponStats)
+        {
+            if (item.StatName == statName)
+                return item.GetValue(mode);
+        }
+
+        return 0;
+    }
+
     public GunData NewData()
     {
-        var gun = new GunData(
-            GetRandomNames(),
-            Random.Range(1, 5), //dmg
-            Random.Range(10, 50), //bullet speed
-            Random.Range(35, 100), //magazine size
-            Random.Range(0, 2) //fire mode
-            );
+        var mode = RandomFireMode();
+        string name = RandomName();
+        GunData gun = new GunData(
+        name, 
+        mode,
+        (int)GetStatValue("Damages", mode),
+        GetStatValue("BulletSpeed", mode),
+        (int)GetStatValue("MagazineSize", mode),
+        GetStatValue("FireRate", mode)
+        );
 
         gun.SetSprites(RandomSprite(bodies),
             RandomSprite(barrels),

@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 8251068632571730608}
   - component: {fileID: 2910013272212707430}
   - component: {fileID: 5457220630462920159}
-  - component: {fileID: 7197554800795354649}
   - component: {fileID: 8251068632571730611}
   - component: {fileID: 8251068632571730610}
   m_Layer: 7
@@ -123,21 +122,6 @@ MonoBehaviour:
   detectionMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &7197554800795354649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8251068632571730604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d038a3e20d69acb45a42ab5cc336f344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootPoint: {fileID: 6077992175365122418}
-  bulletPrefab: {fileID: 2152947584786561305, guid: 194575f7d2b8fc6408b71315d8534d17, type: 3}
-  fireRate: 3
 --- !u!58 &8251068632571730611
 CircleCollider2D:
   m_ObjectHideFlags: 0
