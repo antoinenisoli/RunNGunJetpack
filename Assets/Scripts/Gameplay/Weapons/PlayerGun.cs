@@ -22,9 +22,11 @@ public class PlayerGun : Gun
 
         camShake.Shake();
         ammoSystem.UseAmmo();
-        GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-        Bullet b = bulletObj.GetComponent<Bullet>();
-        b.Shoot(weaponVisual.right);
+        GameObject newB = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        PlayerBullet bullet = newB.GetComponent<PlayerBullet>();
+        bullet.Shoot(weaponVisual.right);
+        bullet.Damage = GunData.Damages;
+        bullet.Speed = GunData.BulletSpeed;
     }
 
     public override void Execute()
@@ -47,7 +49,7 @@ public class PlayerGun : Gun
     {
         GunData = newData;
         randomGunGenerator.gunSprite.SetSprites(GunData.visualData);
-        AmmoSystem.MaxAmmo = newData.MaxAmmoCapacity;
+        AmmoSystem.MaxAmmo = newData.MagazineSize;
         AmmoSystem.AmmoAmount = AmmoSystem.MaxAmmo;
     }
 }

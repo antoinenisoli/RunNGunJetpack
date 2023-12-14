@@ -7,11 +7,6 @@ public class ProceduralWeaponsData : ScriptableObject
 {
     public Sprite[] bodies, barrels, scopes, stocks;
 
-    public Sprite RandomBody() => RandomSprite(bodies);
-    public Sprite RandomBarrel() => RandomSprite(barrels);
-    public Sprite RandomScope() => RandomSprite(scopes);
-    public Sprite RandomStock() => RandomSprite(stocks);
-
     public Sprite RandomSprite(Sprite[] sprites)
     {
         int random = Random.Range(0, sprites.Length);
@@ -37,16 +32,16 @@ public class ProceduralWeaponsData : ScriptableObject
     {
         var gun = new GunData(
             GetRandomNames(),
-            Random.Range(1, 10),
-            Random.Range(1, 5),
-            Random.Range(10, 100),
-            Random.Range(1, 3)
+            Random.Range(1, 5), //dmg
+            Random.Range(10, 50), //bullet speed
+            Random.Range(35, 100), //magazine size
+            Random.Range(0, 2) //fire mode
             );
 
-        gun.SetSprites(RandomBody(),
-            RandomBarrel(),
-            RandomScope(),
-            RandomStock());
+        gun.SetSprites(RandomSprite(bodies),
+            RandomSprite(barrels),
+            RandomSprite(scopes),
+            RandomSprite(stocks));
 
         return gun;
     }

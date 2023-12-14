@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class GunStatsDisplay : WeaponStatDisplay
 {
-    [SerializeField] Text capacityTxt, fireModeTxt;
+    [SerializeField] Text magazineSizeTxt, fireModeTxt;
 
     public override void SetWeaponData(WeaponData weaponData)
     {
@@ -14,7 +14,7 @@ public class GunStatsDisplay : WeaponStatDisplay
         GunData gunData = weaponData as GunData;
         if (gunData != null)
         {
-            capacityTxt.text = gunData.MaxAmmoCapacity.ToString();
+            magazineSizeTxt.text = gunData.MagazineSize.ToString();
             fireModeTxt.text = gunData.FireMode.ToString();
         }
     }

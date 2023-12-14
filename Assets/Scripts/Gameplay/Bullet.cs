@@ -9,15 +9,19 @@ enum Team
     Neutral,
 }
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] Team myTeam;
+    [Header(nameof(Bullet))]
     [SerializeField] GameObject HitFX;
-    [SerializeField] protected int damageAmount = 1;
-    [SerializeField] protected float speed = 5f, lifeTime = 3f;
-    [SerializeField] protected bool lookAtTarget;
     [SerializeField] LayerMask obstacleMask;
+    [SerializeField] protected float lifeTime = 3f;
+
     protected Vector2 trajectory;
+    float speed = 50f;
+    int damage = 1;
+
+    public virtual int Damage { get => damage; set => damage = value; }
+    public virtual float Speed { get => speed; set => speed = value; }
 
     public void Shoot(Vector2 trajectory)
     {
@@ -25,7 +29,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void SelfDestroy(float delay = 0)
+    public void SelfDestroy(float delay = 0)
     {
         Destroy(gameObject, delay);
     }
@@ -35,6 +39,8 @@ public class Bullet : MonoBehaviour
         if (HitFX)
             Instantiate(HitFX, transform.position, Quaternion.identity);
     }
+
+    public abstract bool CantTakeDamage(Entity entity);
 
     public virtual void Collision(Collider2D collision)
     {
@@ -47,28 +53,13 @@ public class Bullet : MonoBehaviour
         Entity entity = collision.GetComponentInParent<Entity>();
         if (entity)
         {
-            switch (myTeam)
-            {
-                case Team.Player:
-                    if (entity is PlayerController)
-                        return;
-
-                    break;
-
-                case Team.Enemy:
-                    if (entity is Enemy)
-                        return;
-
-                    break;
-
-                case Team.Neutral:
-                    break;
-            }
+            if (CantTakeDamage(entity))
+                return;
 
             if (entity is Block)
                 (entity as Block).Push(transform.right);
 
-            entity.TakeDamage(damageAmount);
+            entity.TakeDamage(Damage);
             SelfDestroy();
         }
     }
@@ -78,17 +69,8 @@ public class Bullet : MonoBehaviour
         Collision(collision);
     }
 
-    void LookAtTrajectory()
+    public virtual void Update()
     {
-        float angle = Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-
-    private void Update()
-    {
-        if (lookAtTarget)
-            LookAtTrajectory();
-
-        transform.position += (Vector3)trajectory * Time.deltaTime * speed;
+        transform.position += (Vector3)trajectory * Time.deltaTime * Speed;
     }
 }

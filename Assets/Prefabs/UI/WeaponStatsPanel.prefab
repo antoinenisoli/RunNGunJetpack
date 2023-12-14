@@ -137,8 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 3398611805088181027}
   damagesTxt: {fileID: 2107660255636904233}
-  capacityTxt: {fileID: 8327457078272216934}
-  rangeTxt: {fileID: 5593158164566843816}
+  bulletSpeedTxt: {fileID: 5593158164566843816}
+  magazineSizeTxt: {fileID: 8327457078272216934}
   fireModeTxt: {fileID: 2347665975077798180}
 --- !u!114 &4723919646145195825
 MonoBehaviour:
@@ -861,7 +861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8790549898859210886, guid: 9c25032cf5fe5b54baf3c65c09165422, type: 3}
       propertyPath: m_Text
-      value: RANGE
+      value: Bullet speed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c25032cf5fe5b54baf3c65c09165422, type: 3}

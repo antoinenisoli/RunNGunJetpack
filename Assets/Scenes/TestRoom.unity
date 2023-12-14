@@ -8068,18 +8068,6 @@ CompositeCollider2D:
     m_ColliderPaths:
     - - X: 210000000
         Y: 80000000
-      - X: 130000100
-        Y: 80000000
-      - X: 130000100
-        Y: 80000041
-      - X: 130000041
-        Y: 80000100
-      - X: 89999959
-        Y: 80000100
-      - X: 89999900
-        Y: 80000041
-      - X: 89999900
-        Y: 80000000
       - X: -180000000
         Y: 80000000
       - X: -180000000
@@ -8090,14 +8078,8 @@ CompositeCollider2D:
         Y: -40000000
       - X: -100000000
         Y: 10000000
-      - X: 89999900
-        Y: 10000000
-      - X: 89999900
-        Y: 9999959
-      - X: 89999959
-        Y: 9999900
       - X: 130000000
-        Y: 9999900
+        Y: 10000000
       - X: 130000000
         Y: -40000000
   m_CompositePaths:
@@ -8109,7 +8091,7 @@ CompositeCollider2D:
     - - {x: 13, y: -3.9999704}
       - {x: -10, y: -3.9999704}
       - {x: -9.99997, y: 1}
-      - {x: 13, y: 0.9999606}
+      - {x: 13, y: 0.9999706}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &766811782
@@ -8147,7 +8129,7 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
+  m_MaximumTileChangeCount: 10
   m_ExtrusionFactor: 0.00001
 --- !u!1 &1023639738
 GameObject:

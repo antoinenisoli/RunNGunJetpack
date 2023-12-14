@@ -10,12 +10,12 @@ public class GunData : WeaponData
     }
 
     public VisualData visualData = new VisualData();
-    public int MaxAmmoCapacity;
+    public int MagazineSize;
     public int FireMode;
 
-    public GunData(string name, int damages, int range, int maxAmmoCapacity, int fireMode) : base(name, damages, range)
+    public GunData(string name, int damages, float bulletSpeed, int magazineSize, int fireMode) : base(name, damages, bulletSpeed)
     {
-        MaxAmmoCapacity = maxAmmoCapacity;
+        MagazineSize = magazineSize;
         FireMode = fireMode;
         visualData = new VisualData();
     }

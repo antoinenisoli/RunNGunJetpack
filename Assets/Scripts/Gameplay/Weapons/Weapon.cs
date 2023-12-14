@@ -5,13 +5,14 @@ using UnityEngine;
 public class WeaponData
 {
     public string Name;
-    public int Damages, Range;
+    public int Damages;
+    public float BulletSpeed;
 
-    public WeaponData(string name, int damages, int range)
+    public WeaponData(string name, int damages, float bulletSpeed)
     {
         Name = name;
         Damages = damages;
-        Range = range;
+        BulletSpeed = bulletSpeed;
     }
 }
 

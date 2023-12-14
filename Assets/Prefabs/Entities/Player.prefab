@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb682ecab700c804f9c3a31c08689d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapons: []
 --- !u!1 &7677861159505637992
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 50
+    maxHealth: 25
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 7677861159505637995}
   MainState: 0

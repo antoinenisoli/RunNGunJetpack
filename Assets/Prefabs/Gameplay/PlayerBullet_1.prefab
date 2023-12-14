@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746009155548192116}
-  - component: {fileID: 1951948905}
+  - component: {fileID: 4867536394013290730}
   - component: {fileID: 1746009155548192123}
   - component: {fileID: 6256305103458472146}
   m_Layer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951948905
+--- !u!114 &4867536394013290730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,18 +43,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1746009155548192117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba166b103423cf4aba5b86cb8f01e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 08c9afcdc2316e444949ab33bda2287e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTeam: 0
   HitFX: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
-  damageAmount: 1
-  speed: 40
-  lifeTime: 0.4
-  lookAtTarget: 1
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 8
+  lifeTime: 0.5
 --- !u!58 &1746009155548192123
 CircleCollider2D:
   m_ObjectHideFlags: 0
