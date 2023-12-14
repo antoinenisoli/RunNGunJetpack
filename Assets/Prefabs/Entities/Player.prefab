@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb682ecab700c804f9c3a31c08689d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: []
 --- !u!1 &7677861159505637992
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +224,7 @@ MonoBehaviour:
   walkLimits: {x: -10, y: 10}
   flyLimits: {x: -30, y: 13}
   damageShake:
+    active: 1
     shakeIntensity: 50
   feetPoint: {fileID: 7677861160257815889}
   radius: 0.5
@@ -5187,12 +5187,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.406
+      value: 0.088
       objectReference: {fileID: 0}
     - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.295
+      value: -0.382
       objectReference: {fileID: 0}
     - target: {fileID: 5523901162836640311, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5258,11 +5270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1076578413909794899, guid: 9bc29822b3fdb204598cf25a7a8b4c01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.55
+      value: 0.762
       objectReference: {fileID: 0}
     - target: {fileID: 1076578413909794899, guid: 9bc29822b3fdb204598cf25a7a8b4c01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.401
+      value: -0.351
       objectReference: {fileID: 0}
     - target: {fileID: 1076578413909794899, guid: 9bc29822b3fdb204598cf25a7a8b4c01, type: 3}
       propertyPath: m_LocalPosition.z

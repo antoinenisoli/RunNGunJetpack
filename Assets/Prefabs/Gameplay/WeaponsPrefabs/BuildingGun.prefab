@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973151559051102124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6244019, y: 0, z: 0}
-  m_LocalScale: {x: 1.9785651, y: 1.9653088, z: 1.9653088}
+  m_LocalPosition: {x: 0.816, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8590642973672665700}
   m_RootOrder: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   moveSpeed: 3
-  hookRange: 50
+  hookRange: 25
   moveRange: 20
 --- !u!120 &889413167660973183
 LineRenderer:
@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 8112725143647287882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.50541675, y: 0.5088259, z: 0.5088259}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9094567262586311778}
   m_Father: {fileID: 5523901162836640311}

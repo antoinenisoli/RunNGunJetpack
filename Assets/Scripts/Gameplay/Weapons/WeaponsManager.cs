@@ -9,7 +9,7 @@ public class WeaponsManager : MonoBehaviour
     WeaponPickup weaponPickup;
     WeaponData weaponPickupData;
 
-    [SerializeField] List<Weapon> weapons = new List<Weapon>();
+    List<Weapon> weapons = new List<Weapon>();
     Weapon currentGun;
     int index = 0;
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerWeaponHUD : MonoBehaviour
 {
     [SerializeField] ProceduralGunUI playerGunUI;
-    [SerializeField] Text ammoText, gunNameText;
+    [SerializeField] Text ammoText, weaponNameText;
     [SerializeField] RectTransform[] weaponDisplays;
     WeaponsManager weaponsManager;
 
@@ -32,7 +32,7 @@ public class PlayerWeaponHUD : MonoBehaviour
     void DisplayCurrentGun(WeaponData data)
     {
         Gun playerGun = weapon as Gun;
-        gunNameText.text = weapon.WeaponData.Name;
+        weaponNameText.text = weapon.WeaponData.Name;
 
         if (playerGun)
         {

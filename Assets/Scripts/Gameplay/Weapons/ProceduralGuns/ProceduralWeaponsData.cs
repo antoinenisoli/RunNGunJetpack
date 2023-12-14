@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = nameof(ProceduralWeaponsData), menuName = "ScriptableObjects/Weapons/" + nameof(ProceduralWeaponsData))]
 public class ProceduralWeaponsData : ScriptableObject
 {
-    public Sprite[] bodies, barrels, scopes, stocks;
+    public GameObject[] bodies, barrels, scopes, stocks;
     public List<WeaponStatNumber> WeaponStats = new List<WeaponStatNumber>();
 
-    public Sprite RandomSprite(Sprite[] sprites)
+    public GunPart RandomPart(GameObject[] parts)
     {
-        int random = Random.Range(0, sprites.Length);
-        return sprites[random];
+        int random = Random.Range(0, parts.Length);
+        return parts[random].GetComponent<GunPart>();
     }
 
     string RandomName()
@@ -32,7 +32,7 @@ public class ProceduralWeaponsData : ScriptableObject
     FireMode RandomFireMode()
     {
         System.Array array = System.Enum.GetValues(typeof(FireMode));
-        int random = Random.Range(0, array.Length);
+        int random = Random.Range(0, array.Length - 1); //exclude lasers
         return (FireMode)array.GetValue(random);
     }
 
@@ -47,10 +47,27 @@ public class ProceduralWeaponsData : ScriptableObject
         return 0;
     }
 
+    public string GenerateGunName(params GunPart[] parts)
+    {
+        string name = "";
+        foreach (var item in parts)
+        {
+            if (!string.IsNullOrEmpty(item.GetPartName()))
+                name += item.GetPartName() + " ";
+        }
+
+        return name.ToUpper();
+    }
+
     public GunData NewData()
     {
         var mode = RandomFireMode();
-        string name = RandomName();
+        GunPart RandomBody = RandomPart(bodies);
+        GunPart RandomBarrel = RandomPart(barrels);
+        GunPart RandomScope = RandomPart(scopes);
+        GunPart RandomStock = RandomPart(stocks);
+
+        string name = GenerateGunName(RandomBarrel, RandomBody);
         GunData gun = new GunData(
         name, 
         mode,
@@ -60,10 +77,10 @@ public class ProceduralWeaponsData : ScriptableObject
         GetStatValue("FireRate", mode)
         );
 
-        gun.SetSprites(RandomSprite(bodies),
-            RandomSprite(barrels),
-            RandomSprite(scopes),
-            RandomSprite(stocks));
+        gun.SetSprites(RandomBody.GetSprite(),
+            RandomBarrel.GetSprite(),
+            RandomScope.GetSprite(),
+            RandomStock.GetSprite());
 
         return gun;
     }

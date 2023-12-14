@@ -6,11 +6,13 @@ using UnityEngine;
 public enum FireMode
 {
     [Description("Semi-automatic")]
-    SemiAutomatic,
+    SemiAutomatic = 0,
     [Description("Automatic")]
-    Automatic,
+    Automatic = 1,
     [Description("Burst-Fire")]
-    BurstFire,
+    BurstFire = 2,
+    [Description("Laser")]
+    Laser = 3,
 }
 
 public class GunData : WeaponData

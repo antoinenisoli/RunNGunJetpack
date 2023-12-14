@@ -29,7 +29,7 @@ RectTransform:
   m_Children:
   - {fileID: 4078594241141967376}
   m_Father: {fileID: 5494342499000712862}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 1824399059924061420}
   - component: {fileID: 7993693125221975238}
   m_Layer: 5
-  m_Name: GunName
+  m_Name: WeaponName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 5494342497620453422}
   - component: {fileID: 5494342497620453420}
   m_Layer: 5
-  m_Name: GunInfoDisplay
+  m_Name: WeaponInfoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,7 +673,7 @@ RectTransform:
   - {fileID: 4776471415609081751}
   - {fileID: 5619362552107446921}
   m_Father: {fileID: 5494342499000712862}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGunUI: {fileID: 2192160492034891197}
   ammoText: {fileID: 5494342497153680030}
-  gunNameText: {fileID: 7993693125221975238}
+  weaponNameText: {fileID: 7993693125221975238}
   weaponDisplays:
   - {fileID: 760177943352355663}
   - {fileID: 7161415141858483152}
@@ -1129,7 +1129,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5494342499000712862}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1361,9 +1361,9 @@ RectTransform:
   - {fileID: 5494342497771225660}
   - {fileID: 4197732975670044969}
   - {fileID: 6561975382136072494}
-  - {fileID: 5494342497620453421}
   - {fileID: 5494342498723201248}
   - {fileID: 7103935990093432116}
+  - {fileID: 5494342497620453421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1633,7 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3521625344476565383}
   m_Layer: 5
-  m_Name: GunDisplays
+  m_Name: WeaponDisplays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

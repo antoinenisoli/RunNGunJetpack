@@ -7,7 +7,7 @@ public class BuildingGun : Firearm
     [Header(nameof(BuildingGun))]
     [SerializeField] LayerMask interactables;
     [SerializeField] float moveSpeed = 12f;
-    [SerializeField] float hookRange = 50, moveRange = 75;
+    [SerializeField] float hookRange = 25, moveRange = 20;
 
     Rigidbody2D hookedObject;
     LineRenderer lineRenderer;
@@ -28,7 +28,7 @@ public class BuildingGun : Firearm
     public override void Execute()
     {
         base.Execute();
-        Debug.DrawRay(shootPoint.position, shootPoint.right * hookRange);
+        Debug.DrawRay(shootPoint.position, shootPoint.right * hookRange, Color.red);
         if (Input.GetButtonDown("Fire1") && !hookedObject)
         {
             var hit = Physics2D.Raycast(shootPoint.position, shootPoint.right, hookRange, interactables);
