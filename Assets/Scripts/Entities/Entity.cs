@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    [Header(nameof(Entity))]
     public Health Health;
     [SerializeField] Material hitMaterial;
     [SerializeField] SpriteRenderer spriteRenderer;

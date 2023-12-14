@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class Block : Entity
 {
+    [Header(nameof(Block))]
     public float force;
     [SerializeField] Vector2 forceLimits = new Vector2(100, 5000);
     [SerializeField] float collisionRadius = 1.5f;

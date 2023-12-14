@@ -80,6 +80,7 @@ MonoBehaviour:
   interactables:
     serializedVersion: 2
     m_Bits: 256
+  shineMaterial: {fileID: 2100000, guid: a496ff47fde93e34795a3c7a7d0334ae, type: 2}
   moveSpeed: 3
   hookRange: 25
   moveRange: 20
