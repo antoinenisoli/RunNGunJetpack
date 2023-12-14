@@ -1,23 +1,24 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
-public class RandomGunStatsDisplay : MonoBehaviour
+public class WeaponPickupDisplay : MonoBehaviour
 {
     [SerializeField] float yOffset = 200;
     [SerializeField] RectTransform arrow;
-    [SerializeField] Text nameText;
-    [SerializeField] Text damagesTxt, capacityTxt, rangeTxt, fireModeTxt;
+    [SerializeField] GunStatsDisplay currentWeapon, pickupWeapon;
 
+    WeaponsManager weaponsManager;
     CanvasGroup cr;
     RectTransform myTransform;
-    RandomGunPickup randomGun;
     WorldCanvasTool canvasTool;
+    Transform weaponTransform;
 
     private void Awake()
     {
+        weaponsManager = FindObjectOfType<WeaponsManager>();
         canvasTool = GetComponentInParent<WorldCanvasTool>();
         myTransform = GetComponent<RectTransform>();
         cr = GetComponent<CanvasGroup>();
@@ -35,27 +36,25 @@ public class RandomGunStatsDisplay : MonoBehaviour
         sequence.SetLoops(-1, LoopType.Yoyo);
     }
 
-    void Open(RandomGunPickup gunObj, GunData gunData)
+    void Open(WeaponPickup gunObj, WeaponData weaponData)
     {
-        nameText.text = gunData.Name;
-        damagesTxt.text = "Damages - " + gunData.Damages.ToString();
-        capacityTxt.text = "Ammo capacity - " + gunData.MaxAmmoCapacity.ToString();
-        rangeTxt.text = "Range - " + gunData.Range.ToString();
-        fireModeTxt.text = "Fire Mode - " + gunData.FireMode.ToString();
+        currentWeapon.gameObject.SetActive(weaponsManager.CurrentGun is PlayerGun);
+        currentWeapon.SetWeaponData(weaponsManager.CurrentGun.WeaponData);
+        pickupWeapon.SetWeaponData(weaponData);
 
         cr.alpha = 1;
-        randomGun = gunObj;
+        weaponTransform = gunObj.transform;
     }
 
     void Close()
     {
         cr.alpha = 0;
-        randomGun = null;
+        weaponTransform = null;
     }
 
     private void Update()
     {
-        if (randomGun)
-            canvasTool.MoveUIToWorld(myTransform, randomGun.transform, Vector2.up * yOffset);
+        if (weaponTransform)
+            canvasTool.MoveUIToWorld(myTransform, weaponTransform, Vector2.up * yOffset);
     }
 }

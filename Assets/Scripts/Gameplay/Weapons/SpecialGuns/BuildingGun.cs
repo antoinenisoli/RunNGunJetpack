@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityGun : Weapon
+public class BuildingGun : Firearm
 {
-    [Header(nameof(GravityGun))]
+    [Header(nameof(BuildingGun))]
     [SerializeField] LayerMask interactables;
     [SerializeField] float moveSpeed = 12f;
     [SerializeField] float hookRange = 50, moveRange = 75;
@@ -17,6 +17,7 @@ public class GravityGun : Weapon
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        WeaponData = new WeaponData("Building Gun", 0, (int)hookRange);
     }
 
     private void OnDrawGizmosSelected()
@@ -32,9 +33,7 @@ public class GravityGun : Weapon
         {
             var hit = Physics2D.Raycast(shootPoint.position, shootPoint.right, hookRange, interactables);
             if (hit.transform)
-            {
                 OnHook(hit.rigidbody);
-            }
         }
 
         if (Input.GetButton("Fire1") && hookedObject)

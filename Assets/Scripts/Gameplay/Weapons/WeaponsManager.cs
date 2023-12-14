@@ -1,66 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponsManager : MonoBehaviour
 {
     bool canPickupWeapon;
-    RandomGunPickup gunPickup;
-    GunData gunPickupData;
-    ProceduralGunSprite playerGunSprite;
+    WeaponPickup weaponPickup;
+    WeaponData weaponPickupData;
 
-    Weapon[] weapons;
+    [SerializeField] List<Weapon> weapons = new List<Weapon>();
+    Weapon currentGun;
     int index = 0;
+
+    PlayerGun mainPlayerGun => weapons[0] as PlayerGun;
+    public Weapon CurrentGun { get => currentGun; 
+        set
+        {
+            currentGun = value;
+            EventManager.Instance.OnNewGunSelected.Invoke(currentGun.WeaponData);
+        }
+    }
 
     private void Awake()
     {
-        weapons = GetComponentsInChildren<Weapon>();
-        for (int i = 0; i < weapons.Length; i++)
+        weapons = GetComponentsInChildren<Weapon>().ToList();
+        for (int i = 0; i < weapons.Count; i++)
             weapons[i].gameObject.SetActive(i == index);
+
+        CurrentGun = weapons[0];
     }
 
     private void Start()
     {
-        playerGunSprite = GetComponentInChildren<ProceduralGunSprite>();
         EventManager.Instance.OnWeaponChoice.AddListener(EnterPickupMode);
         EventManager.Instance.OnLeaveWeaponChoice.AddListener(ExitPickupMode);
     }
 
-    void EnterPickupMode(RandomGunPickup gunObj, GunData gunData)
+    void EnterPickupMode(WeaponPickup gunObj, WeaponData weaponData)
     {
-        gunPickup = gunObj;
-        gunPickupData = gunData;
+        weaponPickup = gunObj;
+        weaponPickupData = weaponData;
         canPickupWeapon = true;
     }
 
     void ExitPickupMode()
     {
-        gunPickup = null;
-        gunPickupData = null;
+        weaponPickup = null;
+        weaponPickupData = null;
         canPickupWeapon = false;
+    }
+
+    void PickupWeapon()
+    {
+        mainPlayerGun.SetGunData(weaponPickupData as GunData);
+        Destroy(weaponPickup.gameObject);
+        EventManager.Instance.OnNewGunSelected.Invoke(weaponPickupData as GunData);
+        EventManager.Instance.OnLeaveWeaponChoice.Invoke();
+        canPickupWeapon = false;
+        weaponPickup = null;
+    }
+
+    void SwitchWeapon()
+    {
+        index++;
+        index %= weapons.Count;
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            if (i == index)
+            {
+                weapons[i].gameObject.SetActive(true);
+                CurrentGun = weapons[i];
+            }
+            else
+                weapons[i].gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        if (canPickupWeapon && gunPickup)
+        if (canPickupWeapon && weaponPickup)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                playerGunSprite.SetSprites(gunPickupData.visualData);
-
-                Destroy(gunPickup.gameObject);
-                EventManager.Instance.OnLeaveWeaponChoice.Invoke();
-                canPickupWeapon = false;
-                gunPickup = null;
-            }
+            if (Input.GetButtonDown("PickupWeapon"))
+                PickupWeapon();
         }
 
         if (Input.GetButtonDown("SwitchWeapon"))
-        {
-            index++;
-            index %= weapons.Length;
-            for (int i = 0; i < weapons.Length; i++)
-                weapons[i].gameObject.SetActive(i == index);
-        }
+            SwitchWeapon();
     }
 }

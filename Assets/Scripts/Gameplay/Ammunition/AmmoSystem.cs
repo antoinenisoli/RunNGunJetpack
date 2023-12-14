@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AmmoSystem : MonoBehaviour
 {
-    [SerializeField] int ammoAmount, maxAmmo;
+    int ammoAmount = 0;
+    int maxAmmo;
 
     public int AmmoAmount 
     { 
@@ -13,15 +14,17 @@ public class AmmoSystem : MonoBehaviour
         {
             if (value < 0)
                 value = 0;
-            if (value > maxAmmo)
-                value = maxAmmo;
+            if (value > MaxAmmo)
+                value = MaxAmmo;
 
             ammoAmount = value;
         }
     }
 
+    public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
+
     public bool CanShoot() => ammoAmount > 0;
-    public bool IsMaxAmmo() => ammoAmount == maxAmmo;
+    public bool IsMaxAmmo() => ammoAmount == MaxAmmo;
 
     public void AddAmmo(int amount)
     {

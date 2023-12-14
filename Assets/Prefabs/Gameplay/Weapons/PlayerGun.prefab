@@ -49,6 +49,9 @@ MonoBehaviour:
   shootPoint: {fileID: 1076578415745331881}
   bulletPrefab: {fileID: 1746009155548192117, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
   fireRate: 0.1
+  randomGunGenerator:
+    mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}
+    gunSprite: {fileID: 2100175602935399895}
   camShake:
     shakeIntensity: 5
 --- !u!114 &1076578413909794902
@@ -189,3 +192,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2545331646721102078, guid: 54c62a41b073c4d499c5260f89969e4a, type: 3}
   m_PrefabInstance: {fileID: 4501214996913919272}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2100175602935399895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2545331646721102079, guid: 54c62a41b073c4d499c5260f89969e4a, type: 3}
+  m_PrefabInstance: {fileID: 4501214996913919272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de85c0d47d4feeb49a0e55f0f53cc317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

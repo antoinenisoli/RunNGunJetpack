@@ -2,36 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunData
-{
-    public struct VisualData
-    {
-        public Sprite body, barrel, scope, stock;
-    }
-
-    public VisualData visualData;
-    public string Name;
-    public int Damages, MaxAmmoCapacity, Range;
-    public int FireMode;
-
-    public GunData(string name, int damages, int maxAmmoCapacity, int range, int fireMode)
-    {
-        Name = name;
-        Damages = damages;
-        MaxAmmoCapacity = maxAmmoCapacity;
-        Range = range;
-        FireMode = fireMode;
-    }
-
-    public void SetSprites(Sprite body, Sprite barrel, Sprite scope, Sprite stock)
-    {
-        visualData.body = body;
-        visualData.barrel = barrel;
-        visualData.scope = scope;
-        visualData.stock = stock;
-    }
-}
-
 [CreateAssetMenu(fileName = nameof(ProceduralWeaponsData), menuName = "ScriptableObjects/Weapons/" + nameof(ProceduralWeaponsData))]
 public class ProceduralWeaponsData : ScriptableObject
 {
@@ -48,13 +18,28 @@ public class ProceduralWeaponsData : ScriptableObject
         return sprites[random];
     }
 
+    string GetRandomNames()
+    {
+        string[] names = new string[] {
+            "Single-Shot Photon Shooter",
+            "Void Fusion Equalizer",
+            "Comet Hand Blaster",
+            "Cyclone Gatling Disintegrator",
+            "Stormfury Laser Sniper",
+            "Battlestar Anti-Matter Shooter",
+        };
+
+        int random = Random.Range(0, names.Length);
+        return names[random];
+    }
+
     public GunData NewData()
     {
         var gun = new GunData(
-            "Super cool gun",
+            GetRandomNames(),
             Random.Range(1, 10),
-            Random.Range(10, 100),
             Random.Range(1, 5),
+            Random.Range(10, 100),
             Random.Range(1, 3)
             );
 

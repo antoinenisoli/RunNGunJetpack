@@ -2,16 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : Weapon
+public class GunData : WeaponData
+{
+    public struct VisualData
+    {
+        public Sprite body, barrel, scope, stock;
+    }
+
+    public VisualData visualData = new VisualData();
+    public int MaxAmmoCapacity;
+    public int FireMode;
+
+    public GunData(string name, int damages, int range, int maxAmmoCapacity, int fireMode) : base(name, damages, range)
+    {
+        MaxAmmoCapacity = maxAmmoCapacity;
+        FireMode = fireMode;
+        visualData = new VisualData();
+    }
+
+    public void SetSprites(Sprite body, Sprite barrel, Sprite scope, Sprite stock)
+    {
+        visualData.body = body;
+        visualData.barrel = barrel;
+        visualData.scope = scope;
+        visualData.stock = stock;
+    }
+}
+
+
+public class Gun : Firearm
 {
     [Header(nameof(Gun))]
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected float fireRate;
 
+    protected AmmoSystem ammoSystem;
+    protected GunData gunData;
     protected float shootTimer;
     Enemy enemy;
 
-    private void Awake()
+    public AmmoSystem AmmoSystem { get => ammoSystem; set => ammoSystem = value; }
+    public GunData GunData { get => gunData; 
+        set
+        {
+            gunData = value;
+            WeaponData = value;
+        }
+    }
+
+    public override WeaponData WeaponData { get => GunData; 
+        set
+        {
+            base.WeaponData = value;
+            gunData = value as GunData;
+        }
+    }
+
+    public virtual void Awake()
     {
         enemy = GetComponentInParent<Enemy>();
     }

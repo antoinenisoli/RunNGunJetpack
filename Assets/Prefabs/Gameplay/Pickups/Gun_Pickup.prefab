@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06552ba592cd6eb4d97975f4f50c70fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}
-  gunSprite: {fileID: 7976918324710446734}
+  randomGunGenerator:
+    mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}
+    gunSprite: {fileID: 7976918324710446734}
 --- !u!58 &3529202988174880415
 CircleCollider2D:
   m_ObjectHideFlags: 0

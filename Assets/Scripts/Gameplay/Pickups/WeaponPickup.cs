@@ -2,25 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomGunPickup : WeaponPickup
+public class WeaponPickup : Pickup
 {
-    [SerializeField] RandomGunGenerator randomGunGenerator;
-    GunData gunData;
-
-    private void Start()
-    {
-        gunData = randomGunGenerator.Generate();
-        weaponData = gunData;
-    }
+    protected WeaponData weaponData;
 
     string GetGunJson()
     {
-        return JsonUtility.ToJson(gunData);
+        return JsonUtility.ToJson(weaponData);
     }
 
     public override void OnCollisionWithPlayer(PlayerController player, Collider2D collision)
     {
-        EventManager.Instance.OnWeaponChoice.Invoke(this, gunData);
+        EventManager.Instance.OnWeaponChoice.Invoke(this, weaponData);
     }
 
     public override void OnCollisionExitWithPlayer(PlayerController player, Collider2D collision)

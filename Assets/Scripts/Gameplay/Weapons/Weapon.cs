@@ -2,11 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class WeaponData
+{
+    public string Name;
+    public int Damages, Range;
+
+    public WeaponData(string name, int damages, int range)
+    {
+        Name = name;
+        Damages = damages;
+        Range = range;
+    }
+}
+
+public abstract class Weapon : MonoBehaviour
 {
     [Header(nameof(Weapon))]
     [SerializeField] protected Transform weaponVisual;
-    [SerializeField] protected Transform shootPoint;
+    private WeaponData weaponData;
+
+    public virtual WeaponData WeaponData { get => weaponData; set => weaponData = value; }
 
     public Vector2 MousePosition()
     {

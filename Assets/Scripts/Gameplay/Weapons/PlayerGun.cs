@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerGun : Gun
 {
     [Header(nameof(PlayerGun))]
+    [SerializeField] RandomGunGenerator randomGunGenerator;
     [SerializeField] protected CameraShake camShake = new CameraShake();
-    protected AmmoSystem ammoSystem;
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         ammoSystem = GetComponent<AmmoSystem>();
+        SetGunData(randomGunGenerator.Generate());
     }
 
     public override void Shoot()
@@ -39,5 +41,13 @@ public class PlayerGun : Gun
             shootTimer += Time.deltaTime;
         else
             shootTimer = fireRate;
+    }
+
+    public void SetGunData(GunData newData)
+    {
+        GunData = newData;
+        randomGunGenerator.gunSprite.SetSprites(GunData.visualData);
+        AmmoSystem.MaxAmmo = newData.MaxAmmoCapacity;
+        AmmoSystem.AmmoAmount = AmmoSystem.MaxAmmo;
     }
 }
