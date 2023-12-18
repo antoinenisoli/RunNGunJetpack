@@ -28,8 +28,9 @@ public abstract class Enemy : Entity
         return !blocked;
     }
 
-    private void OnDestroy()
+    public override void Death()
     {
+        base.Death();
         VFXManager.Instance.PlayVFX("ExplodeFX", transform.position);
     }
 

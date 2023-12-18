@@ -17,8 +17,9 @@ public class BuildingGun : Firearm
     Vector2 targetPos;
     float baseGravity;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         lineRenderer = GetComponent<LineRenderer>();
         WeaponData = new WeaponData("Building Gun", 0, (int)hookRange);
     }
@@ -96,12 +97,12 @@ public class BuildingGun : Firearm
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookedObject.position);
-        targetPos = MousePosition();
+        targetPos = CameraManager.Instance.MousePosition();
     }
 
     void MoveObject()
     {
-        hookedObject.velocity = MousePosition() - hookedObject.position;
+        hookedObject.velocity = CameraManager.Instance.MousePosition() - hookedObject.position;
         hookedObject.velocity *= moveSpeed;
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookedObject.position);

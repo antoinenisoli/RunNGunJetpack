@@ -5,13 +5,6 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] Animator anim;
-    SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-    }
 
     public void SetAnimState(PlayerState playerState)
     {
@@ -24,10 +17,10 @@ public class PlayerAnimator : MonoBehaviour
 
     public void FlipSprite()
     {
-        if (Input.GetAxisRaw("Horizontal") < 0 && transform.rotation.eulerAngles == Vector3.zero)
+        bool flip = CameraManager.Instance.MousePosition().x < transform.position.x;
+        if (flip)
             transform.rotation = Quaternion.Euler(Vector3.up * 180);
-
-        if (Input.GetAxisRaw("Horizontal") > 0 && transform.rotation.eulerAngles != Vector3.zero)
+        else
             transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 }

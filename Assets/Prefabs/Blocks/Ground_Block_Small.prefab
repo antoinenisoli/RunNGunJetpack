@@ -130,12 +130,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 5
+    maxHealth: 100
+    OnDamageTaken:
+      m_PersistentCalls:
+        m_Calls: []
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 1789396789210273291}
+  healthSprites:
+  - {fileID: -2426843357703420916, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
+  - {fileID: -3642208251427772964, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
+  - {fileID: 9061651696941551919, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   force: 100
   forceLimits: {x: 100, y: 500}
   collisionRadius: 0.5
+  destroyables:
+    serializedVersion: 2
+    m_Bits: 448
   impactCurve:
     serializedVersion: 2
     m_Curve:
@@ -160,9 +170,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyables:
-    serializedVersion: 2
-    m_Bits: 448
 --- !u!61 &7301439342027784075
 BoxCollider2D:
   m_ObjectHideFlags: 0

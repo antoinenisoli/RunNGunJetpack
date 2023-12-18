@@ -21,6 +21,7 @@ public class CameraManager : MonoBehaviour
 {
     public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera;
     public static CameraManager Instance;
+    public Camera Camera;
     [SerializeField] CinemachineVirtualCamera cinemachineCamera;
     [SerializeField] float endShakeSpeed = 10f;
 
@@ -38,9 +39,15 @@ public class CameraManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        Camera = GetComponent<Camera>();
         cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
         noise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         framingTransposer = cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+    }
+
+    public Vector2 MousePosition()
+    {
+        return Camera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void Start()

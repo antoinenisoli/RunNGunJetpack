@@ -44,24 +44,18 @@ public abstract class Bullet : MonoBehaviour
 
     public virtual void Collision(Collider2D collision)
     {
-        if (GameDevHelper.Contains(obstacleMask, collision.gameObject.layer))
-        {
-            SelfDestroy();
-            return;
-        }
-
         Entity entity = collision.GetComponentInParent<Entity>();
         if (entity)
         {
             if (CantTakeDamage(entity))
                 return;
 
-            if (entity is Block)
-                (entity as Block).Push(transform.right);
-
             entity.TakeDamage(Damage);
             SelfDestroy();
         }
+
+        if (GameDevHelper.Contains(obstacleMask, collision.gameObject.layer))
+            SelfDestroy();
     }
 
     void OnTriggerEnter2D(Collider2D collision)

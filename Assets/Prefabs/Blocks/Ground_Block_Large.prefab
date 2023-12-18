@@ -48,12 +48,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     currentHealth: 0
-    maxHealth: 5
+    maxHealth: 2000
+    OnDamageTaken:
+      m_PersistentCalls:
+        m_Calls: []
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 8707338241275542244}
+  healthSprites:
+  - {fileID: -2426843357703420916, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
+  - {fileID: -3642208251427772964, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
+  - {fileID: 9061651696941551919, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   force: 100
   forceLimits: {x: 100, y: 500}
   collisionRadius: 3.23
+  destroyables:
+    serializedVersion: 2
+    m_Bits: 448
   impactCurve:
     serializedVersion: 2
     m_Curve:
@@ -78,9 +88,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyables:
-    serializedVersion: 2
-    m_Bits: 448
 --- !u!61 &382937345199821668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +146,7 @@ GameObject:
   - component: {fileID: 5977513328029370131}
   - component: {fileID: 8707338241275542244}
   m_Layer: 8
-  m_Name: Sprite
+  m_Name: Sprite_HP_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 9093879553237568826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 382937345199821674}
   m_RootOrder: 0
@@ -198,8 +205,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 124
-  m_Sprite: {fileID: -2426843357703420916, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 9061651696941551919, guid: 1ff621bafaff38f4ebcc1baf669ab883, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

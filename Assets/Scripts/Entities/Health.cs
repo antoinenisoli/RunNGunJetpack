@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class Health
@@ -26,13 +27,20 @@ public class Health
     }
 
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public UnityEvent OnDamageTaken = new UnityEvent();
 
     public void Initialize()
     {
         CurrentHealth = MaxHealth;
     }
 
-    public void ModifyValue(float amount)
+    public void TakeDamage(float amount)
+    {
+        CurrentHealth -= amount;
+        OnDamageTaken.Invoke();
+    }
+
+    public void Heal(float amount)
     {
         CurrentHealth += amount;
     }

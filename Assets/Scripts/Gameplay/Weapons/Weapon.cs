@@ -21,12 +21,13 @@ public abstract class Weapon : MonoBehaviour
     [Header(nameof(Weapon))]
     [SerializeField] protected Transform weaponVisual;
     private WeaponData weaponData;
+    Camera cam;
 
     public virtual WeaponData WeaponData { get => weaponData; set => weaponData = value; }
 
-    public Vector2 MousePosition()
+    public virtual void Awake()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        cam = Camera.main;
     }
 
     public virtual void Execute() { }

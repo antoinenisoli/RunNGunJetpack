@@ -13,13 +13,6 @@ public class PlayerGun : Gun
         SetGunData(randomGunGenerator.Generate());
     }
 
-    public override void ExecuteTimer()
-    {
-        base.ExecuteTimer();
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        LookAt(weaponVisual, mousePosition);
-    }
-
     public void SetGunData(GunData newData)
     {
         GunData = newData;

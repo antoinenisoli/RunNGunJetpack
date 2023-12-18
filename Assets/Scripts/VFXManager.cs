@@ -7,8 +7,8 @@ public class VFXManager : MonoBehaviour
     [System.Serializable]
     struct VFX
     {
-        public GameObject prefab;
         public string name;
+        public GameObject prefab;
     }
 
     public static VFXManager Instance;

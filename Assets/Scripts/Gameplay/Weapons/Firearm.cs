@@ -4,24 +4,20 @@ using UnityEngine;
 
 public abstract class Firearm : Weapon
 {
+    [Header(nameof(Firearm))]
     [SerializeField] protected Transform shootPoint;
+    [SerializeField] LayerMask blockLayer;
+    [SerializeField] float shootDistance = 1.5f;
 
-    public void LookAt(Transform Entity, Vector2 targetPosition)
+    private void OnDrawGizmosSelected()
     {
-        float AngleRad = Mathf.Atan2(targetPosition.y - Entity.position.y, targetPosition.x - Entity.position.x);
-        float AngleDeg = 180 / Mathf.PI * AngleRad;
-        Entity.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        Gizmos.color = IsBlocked() ? Color.red : Color.green;
+        Gizmos.DrawRay(transform.position, transform.right* shootDistance);
     }
 
-    void LookAtMouse()
+    public bool IsBlocked()
     {
-        Vector2 mousePosition = MousePosition();
-        LookAt(weaponVisual, mousePosition);
-    }
-
-    public override void Execute()
-    {
-        base.Execute();
-        LookAtMouse();
+        var block = Physics2D.Raycast(transform.position, transform.right, shootDistance, blockLayer);
+        return block;
     }
 }

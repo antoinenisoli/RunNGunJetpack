@@ -74,13 +74,14 @@ public class Gun : Firearm
         }
     }
 
-    public virtual void Awake()
+    public override void Awake()
     {
+        base.Awake();
         enemy = GetComponentInParent<Enemy>();
         ammoSystem = GetComponent<AmmoSystem>();
     }
 
-    public virtual void Shoot(bool useAmmo = true)
+    public virtual bool Shoot(bool useAmmo = true)
     {
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Bullet b = bulletObj.GetComponent<Bullet>();
@@ -93,9 +94,6 @@ public class Gun : Firearm
         }
         else
         {
-            if (!ammoSystem.CanShoot())
-                return;
-
             if (useAmmo)
                 ammoSystem.UseAmmo();
 
@@ -107,12 +105,14 @@ public class Gun : Firearm
         }
 
         b.Shoot(trajectory.normalized);
+        VFXManager.Instance.PlayVFX("PlayerGunShoot", shootPoint.position);
+        return true;
     }
 
     public virtual void ExecuteTimer()
     {
         shootTimer += Time.deltaTime;
-        if (GunData != null)
+        if (GunData != null && ammoSystem.CanShoot() && !IsBlocked())
         {
             switch (GunData.FireMode)
             {
@@ -133,8 +133,8 @@ public class Gun : Firearm
     {
         if (Input.GetButtonDown("Fire1") && shootTimer > FireRate)
         {
-            shootTimer = 0;
-            Shoot();
+            if (Shoot())
+                shootTimer = 0;
         }
     }
 
@@ -147,8 +147,8 @@ public class Gun : Firearm
 
         if (shootTimer > FireRate)
         {
-            shootTimer = 0;
-            Shoot();
+            if (Shoot())
+                shootTimer = 0;
         }
     }
 
@@ -166,10 +166,8 @@ public class Gun : Firearm
     {
         ammoSystem.UseAmmo();
         for (int i = 0; i < amount; i++)
-        {
-            Shoot(false);
-            yield return new WaitForSeconds(fireDelay);
-        }
+            if (Shoot(false))
+                yield return new WaitForSeconds(fireDelay);
     }
 
     public override void Execute()

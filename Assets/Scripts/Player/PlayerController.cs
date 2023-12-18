@@ -322,6 +322,12 @@ public class PlayerController : Entity
             StartCoroutine(ReloadFuel());
     }
 
+    public override void Death()
+    {
+        base.Death();
+        VFXManager.Instance.PlayVFX("BloodVFX", transform.position);
+    }
+
     private void FixedUpdate()
     {
         Movements();

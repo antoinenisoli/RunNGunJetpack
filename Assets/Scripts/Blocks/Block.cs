@@ -9,8 +9,8 @@ public class Block : Entity
     public float force;
     [SerializeField] Vector2 forceLimits = new Vector2(100, 5000);
     [SerializeField] float collisionRadius = 1.5f;
-    [SerializeField] [Curve(1, 250)] AnimationCurve impactCurve;
     [SerializeField] LayerMask destroyables;
+    [SerializeField] [Curve(1, 250)] AnimationCurve impactCurve;
 
     Rigidbody2D rb;
 
@@ -37,6 +37,7 @@ public class Block : Entity
         var coeff = Mathf.InverseLerp(forceLimits.x, forceLimits.y, force);
         return Mathf.RoundToInt(impactCurve.Evaluate(coeff));
     }
+
 
     private void FixedUpdate()
     {
