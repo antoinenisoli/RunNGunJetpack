@@ -11,7 +11,8 @@ public class AnimationScript : MonoBehaviour
     [SerializeField] protected CustomAnimation[] animations = new CustomAnimation[1] { new CustomAnimation("Idle") };
 
     Dictionary<string, CustomAnimation> customAnimations = new Dictionary<string, CustomAnimation>();
-    CustomAnimation currentAnim;
+    CustomAnimation previousAnim, currentAnim;
+    Queue<CustomAnimation> animQueues = new Queue<CustomAnimation>();
 
     private void Awake()
     {
@@ -33,9 +34,19 @@ public class AnimationScript : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void StartAnim(CustomAnimation anim)
+    {
+        if (!anim.loop)
+            previousAnim = currentAnim;
+
+        currentAnim = anim;
+        anim.Start();
+    }
+
     public void StartAnim(string name)
     {
-        currentAnim = customAnimations[name];
+        CustomAnimation anim = customAnimations[name];
+        StartAnim(anim);
     }
 
     private void Update()
@@ -44,6 +55,11 @@ public class AnimationScript : MonoBehaviour
         {
             currentAnim.Update();
             animRenderer.sprite = currentAnim.mainSprite;
+            if (currentAnim.Done() && previousAnim != null)
+            {
+                StartAnim(previousAnim);
+                previousAnim = null;
+            }
         }
     }
 }

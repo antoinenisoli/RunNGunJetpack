@@ -5,7 +5,7 @@ public class CustomAnimation
 {
     public string name = "Idle";
     [Range(0f,0.5f)] public float frameRate = 0.1f;
-    public bool loop = true;
+    public bool loop = true, destroyObjAtEnd;
     public Sprite mainSprite;
     public Sprite[] sprites;
 
@@ -23,14 +23,21 @@ public class CustomAnimation
 
     public void Init(AnimationScript animator)
     {
-        mainSprite = sprites[0];
-        animDone = false;
+        Start();
         this.animator = animator;
     }
 
+    public void Start()
+    {
+        mainSprite = sprites[0];
+        animDone = false;
+    }
+
+    public bool Done() => animDone;
+
     public void Update()
     {
-        if (animDone && !loop)
+        if (animDone && destroyObjAtEnd)
         {
             animator.SelfDestroy();
             return;

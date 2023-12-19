@@ -60,7 +60,7 @@ public class FlyEnemy : Enemy
     private void Update()
     {
         ChasePlayer();
-        if (target)
+        if (target && CanAttack())
             AttackPlayer();
 
         additionalVelocity = Vector2.Lerp(additionalVelocity, Vector2.zero, 1f * Time.deltaTime);
