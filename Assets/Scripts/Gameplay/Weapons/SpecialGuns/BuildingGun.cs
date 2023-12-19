@@ -7,7 +7,9 @@ public class BuildingGun : Firearm
     [Header(nameof(BuildingGun))]
     [SerializeField] LayerMask interactables;
     [SerializeField] Material shineMaterial;
-    [SerializeField] float moveSpeed = 12f;
+    [SerializeField] Gradient laserColorGradient;
+    [SerializeField] float hookMoveSpeed = 3f;
+    [SerializeField] float minDistance = 3f;
     [SerializeField] float hookRange = 25, moveRange = 20;
 
     Rigidbody2D hookedObject;
@@ -61,6 +63,13 @@ public class BuildingGun : Firearm
                     TargetLost();
                     NewTargetFound(linecast.rigidbody);
                 }
+
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    float distance = Vector2.Distance(linecast.point, shootPoint.position);
+                    if (distance > minDistance)
+                        OnHook(linecast.rigidbody);
+                }
             }
             else
             {
@@ -68,13 +77,6 @@ public class BuildingGun : Firearm
                 if (currentTarget)
                     TargetLost();
             }
-        }
-
-        if (Input.GetButtonDown("Fire1") && !hookedObject)
-        {
-            var hit = Physics2D.Raycast(shootPoint.position, shootPoint.right, hookRange, interactables);
-            if (hit.transform)
-                OnHook(hit.rigidbody);
         }
 
         if (Input.GetButton("Fire1") && hookedObject)
@@ -103,9 +105,13 @@ public class BuildingGun : Firearm
     void MoveObject()
     {
         hookedObject.velocity = CameraManager.Instance.MousePosition() - hookedObject.position;
-        hookedObject.velocity *= moveSpeed;
+        hookedObject.velocity *= hookMoveSpeed;
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookedObject.position);
+        float value = GetDistance() / moveRange;
+        print(value);
+        lineRenderer.endColor = laserColorGradient.Evaluate(value);
+
         if (GetDistance() > moveRange)
             StopHook();
     }

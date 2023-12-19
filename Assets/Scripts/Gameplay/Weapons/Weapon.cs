@@ -30,10 +30,27 @@ public abstract class Weapon : MonoBehaviour
         cam = Camera.main;
     }
 
+    public void LookAt(Transform Entity, Vector2 targetPosition)
+    {
+        float AngleRad = Mathf.Atan2(targetPosition.y - Entity.position.y, targetPosition.x - Entity.position.x);
+        float AngleDeg = 180 / Mathf.PI * AngleRad;
+        Entity.rotation = Quaternion.Euler(0, 0, AngleDeg);
+    }
+
+    public void FlipSprite()
+    {
+        bool flip = CameraManager.Instance.MousePosition().x < transform.position.x;
+        if (flip)
+            transform.localRotation = Quaternion.Euler(Vector3.right * 180);
+        else
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+    }
+
     public virtual void Execute() { }
 
-    private void Update()
+    public void Update()
     {
+        FlipSprite();
         Execute();
     }
 }

@@ -20,7 +20,6 @@ public class PlayerController : Entity
     [SerializeField] float speed;
     [SerializeField] float groundDeceleration = 10f, airDeceleration = 1f;
     [SerializeField] Vector2 walkLimits, flyLimits;
-    [SerializeField] CameraShake damageShake;
 
     [Header("Ground detection")]
     [SerializeField] Transform feetPoint;
@@ -185,11 +184,9 @@ public class PlayerController : Entity
         Rigidbody.velocity = move;
     }
 
-    public override void TakeDamage(int amount)
+    public void FreezeFrame(float amount)
     {
-        damageShake.Shake();
-        FeedbackManager.Instance.FreezeFrame(0f, 0.15f);
-        base.TakeDamage(amount);
+        FeedbackManager.Instance.FreezeFrame(0f, amount);
     }
 
     public void ResetYVelocity()

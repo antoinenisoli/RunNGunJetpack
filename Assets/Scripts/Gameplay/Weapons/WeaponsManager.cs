@@ -78,17 +78,12 @@ public class WeaponsManager : MonoBehaviour
         }
     }
 
-    public void LookAt(Transform Entity, Vector2 targetPosition)
-    {
-        float AngleRad = Mathf.Atan2(targetPosition.y - Entity.position.y, targetPosition.x - Entity.position.x);
-        float AngleDeg = 180 / Mathf.PI * AngleRad;
-        Entity.rotation = Quaternion.Euler(0, 0, AngleDeg);
-    }
-
     void LookAtMouse()
     {
         Vector2 mousePosition = CameraManager.Instance.MousePosition();
-        LookAt(transform, mousePosition);
+        float AngleRad = Mathf.Atan2(mousePosition.y - transform.position.y, mousePosition.x - transform.position.x);
+        float AngleDeg = 180 / Mathf.PI * AngleRad;
+        transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
     }
 
     private void Update()

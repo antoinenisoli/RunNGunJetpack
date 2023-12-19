@@ -23,8 +23,11 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamage(int amount)
     {
-        Health.TakeDamage(amount);
-        Hit();
+        if (!Health.Immortal)
+        {
+            Health.TakeDamage(amount);
+            Hit();
+        }
 
         if (Health.isDead)
             Death();

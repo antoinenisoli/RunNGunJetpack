@@ -8,6 +8,11 @@ public class Health
 {
     [SerializeField] float currentHealth;
     [SerializeField] float maxHealth = 50;
+
+    public bool Immortal;
+    public UnityEvent OnDamageTaken = new UnityEvent();
+    public UnityEvent OnHealed = new UnityEvent();
+
     public bool isDead => CurrentHealth <= 0;
     public float value => CurrentHealth / MaxHealth;
 
@@ -27,7 +32,6 @@ public class Health
     }
 
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public UnityEvent OnDamageTaken = new UnityEvent();
 
     public void Initialize()
     {

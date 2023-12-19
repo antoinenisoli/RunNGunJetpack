@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contactDamage: 5
-  contactPush: 1000
+  contactPush: 100
   lifeTime: 0.8
 --- !u!61 &919527344930658747
 BoxCollider2D:

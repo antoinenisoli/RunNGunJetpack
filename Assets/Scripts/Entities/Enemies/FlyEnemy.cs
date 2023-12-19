@@ -9,14 +9,6 @@ public class FlyEnemy : Enemy
     [SerializeField] float shootDistance;
     Vector2 chaseVelocity;
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, shootDistance);
-    }
-#endif
-
     public override void Awake()
     {
         base.Awake();

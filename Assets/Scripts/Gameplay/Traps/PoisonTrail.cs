@@ -17,8 +17,8 @@ public class PoisonTrail : DamageTrap
     IEnumerator Destruction()
     {
         yield return new WaitForSeconds(lifeTime);
-        transform.DOScale(0, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        transform.DOScale(0, lifeTime);
+        yield return new WaitForSeconds(lifeTime);
         Destroy(gameObject);
     }
 }

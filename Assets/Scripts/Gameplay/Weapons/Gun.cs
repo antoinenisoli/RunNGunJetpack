@@ -84,7 +84,7 @@ public class Gun : Firearm
     public virtual bool Shoot(bool useAmmo = true)
     {
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-        Bullet b = bulletObj.GetComponent<Bullet>();
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
         Vector2 trajectory = new Vector2();
 
         if (enemy)
@@ -98,13 +98,13 @@ public class Gun : Firearm
                 ammoSystem.UseAmmo();
 
             camShake.Shake();
-            PlayerBullet bullet = b as PlayerBullet;
-            bullet.Damage = GunData.Damages;
-            bullet.Speed = GunData.BulletSpeed;
+            PlayerBullet playerBullet = bullet as PlayerBullet;
+            playerBullet.Damage = GunData.Damages;
+            playerBullet.Speed = GunData.BulletSpeed;
             trajectory = weaponVisual.right;
         }
 
-        b.Shoot(trajectory.normalized);
+        bullet.Shoot(trajectory.normalized);
         VFXManager.Instance.PlayVFX("PlayerGunShoot", shootPoint.position);
         return true;
     }

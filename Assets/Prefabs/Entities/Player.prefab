@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101990532579070380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.97099984, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.304, y: 0, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 7677861160284272771}
   - {fileID: 1302104515341498572}
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4158985816742197495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.005, y: 0.627, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.052, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9204238163050601733}
@@ -102,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7677861159505637992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.70199925, y: 0.627, z: 0}
+  m_LocalPosition: {x: 0.848, y: 1.245, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7677861160230559700}
@@ -233,17 +233,42 @@ MonoBehaviour:
   Health:
     currentHealth: 0
     maxHealth: 25
+    OnDamageTaken:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+          m_MethodName: Noise
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 50
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7677861159884089015}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: FreezeFrame
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.15
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 7677861159505637995}
+  healthSprites: []
   MainState: 0
   speed: 40
   groundDeceleration: 30
   airDeceleration: 1
   walkLimits: {x: -10, y: 10}
   flyLimits: {x: -30, y: 13}
-  damageShake:
-    active: 1
-    shakeIntensity: 50
   feetPoint: {fileID: 7677861160257815889}
   radius: 0.5
   groundMask:
@@ -338,7 +363,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03676319, y: 0.26135433}
+  m_Offset: {x: -0.04987055, y: 0.7687807}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -349,7 +374,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7466526, y: 2.5227087}
+  m_Size: {x: 2.0684352, y: 3.5375614}
   m_EdgeRadius: 0
 --- !u!50 &7677861159884089011
 Rigidbody2D:
@@ -471,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909113410598089256, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4214741935e8446a609dcfbb3c6881, type: 3}
@@ -579,7 +604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303247176352756951, guid: a7038695f46654547ba798f00237a77d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.213
+      value: -0.829
       objectReference: {fileID: 0}
     - target: {fileID: 303247176352756951, guid: a7038695f46654547ba798f00237a77d, type: 3}
       propertyPath: m_LocalPosition.z
