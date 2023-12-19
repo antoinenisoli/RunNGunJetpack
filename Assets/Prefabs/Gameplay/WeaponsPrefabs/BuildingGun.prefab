@@ -76,11 +76,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponVisual: {fileID: 8590642973672665700}
+  lookAtMouse: 1
   shootPoint: {fileID: 9094567262586311778}
   blockLayer:
     serializedVersion: 2
     m_Bits: 264
   shootDistance: 1.5
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
   interactables:
     serializedVersion: 2
     m_Bits: 256

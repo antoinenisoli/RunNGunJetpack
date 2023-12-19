@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Firearm : Weapon
 {
@@ -8,11 +9,23 @@ public abstract class Firearm : Weapon
     [SerializeField] protected Transform shootPoint;
     [SerializeField] LayerMask blockLayer;
     [SerializeField] float shootDistance = 1.5f;
+    [SerializeField] UnityEvent OnShoot = new UnityEvent();
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = IsBlocked() ? Color.red : Color.green;
-        Gizmos.DrawRay(transform.position, transform.right* shootDistance);
+        Gizmos.DrawRay(transform.position, transform.right * shootDistance);
+    }
+
+    public void PlayVFX(string fxName)
+    {
+        VFXManager.Instance.PlayVFX(fxName, shootPoint.position);
+    }
+
+    public virtual bool Shoot(bool useAmmo = true)
+    {
+        OnShoot.Invoke();
+        return true;
     }
 
     public bool IsBlocked()

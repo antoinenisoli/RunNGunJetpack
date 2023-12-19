@@ -5,13 +5,19 @@ using UnityEngine;
 public class FlyEnemy : Enemy
 {
     [Header(nameof(FlyEnemy))]
-    public Vector2 additionalVelocity;
+    [SerializeField] Vector2 additionalVelocity;
     [SerializeField] float shootDistance;
+    [SerializeField] GunData gunData;
     Vector2 chaseVelocity;
+    Gun myWeapon;
+
+    float GetDistance() => Vector2.Distance(target.transform.position, transform.position);
 
     public override void Awake()
     {
         base.Awake();
+        myWeapon = GetComponentInChildren<Gun>();
+        myWeapon.GunData = gunData;
     }
 
     public bool CanShoot()
@@ -28,9 +34,7 @@ public class FlyEnemy : Enemy
         chaseVelocity = Vector2.Lerp(chaseVelocity, Vector2.zero, 5f * Time.deltaTime);
     }
 
-    float GetDistance() => Vector2.Distance(target.transform.position, transform.position);
-
-    private void Update()
+    void ChasePlayer()
     {
         if (target)
         {
@@ -45,6 +49,19 @@ public class FlyEnemy : Enemy
         }
         else if (rb.velocity.magnitude > 0.001f)
             Deceleration();
+    }
+
+    void AttackPlayer()
+    {
+        myWeapon.ExecuteTimer();
+        myWeapon.LookAt(myWeapon.transform, target.transform.position);
+    }
+
+    private void Update()
+    {
+        ChasePlayer();
+        if (target)
+            AttackPlayer();
 
         additionalVelocity = Vector2.Lerp(additionalVelocity, Vector2.zero, 1f * Time.deltaTime);
         rb.velocity = chaseVelocity + additionalVelocity;

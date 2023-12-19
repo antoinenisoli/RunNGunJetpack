@@ -15,6 +15,8 @@ public class PlayerWeaponHUD : MonoBehaviour
     private void Awake()
     {
         weaponsManager = FindObjectOfType<WeaponsManager>();
+        if (!weaponsManager)
+            Destroy(gameObject);
     }
 
     private void Start()

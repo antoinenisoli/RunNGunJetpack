@@ -46,9 +46,9 @@ public class BuildingGun : Firearm
         currentTarget = null;
     }
 
-    public override void Execute()
+    public override void OnUpdate()
     {
-        base.Execute();
+        base.OnUpdate();
 
         if (!hookedObject)
         {
@@ -93,6 +93,7 @@ public class BuildingGun : Firearm
 
     void OnHook(Rigidbody2D other)
     {
+        Shoot(false);
         hookedObject = other;
         baseGravity = hookedObject.gravityScale;
         hookedObject.gravityScale = 0;
@@ -121,5 +122,10 @@ public class BuildingGun : Firearm
         hookedObject.gravityScale = baseGravity;
         hookedObject = null;
         lineRenderer.positionCount = 0;
+    }
+
+    public override bool Shoot(bool useAmmo = true)
+    {
+        throw new System.NotImplementedException();
     }
 }

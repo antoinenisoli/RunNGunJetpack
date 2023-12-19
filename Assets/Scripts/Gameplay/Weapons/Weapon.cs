@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WeaponData
 {
     public string Name;
@@ -20,6 +21,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [Header(nameof(Weapon))]
     [SerializeField] protected Transform weaponVisual;
+    [SerializeField] bool lookAtMouse;
     private WeaponData weaponData;
     Camera cam;
 
@@ -46,11 +48,13 @@ public abstract class Weapon : MonoBehaviour
             transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
-    public virtual void Execute() { }
+    public virtual void OnUpdate() { }
 
     public void Update()
     {
-        FlipSprite();
-        Execute();
+        if (lookAtMouse)
+            FlipSprite();
+
+        OnUpdate();
     }
 }

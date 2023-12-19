@@ -15,6 +15,7 @@ public enum FireMode
     Laser = 3,
 }
 
+[System.Serializable]
 public class GunData : WeaponData
 {
     public struct VisualData
@@ -49,12 +50,10 @@ public class Gun : Firearm
 {
     [Header(nameof(Gun))]
     [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected CameraShake camShake = new CameraShake();
 
     protected AmmoSystem ammoSystem;
     protected GunData gunData;
     protected float shootTimer;
-    Enemy enemy;
 
     protected float FireRate => GunData.FireRate;
     public AmmoSystem AmmoSystem { get => ammoSystem; set => ammoSystem = value; }
@@ -77,61 +76,40 @@ public class Gun : Firearm
     public override void Awake()
     {
         base.Awake();
-        enemy = GetComponentInParent<Enemy>();
         ammoSystem = GetComponent<AmmoSystem>();
     }
 
-    public virtual bool Shoot(bool useAmmo = true)
+    public override bool Shoot(bool useAmmo = true)
     {
+        base.Shoot(useAmmo);
         GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Bullet bullet = bulletObj.GetComponent<Bullet>();
-        Vector2 trajectory = new Vector2();
+        if (ammoSystem && useAmmo)
+            ammoSystem.UseAmmo();
 
-        if (enemy)
-        {
-            if (enemy.Target && enemy.CanAttack())
-                trajectory = enemy.Target.transform.position - transform.position;
-        }
-        else
-        {
-            if (useAmmo)
-                ammoSystem.UseAmmo();
-
-            camShake.Shake();
-            PlayerBullet playerBullet = bullet as PlayerBullet;
-            playerBullet.Damage = GunData.Damages;
-            playerBullet.Speed = GunData.BulletSpeed;
-            trajectory = weaponVisual.right;
-        }
+        bullet.Damage = GunData.Damages;
+        bullet.Speed = GunData.BulletSpeed;
+        Vector2 trajectory = weaponVisual.right;
 
         bullet.Shoot(trajectory.normalized);
-        VFXManager.Instance.PlayVFX("PlayerGunShoot", shootPoint.position);
         return true;
     }
 
-    public virtual void ExecuteTimer()
+    public void ExecuteTimer()
     {
-        shootTimer += Time.deltaTime;
-        if (GunData != null && ammoSystem.CanShoot() && !IsBlocked())
+        if (ammoSystem && !ammoSystem.CanShoot())
+            return;
+
+        if (GunData != null && !IsBlocked())
         {
-            switch (GunData.FireMode)
-            {
-                case FireMode.SemiAutomatic: //semi auto
-                    SemiAutomaticShoot();
-                    break;
-                case FireMode.Automatic: //auto
-                    AutomaticShoot();
-                    break;
-                case FireMode.BurstFire: //burst-fire
-                    BurstFire();
-                    break;
-            }
+            shootTimer += Time.deltaTime;
+            ManageShooting();
         }
     }
 
     protected void SemiAutomaticShoot()
     {
-        if (Input.GetButtonDown("Fire1") && shootTimer > FireRate)
+        if (shootTimer > FireRate)
         {
             if (Shoot())
                 shootTimer = 0;
@@ -140,21 +118,12 @@ public class Gun : Firearm
 
     protected void AutomaticShoot()
     {
-        if (Input.GetButton("Fire1"))
-            shootTimer += Time.deltaTime;
-        else
-            shootTimer = FireRate;
-
-        if (shootTimer > FireRate)
-        {
-            if (Shoot())
-                shootTimer = 0;
-        }
+        shootTimer += Time.deltaTime;
     }
 
     protected void BurstFire()
     {
-        if (Input.GetButtonDown("Fire1") && shootTimer > FireRate)
+        if (shootTimer > FireRate)
         {
             shootTimer = 0;
             int randomBursts = Random.Range(3, 8);
@@ -162,16 +131,37 @@ public class Gun : Firearm
         }
     }
 
-    IEnumerator Burst(int amount, float fireDelay = 0.1f)
+    protected IEnumerator Burst(int amount, float fireDelay = 0.1f)
     {
-        ammoSystem.UseAmmo();
+        if (ammoSystem)
+            ammoSystem.UseAmmo();
+
         for (int i = 0; i < amount; i++)
             if (Shoot(false))
                 yield return new WaitForSeconds(fireDelay);
     }
 
-    public override void Execute()
+    public virtual void ManageShooting()
     {
-        ExecuteTimer();
+        switch (GunData.FireMode)
+        {
+            case FireMode.SemiAutomatic: //semi auto
+                SemiAutomaticShoot();
+                break;
+
+            case FireMode.Automatic: //auto
+                AutomaticShoot();
+                if (shootTimer > FireRate)
+                {
+                    if (Shoot())
+                        shootTimer = 0;
+                }
+
+                break;
+
+            case FireMode.BurstFire: //burst-fire
+                BurstFire();
+                break;
+        }
     }
 }
