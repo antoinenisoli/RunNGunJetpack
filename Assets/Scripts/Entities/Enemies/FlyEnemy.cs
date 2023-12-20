@@ -7,7 +7,6 @@ public class FlyEnemy : Enemy
     [Header(nameof(FlyEnemy))]
     [SerializeField] Vector2 additionalVelocity;
     [SerializeField] float shootDistance;
-    [SerializeField] GunData gunData;
     Vector2 chaseVelocity;
     Gun myWeapon;
 
@@ -17,7 +16,6 @@ public class FlyEnemy : Enemy
     {
         base.Awake();
         myWeapon = GetComponentInChildren<Gun>();
-        myWeapon.GunData = gunData;
     }
 
     public bool CanShoot()
@@ -51,17 +49,11 @@ public class FlyEnemy : Enemy
             Deceleration();
     }
 
-    void AttackPlayer()
-    {
-        myWeapon.ExecuteTimer();
-        myWeapon.LookAt(myWeapon.transform, target.transform.position);
-    }
-
     private void Update()
     {
         ChasePlayer();
         if (target && CanSeeTarget())
-            AttackPlayer();
+            myWeapon.ShootAt(target.transform);
 
         additionalVelocity = Vector2.Lerp(additionalVelocity, Vector2.zero, 1f * Time.deltaTime);
         rb.velocity = chaseVelocity + additionalVelocity;

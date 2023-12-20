@@ -65,11 +65,8 @@ public class Gun : Firearm
         if (ammoSystem && useAmmo)
             ammoSystem.UseAmmo();
 
-        bullet.Damage = GunData.Damages;
-        bullet.Speed = GunData.BulletSpeed;
-        Vector2 trajectory = weaponVisual.right;
-
-        bullet.Shoot(trajectory.normalized);
+        Vector2 trajectory = shootPoint.right;
+        bullet.Shoot(trajectory.normalized, GunData.Damages, GunData.BulletSpeed);
         return true;
     }
 
@@ -117,6 +114,12 @@ public class Gun : Firearm
         for (int i = 0; i < amount; i++)
             if (Shoot(false))
                 yield return new WaitForSeconds(fireDelay);
+    }
+
+    public void ShootAt(Transform target)
+    {
+        LookAt(shootPoint, target.position);
+        ExecuteTimer();
     }
 
     public virtual void ManageShooting()

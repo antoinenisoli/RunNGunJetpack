@@ -12,20 +12,32 @@ enum Team
 public abstract class Bullet : MonoBehaviour
 {
     [Header(nameof(Bullet))]
-    [SerializeField] GameObject HitFX;
+    [SerializeField] string HitFX;
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] protected float lifeTime = 3f;
+    [SerializeField] bool affectedByGravity;
 
     protected Vector2 trajectory;
     float speed = 50f;
     int damage = 1;
+    Rigidbody2D rb;
 
-    public virtual int Damage { get => damage; set => damage = value; }
-    public virtual float Speed { get => speed; set => speed = value; }
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-    public void Shoot(Vector2 trajectory)
+    private void Start()
+    {
+        if (affectedByGravity)
+            rb.velocity = trajectory * speed;
+    }
+
+    public void Shoot(Vector2 trajectory, int damage, float speed)
     {
         this.trajectory = trajectory.normalized;
+        this.speed = speed;
+        this.damage = damage;
         Destroy(gameObject, lifeTime);
     }
 
@@ -36,8 +48,8 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (HitFX)
-            Instantiate(HitFX, transform.position, Quaternion.identity);
+        if (!string.IsNullOrEmpty(HitFX))
+            VFXManager.Instance.PlayVFX(HitFX, transform.position);
     }
 
     public abstract bool CantTakeDamage(Entity entity);
@@ -50,7 +62,7 @@ public abstract class Bullet : MonoBehaviour
             if (CantTakeDamage(entity))
                 return;
 
-            entity.TakeDamage(Damage);
+            entity.TakeDamage(damage);
             SelfDestroy();
         }
 
@@ -65,6 +77,9 @@ public abstract class Bullet : MonoBehaviour
 
     public virtual void Update()
     {
-        transform.position += (Vector3)trajectory * Time.deltaTime * Speed;
+        if (!affectedByGravity)
+            rb.velocity = trajectory * speed;
+
+        transform.right = rb.velocity.normalized;
     }
 }

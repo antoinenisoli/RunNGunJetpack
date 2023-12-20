@@ -27,11 +27,11 @@ public abstract class Weapon : MonoBehaviour
         WeaponData = new WeaponData("Weapon");
     }
 
-    public void LookAt(Transform Entity, Vector2 targetPosition)
+    public void LookAt(Transform target, Vector2 targetPosition)
     {
-        float AngleRad = Mathf.Atan2(targetPosition.y - Entity.position.y, targetPosition.x - Entity.position.x);
+        float AngleRad = Mathf.Atan2(targetPosition.y - target.position.y, targetPosition.x - target.position.x);
         float AngleDeg = 180 / Mathf.PI * AngleRad;
-        Entity.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        target.rotation = Quaternion.Euler(0, 0, AngleDeg);
     }
 
     public void FlipSprite()

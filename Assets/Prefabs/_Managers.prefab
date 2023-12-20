@@ -79,3 +79,5 @@ MonoBehaviour:
     prefab: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
   - name: PlayerShootFX
     prefab: {fileID: 7068012978471676032, guid: aa5a48c75a68b2b43b18f9a59b041f71, type: 3}
+  - name: EnemyProjectileHitFX
+    prefab: {fileID: 4256198088424689524, guid: 3ad87cda23de7e443b7ccbc1e0cba6ab, type: 3}

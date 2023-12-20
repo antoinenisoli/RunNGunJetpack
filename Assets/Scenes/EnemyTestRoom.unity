@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: startAnim
       value: Run
       objectReference: {fileID: 0}
+    - target: {fileID: 764692782303518946, guid: 586f4bb981b2ea446acd16c4403b0ca2, type: 3}
+      propertyPath: animations.Array.data[3].frameRate
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 1229545473700461238, guid: 586f4bb981b2ea446acd16c4403b0ca2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -399,10 +403,6 @@ PrefabInstance:
     - target: {fileID: 1229545473700461239, guid: 586f4bb981b2ea446acd16c4403b0ca2, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511674910907541141, guid: 586f4bb981b2ea446acd16c4403b0ca2, type: 3}
-      propertyPath: attackDelay
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586f4bb981b2ea446acd16c4403b0ca2, type: 3}
@@ -18733,7 +18733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730604, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730605, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_RootOrder
@@ -18741,11 +18741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730605, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.01
+      value: -8.93
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730605, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.63
+      value: 18.28
       objectReference: {fileID: 0}
     - target: {fileID: 8251068632571730605, guid: 6ee3c646e4220174bb9acc7a96fa7eb5, type: 3}
       propertyPath: m_LocalPosition.z

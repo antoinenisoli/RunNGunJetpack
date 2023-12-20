@@ -145,6 +145,18 @@ MonoBehaviour:
     - {fileID: -3987469528654831452, guid: c4ee095d124d5d143b420d226d4acbc5, type: 3}
     - {fileID: -5171699282594229565, guid: c4ee095d124d5d143b420d226d4acbc5, type: 3}
     - {fileID: -8395294490942724864, guid: c4ee095d124d5d143b420d226d4acbc5, type: 3}
+  - name: RangeAttack
+    frameRate: 0.059
+    loop: 0
+    mainSprite: {fileID: 9054283897674080488, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    sprites:
+    - {fileID: 9054283897674080488, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: -3723143335198627752, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: -6242557717188959884, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: 8976779426891303508, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: 411871815273126530, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: -3847533330988333505, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
+    - {fileID: 1547206583567394869, guid: 8e858433e86f9e04fa5bb043ec64bb26, type: 3}
 --- !u!1 &913417850898653483
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +221,7 @@ Transform:
   - {fileID: 764692782303518947}
   - {fileID: 4354741574348386961}
   - {fileID: 4605879407455097274}
+  - {fileID: 1414967331620186590}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -338,7 +351,7 @@ GameObject:
   - component: {fileID: 4605879407455097274}
   - component: {fileID: 1511674910907541141}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: MeleeWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -393,3 +406,71 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackDelay: 0.2
+--- !u!1 &4970726718870354467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414967331620186590}
+  - component: {fileID: 201126966671603539}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1414967331620186590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970726718870354467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1229545473700461238}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201126966671603539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970726718870354467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038a3e20d69acb45a42ab5cc336f344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponVisual: {fileID: 1414967331620186590}
+  owner: {fileID: 1229545473700461232}
+  lookAtMouse: 0
+  weaponDataObj: {fileID: 11400000, guid: a1fc692b7392d2d45adeebba7a595bf4, type: 2}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 764692782303518946}
+        m_TargetAssemblyTypeName: AnimationScript, Assembly-CSharp
+        m_MethodName: StartAnim
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RangeAttack
+          m_BoolArgument: 0
+        m_CallState: 2
+  shootPoint: {fileID: 1414967331620186590}
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 264
+  shootDistance: 1.5
+  bulletPrefab: {fileID: 7262909567694992729, guid: 702fe3f48e5a820438873c7c7aa55912, type: 3}

@@ -8,11 +8,13 @@ public class GroundEnemy : Enemy
     [SerializeField] float closeDistanceRange = 10f;
     AnimationScript animScript;
     MeleeWeapon meleeWeapon;
+    Gun rangeWeapon;
 
     private void Start()
     {
         animScript = GetComponentInChildren<AnimationScript>();
         meleeWeapon = GetComponentInChildren<MeleeWeapon>();
+        rangeWeapon = GetComponentInChildren<Gun>();
     }
 
     void Patrol()
@@ -42,6 +44,8 @@ public class GroundEnemy : Enemy
                 else
                     animScript.StartAnim("Idle");
             }
+            else
+                Stop();
         }
 
         if (!CanSeeTarget())
@@ -56,7 +60,10 @@ public class GroundEnemy : Enemy
     void AttackPlayer()
     {
         if (TargetInAir())
-            RangeAttack();
+        {
+            if (rangeWeapon)
+                rangeWeapon.ShootAt(target.transform);
+        }
         else if (meleeWeapon)
             meleeWeapon.ExecuteTimer();
 

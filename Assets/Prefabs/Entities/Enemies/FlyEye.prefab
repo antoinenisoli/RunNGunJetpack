@@ -45,27 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponVisual: {fileID: 2417035313717385991}
+  owner: {fileID: 8251068632571730608}
   lookAtMouse: 0
+  weaponDataObj: {fileID: 11400000, guid: 27b48af4283866e4f8a40bf01d370856, type: 2}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
   shootPoint: {fileID: 6077992175365122418}
   blockLayer:
     serializedVersion: 2
     m_Bits: 0
   shootDistance: 1.5
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3898404331497838927}
-        m_TargetAssemblyTypeName: Firearm, Assembly-CSharp
-        m_MethodName: PlayVFX
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: PlayerGunShoot
-          m_BoolArgument: 0
-        m_CallState: 2
   bulletPrefab: {fileID: 2152947584786561305, guid: 194575f7d2b8fc6408b71315d8534d17, type: 3}
 --- !u!1 &4723886559219221786
 GameObject:
@@ -159,22 +149,17 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 8251068632831433066}
   healthSprites: []
+  currentState: 0
   speed: 1
   contactDamage: 5
   contactPush: 1500
-  target: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  closeDistance: 3
+  helpers: []
   additionalVelocity: {x: 0, y: 0}
   shootDistance: 8
-  gunData:
-    Name: DardShooter
-    Damages: 5
-    BulletSpeed: 50
-    MagazineSize: 999
-    FireRate: 1
-    FireMode: 0
 --- !u!114 &2910013272212707430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,10 +185,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b3950d234af14fb632af4c93745ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 17
   detectionMask:
     serializedVersion: 2
     m_Bits: 64
+  escapeDelay: 3
+  innerDetection:
+    Name: Inner
+    Point: {fileID: 8251068632571730605}
+    Radius: 20
+    GizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    Raycast: 0
+  outerDetection:
+    Name: Outer
+    Point: {fileID: 8251068632571730605}
+    Radius: 25
+    GizmoColor: {r: 1, g: 0, b: 0.88933325, a: 1}
+    Raycast: 0
 --- !u!58 &8251068632571730611
 CircleCollider2D:
   m_ObjectHideFlags: 0
