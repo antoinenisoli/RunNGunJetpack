@@ -23,7 +23,11 @@ public class BuildingGun : Firearm
     {
         base.Awake();
         lineRenderer = GetComponent<LineRenderer>();
-        WeaponData = new WeaponData("Building Gun", 0, (int)hookRange);
+    }
+
+    public override void GetWeaponData()
+    {
+        WeaponData = new WeaponData("Building Gun");
     }
 
     private void OnDrawGizmosSelected()

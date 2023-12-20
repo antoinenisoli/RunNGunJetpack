@@ -11,14 +11,14 @@ public class AnimationScript : MonoBehaviour
     [SerializeField] protected CustomAnimation[] animations = new CustomAnimation[1] { new CustomAnimation("Idle") };
 
     Dictionary<string, CustomAnimation> customAnimations = new Dictionary<string, CustomAnimation>();
-    CustomAnimation previousAnim, currentAnim;
+    CustomAnimation currentAnim;
     Queue<CustomAnimation> animQueues = new Queue<CustomAnimation>();
 
     private void Awake()
     {
         foreach (var item in animations)
         {
-            item.Init(this);
+            item.Start();
             customAnimations.Add(item.name, item);
         }
     }
@@ -28,19 +28,16 @@ public class AnimationScript : MonoBehaviour
         StartAnim(startAnim);
     }
 
-    public void SelfDestroy()
-    {
-        if (destroyOnEnd)
-            Destroy(gameObject);
-    }
-
     public void StartAnim(CustomAnimation anim)
     {
         if (!anim.loop)
-            previousAnim = currentAnim;
+            animQueues.Enqueue(currentAnim);
 
-        currentAnim = anim;
-        anim.Start();
+        if (anim != currentAnim)
+        {
+            currentAnim = anim;
+            currentAnim.Start();
+        }
     }
 
     public void StartAnim(string name)
@@ -55,10 +52,16 @@ public class AnimationScript : MonoBehaviour
         {
             currentAnim.Update();
             animRenderer.sprite = currentAnim.mainSprite;
-            if (currentAnim.Done() && previousAnim != null)
+
+            if (currentAnim.Done())
             {
-                StartAnim(previousAnim);
-                previousAnim = null;
+                if (destroyOnEnd)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+                else if (animQueues.Count > 0)
+                    StartAnim(animQueues.Dequeue());
             }
         }
     }

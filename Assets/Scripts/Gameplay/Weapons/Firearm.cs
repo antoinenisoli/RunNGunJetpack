@@ -9,7 +9,6 @@ public abstract class Firearm : Weapon
     [SerializeField] protected Transform shootPoint;
     [SerializeField] LayerMask blockLayer;
     [SerializeField] float shootDistance = 1.5f;
-    [SerializeField] UnityEvent OnShoot = new UnityEvent();
 
     private void OnDrawGizmosSelected()
     {
@@ -24,7 +23,7 @@ public abstract class Firearm : Weapon
 
     public virtual bool Shoot(bool useAmmo = true)
     {
-        OnShoot.Invoke();
+        OnAttack.Invoke();
         return true;
     }
 

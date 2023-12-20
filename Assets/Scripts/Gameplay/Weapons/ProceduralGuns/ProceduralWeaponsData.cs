@@ -70,11 +70,11 @@ public class ProceduralWeaponsData : ScriptableObject
         string name = GenerateGunName(RandomBarrel, RandomBody);
         GunData gun = new GunData(
         name, 
-        mode,
         (int)GetStatValue("Damages", mode),
-        GetStatValue("BulletSpeed", mode),
+        GetStatValue("AttackRate", mode),
+        mode,
         (int)GetStatValue("MagazineSize", mode),
-        GetStatValue("FireRate", mode)
+        GetStatValue("BulletSpeed", mode)
         );
 
         gun.SetSprites(RandomBody.GetSprite(),

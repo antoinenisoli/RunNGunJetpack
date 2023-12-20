@@ -5,30 +5,19 @@ using UnityEngine;
 public class GroundEnemy : Enemy
 {
     [Header(nameof(GroundEnemy))]
-    [SerializeField] float closeDistance = 3f;
-    [SerializeField] float attackCooldown = 2f;
+    [SerializeField] float closeDistanceRange = 10f;
     AnimationScript animScript;
-    float timer;
+    MeleeWeapon meleeWeapon;
 
     private void Start()
     {
         animScript = GetComponentInChildren<AnimationScript>();
-    }
-
-    bool InAir()
-    {
-        return rb.velocity.y > 0.1f || rb.velocity.y < -0.1f;
-    }
-
-    void SetXVelocity(Vector2 newVelocity)
-    {
-        newVelocity.y = rb.velocity.y;
-        rb.velocity = newVelocity;
+        meleeWeapon = GetComponentInChildren<MeleeWeapon>();
     }
 
     void Patrol()
     {
-        currentState = EnemyState.Idle;
+        SetState(EnemyState.Idle);
         animScript.StartAnim("Run");
         SetXVelocity(transform.right * speed);
         if (!InAir() && !GetPointHelper("Corner").OverlapDetect(groundMask))
@@ -43,67 +32,88 @@ public class GroundEnemy : Enemy
 
     void ChasePlayer()
     {
-        if (transform.position.x > target.transform.position.x)
-            transform.rotation = Quaternion.Euler(Vector3.up * 180f);
-        else
-            transform.rotation = Quaternion.Euler(new Vector3());
-
-        float distance = Vector2.Distance(transform.position, target.transform.position);
-        if (distance > closeDistance)
+        if (!TargetIsClose())
         {
             if (GetPointHelper("Corner").OverlapDetect(groundMask))
             {
                 SetXVelocity((target.transform.position - transform.position).normalized * speed);
-                currentState = EnemyState.Chasing;
+                if (Mathf.Abs(rb.velocity.x) > 1.5f)
+                    animScript.StartAnim("Run");
+                else
+                    animScript.StartAnim("Idle");
             }
-            else
-                Stop();
         }
-        else
+
+        if (!CanSeeTarget())
+            ForgetTarget(3f);
+        else if ((TargetIsClose() && !TargetInAir()) || TargetInAir() && XDistanceToTarget() < closeDistanceRange)
         {
-            if (currentState != EnemyState.Attacking)
-            {
-                Stop();
-                currentState = EnemyState.Attacking;
-            }
+            Stop();
+            SetState(EnemyState.Attacking);
         }
     }
 
-    void Attack()
+    void AttackPlayer()
     {
-        animScript.StartAnim("Attack1");
-        print("attack");
-        var hits = GetPointHelper("Attack").OverlapColliders(~0);
-        foreach (var item in hits)
-        {
-            Entity entity = item.GetComponentInChildren<Entity>();
-            if (entity)
-            {
-                if (entity is Enemy)
-                    continue;
+        if (TargetInAir())
+            RangeAttack();
+        else if (meleeWeapon)
+            meleeWeapon.ExecuteTimer();
 
-                entity.TakeDamage(10);
-            }
+        if (TargetInAir())
+        {
+            if (!CanSeeTarget() || XDistanceToTarget() > closeDistanceRange)
+                SetState(EnemyState.Chasing);
         }
+        else if (!TargetIsClose())
+            SetState(EnemyState.Chasing);
+    }
+
+    void RangeAttack()
+    {
+        print("range attack");
+    }
+
+    public void MeleeAttackAnim() //called by event
+    {
+        string[] attackAnimations = new string[] { "Attack1", "Attack2" };
+        int random = Random.Range(0, attackAnimations.Length);
+        string randomAnimation = attackAnimations[random];
+        animScript.StartAnim(randomAnimation);
+    }
+
+    private void RotateTowardsTarget()
+    {
+        if (transform.position.x > target.transform.position.x)
+            transform.rotation = Quaternion.Euler(Vector3.up * 180f);
+        else
+            transform.rotation = Quaternion.Euler(new Vector3());
     }
 
     private void Update()
     {
         if (target)
-        {         
-            if (currentState != EnemyState.Attacking)
-                ChasePlayer();
-            else
+        {
+            RotateTowardsTarget();
+            switch (CurrentState)
             {
-                timer += Time.deltaTime;
-                if (timer > attackCooldown)
-                {
-                    timer = 0;
-                    Attack();
-                }
+                case EnemyState.Chasing:
+                    ChasePlayer();
+                    break;
+
+                case EnemyState.Detecting:
+                    break;
+
+                case EnemyState.Attacking:
+                    AttackPlayer();
+                    break;
+
+                default:
+                    break;
             }
         }
         else
             Patrol();
     }
+
 }

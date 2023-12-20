@@ -12,6 +12,7 @@ public class WeaponStatDisplay : MonoBehaviour
     {
         nameText.text = weaponData.Name;
         damagesTxt.text = weaponData.Damages.ToString();
-        bulletSpeedTxt.text = weaponData.BulletSpeed.ToString();
+        if (weaponData is GunData)
+            bulletSpeedTxt.text = (weaponData as GunData).BulletSpeed.ToString();
     }
 }

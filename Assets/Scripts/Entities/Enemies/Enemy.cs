@@ -21,10 +21,12 @@ public struct PointHelper
             Gizmos.DrawWireSphere(Point.position, Radius);
     }
 
-    public Collider2D[] OverlapColliders(LayerMask mask)
+    public Collider2D[] OverlapColliders(LayerMask mask, float range = 0)
     {
-        var hit = Physics2D.OverlapCircleAll(Point.position, Radius, mask);
-        return hit;
+        if (range > 0)
+            return Physics2D.OverlapCircleAll(Point.position, range, mask);
+        else
+            return Physics2D.OverlapCircleAll(Point.position, Radius, mask);
     }
 
     public bool OverlapDetect(LayerMask mask)
@@ -52,18 +54,21 @@ public enum EnemyState
 public abstract class Enemy : Entity
 {
     [Header(nameof(Enemy))]
+    [SerializeField] EnemyState currentState;
     [SerializeField] protected float speed;
     [SerializeField] protected int contactDamage = 5;
     [SerializeField] protected float contactPush = 1000f;
     [SerializeField] protected LayerMask groundMask;
-    [SerializeField] protected EnemyState currentState;
+    [SerializeField] protected float closeDistance = 3f;
     [SerializeField] protected PointHelper[] helpers;
-    Dictionary<string, PointHelper> _helpersCollection = new Dictionary<string, PointHelper>();
 
+    Dictionary<string, PointHelper> _helpersCollection = new Dictionary<string, PointHelper>();
     protected Rigidbody2D rb;
     protected Entity target;
+    protected bool forgettingTarget;
 
-    public Entity Target { get => target; }
+    public Entity Target => target; 
+    public EnemyState CurrentState => currentState; 
 
     public override void Awake()
     {
@@ -89,17 +94,77 @@ public abstract class Enemy : Entity
             item.ShowGizmos();
     }
 
+    protected bool InAir()
+    {
+        return Mathf.Abs(rb.velocity.y) > 0.1f;
+    }
+
+    protected bool TargetIsClose()
+    {
+        float distance = Vector2.Distance(transform.position, target.transform.position);
+        return distance < closeDistance;
+    }
+
+    protected bool TargetInAir()
+    {
+        float distance = transform.position.y - target.transform.position.y;
+        return Mathf.Abs(distance) > 2f;
+    }
+
+    protected float XDistanceToTarget()
+    {
+        float distance = transform.position.x - target.transform.position.x;
+        return Mathf.Abs(distance);
+    }
+
+    protected void SetXVelocity(Vector2 newVelocity)
+    {
+        newVelocity.y = rb.velocity.y;
+        rb.velocity = newVelocity;
+    }
+
     protected PointHelper GetPointHelper(string name)
     {
         return _helpersCollection[name];
     }
 
+    public void SetState(EnemyState state)
+    {
+        if (currentState != state)
+            currentState = state;
+    }
+
     public void SetTarget(Entity target)
     {
         this.target = target;
+        forgettingTarget = false;
+        SetState(EnemyState.Chasing);
     }
 
-    public bool CanAttack()
+    public void ForgetTarget(float escapeDelay = 0)
+    {
+        if (!forgettingTarget)
+        {
+            forgettingTarget = true;
+            StopCoroutine(ForgetTargetCoroutine(escapeDelay));
+            StartCoroutine(ForgetTargetCoroutine(escapeDelay));
+        }
+    }
+
+    IEnumerator ForgetTargetCoroutine(float escapeDelay = 0)
+    {
+        float timer = escapeDelay;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (forgettingTarget)
+            SetTarget(null);
+    }
+
+    public bool CanSeeTarget()
     {
         if (!target)
             return false;

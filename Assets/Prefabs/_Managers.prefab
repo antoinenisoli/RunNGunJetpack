@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx:
-  - prefab: {fileID: 6183729177648352261, guid: 542252bb89ec15f4c98bdb6f24fb2057, type: 3}
-    name: ExplodeFX
-  - prefab: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
-    name: HitFX
-  - prefab: {fileID: 7068012978471676032, guid: aa5a48c75a68b2b43b18f9a59b041f71, type: 3}
-    name: PlayerGunShoot
+  - name: ExplodeFX
+    prefab: {fileID: 6183729177648352261, guid: 542252bb89ec15f4c98bdb6f24fb2057, type: 3}
+  - name: HitFX
+    prefab: {fileID: 3812489128899506595, guid: 1c4f03e7468765541bc2930fd15f2d0c, type: 3}
+  - name: PlayerShootFX
+    prefab: {fileID: 7068012978471676032, guid: aa5a48c75a68b2b43b18f9a59b041f71, type: 3}

@@ -24,19 +24,6 @@ public class TargetDetection : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-    IEnumerator ForgetTarget()
-    {
-        float timer = escapeDelay;
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            yield return null;
-        }
-
-        paused = false;
-        enemy.SetTarget(null);
-    }
-
     float TargetDistance()
     {
         return Vector2.Distance(enemy.Target.transform.position, transform.position); 
@@ -53,7 +40,7 @@ public class TargetDetection : MonoBehaviour
             if (dist > outerDetection.Radius && !paused)
             {
                 paused = true;
-                StartCoroutine(ForgetTarget());
+                enemy.ForgetTarget(escapeDelay);
             }
         }
         else
@@ -65,7 +52,6 @@ public class TargetDetection : MonoBehaviour
                 if (player)
                 {
                     paused = false;
-                    StopCoroutine(ForgetTarget());
                     enemy.SetTarget(player);
                     break;
                 }

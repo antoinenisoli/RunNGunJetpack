@@ -1,28 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class WeaponData
-{
-    public string Name;
-    public int Damages;
-    public float BulletSpeed;
-
-    public WeaponData(string name, int damages, float bulletSpeed)
-    {
-        Name = name;
-        Damages = damages;
-        BulletSpeed = bulletSpeed;
-    }
-}
+using UnityEngine.Events;
 
 public abstract class Weapon : MonoBehaviour
 {
     [Header(nameof(Weapon))]
     [SerializeField] protected Transform weaponVisual;
+    [SerializeField] protected Entity owner;
     [SerializeField] bool lookAtMouse;
-    private WeaponData weaponData;
+    [SerializeField] protected ScriptableWeaponObject weaponDataObj;
+    [SerializeField] protected UnityEvent OnAttack = new UnityEvent();
+    WeaponData weaponData;
     Camera cam;
 
     public virtual WeaponData WeaponData { get => weaponData; set => weaponData = value; }
@@ -30,6 +19,12 @@ public abstract class Weapon : MonoBehaviour
     public virtual void Awake()
     {
         cam = Camera.main;
+        GetWeaponData();
+    }
+
+    public virtual void GetWeaponData()
+    {
+        WeaponData = new WeaponData("Weapon");
     }
 
     public void LookAt(Transform Entity, Vector2 targetPosition)

@@ -46,13 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponVisual: {fileID: 2100175602935399894}
+  owner: {fileID: 0}
   lookAtMouse: 1
-  shootPoint: {fileID: 1076578415745331881}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 264
-  shootDistance: 1.5
-  OnShoot:
+  weaponDataObj: {fileID: 0}
+  OnAttack:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1076578413909794901}
@@ -64,9 +61,14 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PlayerGunShoot
+          m_StringArgument: PlayerShootFX
           m_BoolArgument: 0
         m_CallState: 2
+  shootPoint: {fileID: 1076578415745331881}
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 264
+  shootDistance: 1.5
   bulletPrefab: {fileID: 1746009155548192117, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
   randomGunGenerator:
     mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}

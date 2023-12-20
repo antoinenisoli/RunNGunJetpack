@@ -23,7 +23,6 @@ public class PlayerGun : Gun
     public override bool Shoot(bool useAmmo = true)
     {
         camShake.Shake();
-        VFXManager.Instance.PlayVFX("PlayerGunShoot", shootPoint.position);
         return base.Shoot(useAmmo);
     }
 

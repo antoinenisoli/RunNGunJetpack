@@ -15,37 +15,6 @@ public enum FireMode
     Laser = 3,
 }
 
-[System.Serializable]
-public class GunData : WeaponData
-{
-    public struct VisualData
-    {
-        public Sprite body, barrel, scope, stock;
-    }
-
-    public VisualData visualData = new VisualData();
-    public int MagazineSize;
-    public float FireRate;
-    public FireMode FireMode;
-
-    public GunData(string name, FireMode fireMode, int damages, float bulletSpeed, int magazineSize, float fireRate) : base(name, damages, bulletSpeed)
-    {
-        MagazineSize = magazineSize;
-        FireRate = fireRate;
-        FireMode = fireMode;
-        visualData = new VisualData();
-    }
-
-    public void SetSprites(Sprite body, Sprite barrel, Sprite scope, Sprite stock)
-    {
-        visualData.body = body;
-        visualData.barrel = barrel;
-        visualData.scope = scope;
-        visualData.stock = stock;
-    }
-}
-
-
 public class Gun : Firearm
 {
     [Header(nameof(Gun))]
@@ -55,7 +24,7 @@ public class Gun : Firearm
     protected GunData gunData;
     protected float shootTimer;
 
-    protected float FireRate => GunData.FireRate;
+    protected float FireRate => GunData.AttackRate;
     public AmmoSystem AmmoSystem { get => ammoSystem; set => ammoSystem = value; }
     public GunData GunData { get => gunData; 
         set
@@ -77,6 +46,15 @@ public class Gun : Firearm
     {
         base.Awake();
         ammoSystem = GetComponent<AmmoSystem>();
+    }
+
+    public override void GetWeaponData()
+    {
+        if (weaponDataObj)
+        {
+            var obj = Instantiate(weaponDataObj);
+            GunData = obj.GetGunData();
+        }
     }
 
     public override bool Shoot(bool useAmmo = true)
