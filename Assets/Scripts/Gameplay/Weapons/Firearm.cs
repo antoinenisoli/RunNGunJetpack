@@ -7,7 +7,7 @@ public abstract class Firearm : Weapon
 {
     [Header(nameof(Firearm))]
     [SerializeField] protected Transform shootPoint;
-    [SerializeField] LayerMask blockLayer;
+    [SerializeField] protected LayerMask blockLayer;
     [SerializeField] protected float shootDistance = 1.5f;
 
     private void OnDrawGizmosSelected()
@@ -30,15 +30,8 @@ public abstract class Firearm : Weapon
         return true;
     }
 
-    public bool IsBlocked()
+    public virtual bool IsBlocked()
     {
-        var hit = Physics2D.Linecast(shootPoint.position, shootPoint.position + shootPoint.right * shootDistance);
-        if (hit && GameDevHelper.LayerMaskContains(blockLayer, hit.transform.gameObject.layer))
-        {
-            //print(hit.transform);
-            return true;
-        }
-            
-        return false;
+        return Physics2D.Raycast(shootPoint.position, shootPoint.right, shootDistance, blockLayer);
     }
 }

@@ -7,12 +7,12 @@ public class PlayerGun : Gun
     [Header(nameof(PlayerGun))]
     [SerializeField] RandomGunGenerator randomGunGenerator;
     [SerializeField] CameraShake camShake;
+
     public override WeaponData WeaponData 
     { 
         get => base.WeaponData; 
         set => base.WeaponData = value; 
     }
-
 
     public override void Awake()
     {
@@ -34,6 +34,20 @@ public class PlayerGun : Gun
         AmmoSystem.AmmoAmount = AmmoSystem.MaxAmmo;
     }
 
+    protected void AutomaticShoot()
+    {
+        if (Input.GetButton("Fire1"))
+            shootTimer += Time.deltaTime;
+        else
+            shootTimer = 0;
+
+        if (shootTimer > FireRate)
+        {
+            if (Shoot())
+                shootTimer = 0;
+        }
+    }
+
     public override void ManageShooting()
     {
         switch (GunData.FireMode)
@@ -45,17 +59,7 @@ public class PlayerGun : Gun
                 break;
 
             case FireMode.Automatic: //auto
-                if (Input.GetButton("Fire1"))
-                    AutomaticShoot();
-                else
-                    shootTimer = FireRate;
-
-                if (shootTimer > FireRate)
-                {
-                    if (Shoot())
-                        shootTimer = 0;
-                }
-
+                AutomaticShoot();
                 break;
 
             case FireMode.BurstFire: //burst-fire

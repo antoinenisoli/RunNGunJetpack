@@ -76,6 +76,6 @@ MonoBehaviour:
     - Mode: 0
       RandomRange: {x: 0, y: 0.2}
     - Mode: 1
-      RandomRange: {x: 0.2, y: 0.5}
+      RandomRange: {x: 0.5, y: 1}
     - Mode: 2
       RandomRange: {x: 0.5, y: 0.5}

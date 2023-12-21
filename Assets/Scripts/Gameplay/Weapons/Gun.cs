@@ -89,16 +89,6 @@ public class Gun : Firearm
         }
     }
 
-    protected void AutomaticShoot()
-    {
-        shootTimer += Time.deltaTime;
-        if (shootTimer > FireRate)
-        {
-            if (Shoot())
-                shootTimer = 0;
-        }
-    }
-
     protected void BurstFire()
     {
         shootTimer += Time.deltaTime;
@@ -132,10 +122,6 @@ public class Gun : Firearm
         {
             case FireMode.SemiAutomatic: //semi auto
                 SemiAutomaticShoot();
-                break;
-
-            case FireMode.Automatic: //auto
-                AutomaticShoot();
                 break;
 
             case FireMode.BurstFire: //burst-fire

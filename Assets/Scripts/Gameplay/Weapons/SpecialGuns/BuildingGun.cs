@@ -45,6 +45,15 @@ public class BuildingGun : Firearm
         currentTarget = null;
     }
 
+    public override bool IsBlocked()
+    {
+        var hit = Physics2D.Linecast(shootPoint.position, shootPoint.position + shootPoint.right * shootDistance);
+        if (hit && GameDevHelper.LayerMaskContains(blockLayer, hit.transform.gameObject.layer))
+            return true;
+
+        return false;
+    }
+
     public override void OnUpdate()
     {
         base.OnUpdate();

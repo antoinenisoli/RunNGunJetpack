@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ public class Movable : MonoBehaviour
     [SerializeField] float collisionRadius = 1.5f;
     [SerializeField] LayerMask destroyables;
     [SerializeField] [Curve(1, 250)] AnimationCurve impactCurve;
+    [SerializeField] List<Collider2D> neighbours = new List<Collider2D>();
 
+    BoxCollider2D boxCollider;
     Rigidbody2D rb;
 
     private void OnDrawGizmos()
@@ -24,8 +27,19 @@ public class Movable : MonoBehaviour
 
     private void Start()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
+
+    void GetTouchingColliders()
+    {
+        var childOverlap = OverlapBox(1 << gameObject.layer);
+        neighbours = childOverlap.ToList();
+        if (neighbours.Contains(boxCollider))
+            neighbours.Remove(boxCollider);
+    }
+
+    public List<Collider2D> GetNeighbours() => neighbours;
 
     public void Push(Vector2 direction)
     {
@@ -38,15 +52,17 @@ public class Movable : MonoBehaviour
         return Mathf.RoundToInt(impactCurve.Evaluate(coeff));
     }
 
-
-    private void FixedUpdate()
+    Collider2D[] OverlapBox(LayerMask mask)
     {
-        int maxColliders = 10;
-        Collider2D[] hitColliders = new Collider2D[maxColliders];
-        int numColliders = Physics2D.OverlapCircleNonAlloc(transform.position, collisionRadius, hitColliders, destroyables);
-        for (int i = 0; i < numColliders; i++)
+        return Physics2D.OverlapBoxAll(boxCollider.bounds.center, boxCollider.size, 0, mask);
+    }
+
+    private void ManageCollisions()
+    {
+        var overlap = OverlapBox(destroyables);
+        foreach (var item in overlap)
         {
-            Entity entity = hitColliders[i].GetComponentInChildren<Entity>();
+            Entity entity = item.GetComponentInChildren<Entity>();
             if (entity && entity != this)
             {
                 int force = Mathf.RoundToInt(rb.velocity.sqrMagnitude);
@@ -59,5 +75,11 @@ public class Movable : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        GetTouchingColliders();
+        ManageCollisions();
     }
 }
