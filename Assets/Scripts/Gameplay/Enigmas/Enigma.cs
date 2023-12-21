@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Enigma : MonoBehaviour
+public abstract class Enigma : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header(nameof(Enigma))]
+    [SerializeField] protected Mechanism mechanism;
+    [SerializeField] UnityEvent OnEnigmaCompleted;
+    protected bool completed;
+
+    public virtual void CompleteEnigma()
     {
-        
+        completed = true;
+        mechanism.Unlock();
+        OnEnigmaCompleted.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract bool Completed();
 }

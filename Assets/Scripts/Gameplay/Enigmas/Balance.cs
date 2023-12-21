@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Balance : MonoBehaviour
+public class Balance : Enigma
 {
+    [Header(nameof(Balance))]
     [SerializeField] Vector2 limits;
     [SerializeField] LayerMask movableMask;
     [SerializeField] float maxWeight = 100;
@@ -16,7 +17,6 @@ public class Balance : MonoBehaviour
     BoxCollider2D boxCollider;
     float currentWeight;
     float weightGoal;
-    protected bool completed;
 
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class Balance : MonoBehaviour
         MoveIndicator(goalIndicators[1], (weightGoal + goalThreshold) / maxWeight);
     }
 
-    bool Completed()
+    public override bool Completed()
     {
         return currentWeight > (weightGoal - goalThreshold) && currentWeight < (weightGoal + goalThreshold);
     }
@@ -80,10 +80,7 @@ public class Balance : MonoBehaviour
 
         currentWeight = weight;
         if (Completed())
-        {
-            print("completed!!");
-            completed = true;
-        }
+            CompleteEnigma();
     }
 
     private void MoveIndicator(Transform indicator, float value)
