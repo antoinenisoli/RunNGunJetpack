@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - Interactables
+  - Movable
   - Lava
-  - 
+  - Interactable
   - 
   - 
   - 

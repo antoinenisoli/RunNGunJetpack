@@ -10,7 +10,7 @@ public class BuildingGun : Firearm
     [SerializeField] Gradient laserColorGradient;
     [SerializeField] float hookMoveSpeed = 3f;
     [SerializeField] float minDistance = 3f;
-    [SerializeField] float hookRange = 25, moveRange = 20;
+    [SerializeField] float moveRange = 25;
 
     Rigidbody2D hookedObject;
     Rigidbody2D currentTarget;
@@ -28,11 +28,6 @@ public class BuildingGun : Firearm
     public override void GetWeaponData()
     {
         WeaponData = new WeaponData("Building Gun");
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawRay(shootPoint.position, shootPoint.right * hookRange);
     }
 
     void NewTargetFound(Rigidbody2D target)
@@ -53,10 +48,9 @@ public class BuildingGun : Firearm
     public override void OnUpdate()
     {
         base.OnUpdate();
-
-        if (!hookedObject)
+        if (!hookedObject && !IsBlocked())
         {
-            RaycastHit2D linecast = Physics2D.Linecast(shootPoint.position, shootPoint.position + shootPoint.right * hookRange, interactables);
+            RaycastHit2D linecast = Physics2D.Linecast(shootPoint.position, shootPoint.position + shootPoint.right * shootDistance, interactables);
             if (linecast && linecast.rigidbody)
             {
                 Debug.DrawLine(shootPoint.position, linecast.point, Color.blue);
@@ -77,11 +71,13 @@ public class BuildingGun : Firearm
             }
             else
             {
-                Debug.DrawLine(shootPoint.position, shootPoint.position + shootPoint.right * hookRange, Color.red);
                 if (currentTarget)
                     TargetLost();
             }
         }
+        else if(currentTarget)
+            TargetLost();
+
 
         if (Input.GetButton("Fire1") && hookedObject)
             MoveObject();
@@ -109,12 +105,12 @@ public class BuildingGun : Firearm
 
     void MoveObject()
     {
+        hookedObject.constraints = RigidbodyConstraints2D.FreezeRotation;
         hookedObject.velocity = CameraManager.Instance.MousePosition() - hookedObject.position;
         hookedObject.velocity *= hookMoveSpeed;
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookedObject.position);
         float value = GetDistance() / moveRange;
-        print(value);
         lineRenderer.endColor = laserColorGradient.Evaluate(value);
 
         if (GetDistance() > moveRange)
@@ -124,12 +120,10 @@ public class BuildingGun : Firearm
     void StopHook()
     {
         hookedObject.gravityScale = baseGravity;
+        hookedObject.constraints = RigidbodyConstraints2D.None;
         hookedObject = null;
         lineRenderer.positionCount = 0;
     }
 
-    public override bool Shoot(bool useAmmo = true)
-    {
-        throw new System.NotImplementedException();
-    }
+    public override bool Shoot(bool useAmmo = true) => true;
 }

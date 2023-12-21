@@ -22,7 +22,7 @@ public class GroundEnemy : Enemy
         SetState(EnemyState.Idle);
         animScript.StartAnim("Run");
         SetXVelocity(transform.right * speed);
-        if (!InAir() && !GetPointHelper("Corner").OverlapDetect(groundMask))
+        if (!InAir() && NeedToFlip())
             transform.Rotate(Vector3.up * 180);
     }
 
@@ -30,6 +30,11 @@ public class GroundEnemy : Enemy
     {
         SetXVelocity(new Vector2());
         animScript.StartAnim("Idle");
+    }
+
+    bool NeedToFlip()
+    {
+        return !GetPointHelper("Corner").OverlapDetect(groundMask) || GetPointHelper("Wall").OverlapDetect(groundMask);
     }
 
     void ChasePlayer()

@@ -92,7 +92,7 @@ public class WeaponsManager : MonoBehaviour
 
         if (canPickupWeapon && weaponPickup)
         {
-            if (Input.GetButtonDown("PickupWeapon"))
+            if (Input.GetButtonDown("Interact"))
                 PickupWeapon();
         }
 

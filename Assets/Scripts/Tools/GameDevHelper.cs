@@ -19,7 +19,7 @@ public class GameDevHelper : MonoBehaviour
         return new Vector2Int(Mathf.RoundToInt(vector.x), Mathf.RoundToInt(vector.y));
     }
 
-    public static bool Contains(LayerMask mask, int layer)
+    public static bool LayerMaskContains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
     }

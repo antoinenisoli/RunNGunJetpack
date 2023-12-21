@@ -68,7 +68,7 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 264
-  shootDistance: 1.5
+  shootDistance: 1
   bulletPrefab: {fileID: 1746009155548192117, guid: d84a751d5fd7b5947992fbd6d11eb92a, type: 3}
   randomGunGenerator:
     mainData: {fileID: 11400000, guid: de1891da51757644ea76b357573a451c, type: 2}

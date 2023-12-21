@@ -8,12 +8,15 @@ public abstract class Firearm : Weapon
     [Header(nameof(Firearm))]
     [SerializeField] protected Transform shootPoint;
     [SerializeField] LayerMask blockLayer;
-    [SerializeField] float shootDistance = 1.5f;
+    [SerializeField] protected float shootDistance = 1.5f;
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = IsBlocked() ? Color.red : Color.green;
-        Gizmos.DrawRay(transform.position, transform.right * shootDistance);
+        if (Application.isPlaying)
+        {
+            Gizmos.color = IsBlocked() ? Color.red : Color.green;
+            Gizmos.DrawRay(shootPoint.position, shootPoint.right * shootDistance);
+        }
     }
 
     public void PlayVFX(string fxName)
@@ -29,7 +32,13 @@ public abstract class Firearm : Weapon
 
     public bool IsBlocked()
     {
-        var block = Physics2D.Raycast(transform.position, transform.right, shootDistance, blockLayer);
-        return block;
+        var hit = Physics2D.Linecast(shootPoint.position, shootPoint.position + shootPoint.right * shootDistance);
+        if (hit && GameDevHelper.LayerMaskContains(blockLayer, hit.transform.gameObject.layer))
+        {
+            //print(hit.transform);
+            return true;
+        }
+            
+        return false;
     }
 }

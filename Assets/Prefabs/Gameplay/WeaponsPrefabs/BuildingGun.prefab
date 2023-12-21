@@ -76,15 +76,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponVisual: {fileID: 8590642973672665700}
+  owner: {fileID: 0}
   lookAtMouse: 1
+  weaponDataObj: {fileID: 0}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
   shootPoint: {fileID: 9094567262586311778}
   blockLayer:
     serializedVersion: 2
-    m_Bits: 264
-  shootDistance: 1.5
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
+    m_Bits: 8
+  shootDistance: 20
   interactables:
     serializedVersion: 2
     m_Bits: 256
@@ -120,8 +122,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   hookMoveSpeed: 3
   minDistance: 3
-  hookRange: 25
-  moveRange: 20
+  hookRange: 20
+  moveRange: 25
 --- !u!120 &889413167660973183
 LineRenderer:
   m_ObjectHideFlags: 0

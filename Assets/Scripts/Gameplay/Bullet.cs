@@ -66,7 +66,7 @@ public abstract class Bullet : MonoBehaviour
             SelfDestroy();
         }
 
-        if (GameDevHelper.Contains(obstacleMask, collision.gameObject.layer))
+        if (GameDevHelper.LayerMaskContains(obstacleMask, collision.gameObject.layer))
             SelfDestroy();
     }
 

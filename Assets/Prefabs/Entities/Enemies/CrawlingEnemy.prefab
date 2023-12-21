@@ -221,29 +221,30 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: aeec22d61e166f44b9c5362bc10a67cd, type: 2}
   spriteRenderer: {fileID: 1985107841803325115}
   healthSprites: []
+  currentState: 0
   speed: 18
   contactDamage: 5
   contactPush: 1000
-  target: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  detectors:
-  - Name: Corner
-    Radius: 0.5
-    Detector: {fileID: 8857119907629262220}
-    GizmoColor: {r: 1, g: 0, b: 0, a: 1}
-    Raycast: 0
-  - Name: Wall
-    Radius: 0.5
-    Detector: {fileID: 9004007605098789688}
-    GizmoColor: {r: 0.04431629, g: 1, b: 0, a: 1}
-    Raycast: 0
+  closeDistance: 3
+  helpers:
   - Name: Ground
-    Radius: 5
-    Detector: {fileID: 6645903994829436205}
-    GizmoColor: {r: 1, g: 0.8835707, b: 0, a: 1}
+    Point: {fileID: 6645903994829436205}
+    Radius: 2
+    GizmoColor: {r: 1, g: 0.8515253, b: 0, a: 1}
     Raycast: 1
+  - Name: Wall
+    Point: {fileID: 9004007605098789688}
+    Radius: 0.5
+    GizmoColor: {r: 1, g: 0.39526987, b: 0, a: 1}
+    Raycast: 0
+  - Name: Corner
+    Point: {fileID: 8857119907629262220}
+    Radius: 0.5
+    GizmoColor: {r: 1, g: 0.009896709, b: 0, a: 1}
+    Raycast: 0
 --- !u!58 &1985107842062929250
 CircleCollider2D:
   m_ObjectHideFlags: 0
