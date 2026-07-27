@@ -96,7 +96,7 @@ public abstract class Enemy : Entity
 
     protected bool InAir()
     {
-        return Mathf.Abs(rb.velocity.y) > 0.1f;
+        return Mathf.Abs(rb.linearVelocity.y) > 0.1f;
     }
 
     protected bool TargetIsClose()
@@ -119,8 +119,8 @@ public abstract class Enemy : Entity
 
     protected void SetXVelocity(Vector2 newVelocity)
     {
-        newVelocity.y = rb.velocity.y;
-        rb.velocity = newVelocity;
+        newVelocity.y = rb.linearVelocity.y;
+        rb.linearVelocity = newVelocity;
     }
 
     protected PointHelper GetPointHelper(string name)

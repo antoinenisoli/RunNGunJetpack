@@ -45,7 +45,7 @@ public class FlyEnemy : Enemy
             else
                 Deceleration();
         }
-        else if (rb.velocity.magnitude > 0.001f)
+        else if (rb.linearVelocity.magnitude > 0.001f)
             Deceleration();
     }
 
@@ -56,7 +56,7 @@ public class FlyEnemy : Enemy
             myWeapon.ShootAt(target.transform);
 
         additionalVelocity = Vector2.Lerp(additionalVelocity, Vector2.zero, 1f * Time.deltaTime);
-        rb.velocity = chaseVelocity + additionalVelocity;
+        rb.linearVelocity = chaseVelocity + additionalVelocity;
     }
 
     public void AddVelocity(Vector2 vel)

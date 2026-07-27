@@ -166,7 +166,7 @@ public class PlayerController : Entity
 
     void ClampVelocity()
     {
-        move = Rigidbody.velocity;
+        move = Rigidbody.linearVelocity;
         move.y = Mathf.Clamp(move.y, flyLimits.x, Mathf.Infinity);
         if (MainState != PlayerState.IsSliding && Input.GetAxisRaw("Horizontal") == 0) //deceleration
         {
@@ -181,7 +181,7 @@ public class PlayerController : Entity
         if (MainState != PlayerState.IsSliding)
             move.x = Mathf.Clamp(move.x, walkLimits.x, walkLimits.y);
 
-        Rigidbody.velocity = move;
+        Rigidbody.linearVelocity = move;
     }
 
     public void FreezeFrame(float amount)
@@ -191,18 +191,18 @@ public class PlayerController : Entity
 
     public void ResetYVelocity()
     {
-        Vector2 newVelocity = Rigidbody.velocity;
+        Vector2 newVelocity = Rigidbody.linearVelocity;
         newVelocity.y = 0;
 
-        Rigidbody.velocity = newVelocity;
+        Rigidbody.linearVelocity = newVelocity;
     }
 
     public void ResetXVelocity()
     {
-        Vector2 newVelocity = Rigidbody.velocity;
+        Vector2 newVelocity = Rigidbody.linearVelocity;
         newVelocity.x = 0;
 
-        Rigidbody.velocity = newVelocity;
+        Rigidbody.linearVelocity = newVelocity;
     }
 
     void SlowReload()
@@ -232,16 +232,16 @@ public class PlayerController : Entity
             Landing();
 
         float walkThreshold = 0.2f;
-        if (Rigidbody.velocity.x > walkThreshold || Rigidbody.velocity.x < -walkThreshold)
+        if (Rigidbody.linearVelocity.x > walkThreshold || Rigidbody.linearVelocity.x < -walkThreshold)
             SetState(PlayerState.IsRunning);
         else
             SetState(PlayerState.Idle);
 
         if (!OnGround())
         {
-            if (Rigidbody.velocity.y < 0)
+            if (Rigidbody.linearVelocity.y < 0)
                 SetState(PlayerState.IsFalling);
-            else if (Rigidbody.velocity.y > 0)
+            else if (Rigidbody.linearVelocity.y > 0)
                 SetState(PlayerState.IsFlying);
         }
     }
@@ -283,11 +283,11 @@ public class PlayerController : Entity
             Rigidbody.AddForce(Vector2.up * flyForce);
             flyInputPressed = true;
 
-            if (Rigidbody.velocity.y > flyLimits.y)
+            if (Rigidbody.linearVelocity.y > flyLimits.y)
             {
-                Vector2 clamped = Rigidbody.velocity;
+                Vector2 clamped = Rigidbody.linearVelocity;
                 clamped.y = flyLimits.y;
-                Rigidbody.velocity = clamped;
+                Rigidbody.linearVelocity = clamped;
             }
         }
         else if (MainState != PlayerState.InPropulsion)

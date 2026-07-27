@@ -115,8 +115,8 @@ public class BuildingGun : Firearm
     void MoveObject()
     {
         hookedObject.constraints = RigidbodyConstraints2D.FreezeRotation;
-        hookedObject.velocity = CameraManager.Instance.MousePosition() - hookedObject.position;
-        hookedObject.velocity *= hookMoveSpeed;
+        hookedObject.linearVelocity = CameraManager.Instance.MousePosition() - hookedObject.position;
+        hookedObject.linearVelocity *= hookMoveSpeed;
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookedObject.position);
         float value = GetDistance() / moveRange;

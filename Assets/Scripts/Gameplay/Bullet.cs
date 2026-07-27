@@ -30,7 +30,7 @@ public abstract class Bullet : MonoBehaviour
     private void Start()
     {
         if (affectedByGravity)
-            rb.velocity = trajectory * speed;
+            rb.linearVelocity = trajectory * speed;
     }
 
     public void Shoot(Vector2 trajectory, int damage, float speed)
@@ -78,8 +78,8 @@ public abstract class Bullet : MonoBehaviour
     public virtual void Update()
     {
         if (!affectedByGravity)
-            rb.velocity = trajectory * speed;
+            rb.linearVelocity = trajectory * speed;
 
-        transform.right = rb.velocity.normalized;
+        transform.right = rb.linearVelocity.normalized;
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,10 +19,10 @@ public class CameraShake
 
 public class CameraManager : MonoBehaviour
 {
-    public CinemachineVirtualCamera CinemachineCamera => cinemachineCamera;
+    public CinemachineCamera CinemachineCamera => cinemachineCamera;
     public static CameraManager Instance;
     public Camera Camera;
-    [SerializeField] CinemachineVirtualCamera cinemachineCamera;
+    [SerializeField] CinemachineCamera cinemachineCamera;
     [SerializeField] float endShakeSpeed = 10f;
 
     [Header("Offset camera")]
@@ -30,9 +30,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float offsetAmount = 3f;
 
     CinemachineBasicMultiChannelPerlin noise;
-    CinemachineFramingTransposer framingTransposer;
+    CinemachinePositionComposer framingTransposer;
 
-    private void Awake()
+    void Awake()
     {
         if (!Instance)
             Instance = this;
@@ -40,9 +40,9 @@ public class CameraManager : MonoBehaviour
             Destroy(gameObject);
 
         Camera = GetComponent<Camera>();
-        cinemachineCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        noise = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        framingTransposer = cinemachineCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        cinemachineCamera = FindFirstObjectByType<CinemachineCamera>();
+        noise = cinemachineCamera.GetCinemachineComponent(CinemachineCore.Stage.Noise) as CinemachineBasicMultiChannelPerlin;
+        framingTransposer = cinemachineCamera.GetCinemachineComponent(CinemachineCore.Stage.Body) as CinemachinePositionComposer;
     }
 
     public Vector2 MousePosition()
@@ -57,7 +57,7 @@ public class CameraManager : MonoBehaviour
 
     void GetPlayer()
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
+        PlayerController player = FindFirstObjectByType<PlayerController>();
         cinemachineCamera.Follow = player.transform;
         cinemachineCamera.Follow = player.transform;
     }
@@ -70,7 +70,7 @@ public class CameraManager : MonoBehaviour
     IEnumerator DelayedNoise(float amplitudeGain)
     {
         yield return new WaitForEndOfFrame();
-        noise.m_AmplitudeGain = amplitudeGain;
+        noise.AmplitudeGain = amplitudeGain;
     }
 
     private void Update()
@@ -92,14 +92,14 @@ public class CameraManager : MonoBehaviour
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 offset = mousePosition - (Vector2)framingTransposer.FollowTarget.position;
-            framingTransposer.m_TrackedObjectOffset = offset.normalized * offsetAmount;
+            framingTransposer.TargetOffset = offset.normalized * offsetAmount;
         }
         else
-            framingTransposer.m_TrackedObjectOffset = Vector2.zero;
+            framingTransposer.TargetOffset = Vector2.zero;
     }
 
     void LateUpdate()
     {
-        noise.m_AmplitudeGain = Mathf.Lerp(noise.m_AmplitudeGain, 0, endShakeSpeed * Time.deltaTime);
+        noise.AmplitudeGain = Mathf.Lerp(noise.AmplitudeGain, 0, endShakeSpeed * Time.deltaTime);
     }
 }

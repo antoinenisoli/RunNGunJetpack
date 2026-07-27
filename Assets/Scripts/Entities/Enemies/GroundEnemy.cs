@@ -44,7 +44,7 @@ public class GroundEnemy : Enemy
             if (GetPointHelper("Corner").OverlapDetect(groundMask))
             {
                 SetXVelocity((target.transform.position - transform.position).normalized * speed);
-                if (Mathf.Abs(rb.velocity.x) > 1.5f)
+                if (Mathf.Abs(rb.linearVelocity.x) > 1.5f)
                     animScript.StartAnim("Run");
                 else
                     animScript.StartAnim("Idle");

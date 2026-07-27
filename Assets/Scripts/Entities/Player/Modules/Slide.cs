@@ -29,9 +29,9 @@ public class Slide : PlayerCapacity
             float step = timer / slidingDuration;
             float force = slidingCurve.Evaluate(step);
 
-            Vector2 newVelocity = Player.Rigidbody.velocity;
+            Vector2 newVelocity = Player.Rigidbody.linearVelocity;
             newVelocity.x = Player.InputDirection * force;
-            Player.Rigidbody.velocity = newVelocity;
+            Player.Rigidbody.linearVelocity = newVelocity;
 
             //print(step);
             if (step >= cancelThreshold && Input.GetButtonDown("Propulsion"))

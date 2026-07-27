@@ -20,7 +20,7 @@ public class Movable : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (rb)
-            Handles.Label(transform.position, rb.velocity.sqrMagnitude.ToString());
+            Handles.Label(transform.position, rb.linearVelocity.sqrMagnitude.ToString());
 
         Gizmos.DrawWireSphere(transform.position, collisionRadius);
     }
@@ -65,13 +65,13 @@ public class Movable : MonoBehaviour
             Entity entity = item.GetComponentInChildren<Entity>();
             if (entity && entity != this)
             {
-                int force = Mathf.RoundToInt(rb.velocity.sqrMagnitude);
-                if (rb.gravityScale > 0 && rb.velocity.sqrMagnitude > forceLimits.x)
+                int force = Mathf.RoundToInt(rb.linearVelocity.sqrMagnitude);
+                if (rb.gravityScale > 0 && rb.linearVelocity.sqrMagnitude > forceLimits.x)
                 {
                     int damages = ComputeCollisionDamages(force);
                     print("collision force = " + force + " computed damages = " + damages);
                     entity.TakeDamage(damages);
-                    rb.velocity = new Vector2();
+                    rb.linearVelocity = new Vector2();
                 }
             }
         }
