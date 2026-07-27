@@ -56,6 +56,10 @@ public abstract class Bullet : MonoBehaviour
 
     public virtual void Collision(Collider2D collision)
     {
+        IDestroyable destroyable = collision.GetComponentInParent<IDestroyable>();
+        if (destroyable != null)
+            destroyable.OnCollide(this);
+
         Entity entity = collision.GetComponentInParent<Entity>();
         if (entity)
         {
