@@ -22,12 +22,14 @@ public abstract class Bullet : MonoBehaviour
     int damage = 1;
     Rigidbody2D rb;
 
-    private void Awake()
+    public Vector2 Trajectory { get => trajectory; }
+
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    public void Start()
     {
         if (affectedByGravity)
             rb.linearVelocity = trajectory * speed;
