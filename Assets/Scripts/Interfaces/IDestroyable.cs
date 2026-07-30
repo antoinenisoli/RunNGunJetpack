@@ -2,5 +2,7 @@ using UnityEngine;
 
 public interface IDestroyable
 {
-    public void OnCollide(Bullet bullet);
+    public Health Health { get; }
+    public void Death();
+    public void TakeDamage(int dmg);
 }

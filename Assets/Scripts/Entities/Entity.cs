@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, IDestroyable
 {
     [Header(nameof(Entity))]
-    public Health Health;
-    [SerializeField] Material hitMaterial;
+    [SerializeField] protected Health health;
+    [SerializeField] protected Material hitMaterial;
     [SerializeField] protected SpriteRenderer spriteRenderer;
-    [SerializeField] Sprite[] healthSprites;
+    [SerializeField] protected Sprite[] healthSprites;
 
-    Material spriteMaterial;
-    Sequence hitSequence;
+    protected Material spriteMaterial;
+    protected Sequence hitSequence;
+
+    public Health Health => health;
 
     public virtual void Awake()
     {
         spriteMaterial = spriteRenderer.material;
-        Health.Initialize();
-        Health.OnDamageTaken.AddListener(CheckHealth);
+        health.Initialize();
+        health.OnDamageTaken.AddListener(CheckHealth);
     }
 
     public virtual void TakeDamage(int amount)
     {
         if (!Health.Immortal)
         {
-            Health.TakeDamage(amount);
+            health.TakeDamage(amount);
             Hit();
         }
 
-        if (Health.isDead)
+        if (health.isDead)
             Death();
     }
 

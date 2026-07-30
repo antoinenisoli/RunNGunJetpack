@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 [System.Serializable]
 public struct PointHelper
@@ -51,7 +52,7 @@ public enum EnemyState
     Attacking,
 }
 
-public abstract class Enemy : Entity
+public abstract class Enemy : Entity, IObstacle
 {
     [Header(nameof(Enemy))]
     [SerializeField] EnemyState currentState;
@@ -195,7 +196,15 @@ public abstract class Enemy : Entity
         player.Push(contactPush, dir.normalized);*/
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollide(Bullet bullet)
+    {
+        if (bullet.CantTakeDamage(this))
+            return;
+
+        TakeDamage(bullet.Damage);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController player = collision.gameObject.GetComponentInChildren<PlayerController>();
         if (player)

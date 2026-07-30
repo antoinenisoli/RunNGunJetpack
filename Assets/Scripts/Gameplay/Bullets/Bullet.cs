@@ -23,6 +23,7 @@ public abstract class Bullet : MonoBehaviour
     Rigidbody2D rb;
 
     public Vector2 Trajectory { get => trajectory; }
+    public int Damage { get => damage; }
 
     public void Awake()
     {
@@ -58,11 +59,14 @@ public abstract class Bullet : MonoBehaviour
 
     public virtual void Collision(Collider2D collision)
     {
-        IDestroyable destroyable = collision.GetComponentInParent<IDestroyable>();
+        IObstacle destroyable = collision.GetComponentInParent<IObstacle>();
         if (destroyable != null)
+        {
             destroyable.OnCollide(this);
+            SelfDestroy();
+        }
 
-        Entity entity = collision.GetComponentInParent<Entity>();
+        /*Entity entity = collision.GetComponentInParent<Entity>();
         if (entity)
         {
             if (CantTakeDamage(entity))
@@ -70,7 +74,7 @@ public abstract class Bullet : MonoBehaviour
 
             entity.TakeDamage(damage);
             SelfDestroy();
-        }
+        }*/
 
         if (GameDevHelper.LayerMaskContains(obstacleMask, collision.gameObject.layer))
             SelfDestroy();
